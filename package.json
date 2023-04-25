@@ -1,0 +1,26 @@
+{
+  "name": "cds-cucumber-fe",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cap-js/cds-cucumber-fe.git"
+  },
+  "bin": {
+    "cds-add-cucumber-fe": "./bin/cds-add-cucumber-fe.js"
+  },
+  "main": "./lib/index.js",
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "dependencies": {
+    "chai": "^4.3.7",
+    "chai-shallow-deep-equal": "^1.4.6",
+    "chromedriver": "*",
+    "selenium-webdriver": "*",
+    "tree-kill": "^1.2.2"
+  },
+  "peerDependencies": {
+    "@cucumber/cucumber": "^8.9.0"
+  }
+}
