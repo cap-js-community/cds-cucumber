@@ -1,0 +1,28 @@
+name: docker-test
+on:
+  push:
+    branches: [ "run-github-actions" ]
+jobs:
+  docker-job:
+    name: selenium-docker
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: selenium
+        run: |
+          docker run -d -p 4444:4444 --network host selenium/standalone-chrome
+      - name: prepare
+        run: |
+          npm i
+          npm run prepare:samples
+          sh utils/github.ui5.sh
+      - name: test
+        run: |
+          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" npm t
