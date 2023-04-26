@@ -13,6 +13,11 @@
     "bin",
     "lib"
   ],
+  "scripts": {
+    "check": "node utils/checkAPI.js",
+    "prepare:test": "./test/bin/prepare.sh",
+    "test": "./test/bin/test.sh"
+  },
   "dependencies": {
     "chai": "^4.3.7",
     "chai-shallow-deep-equal": "^1.4.6",

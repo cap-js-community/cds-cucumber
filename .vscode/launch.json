@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "name": "Bookshop: Attach to browser",
+      "request": "attach",
+      "port": 9222,
+      "webRoot": "${workspaceFolder}/tmp/cloud-cap-samples/fiori/app",
+      "urlFilter": "http://localhost:4004/*"
+    },
+    {
+      "type": "chrome",
+      "name": "SFlight: Attach to browser",
+      "request": "attach",
+      "port": 9223,
+      "webRoot": "${workspaceFolder}/tmp/cap-sflight/app",
+      "urlFilter": "http://localhost:4005/*"
+    }
+  ]
+}
