@@ -14,7 +14,7 @@
     "lib"
   ],
   "scripts": {
-    "check": "node utils/checkAPI.js",
+    "check": "node ./test/utils/checkAPI.js",
     "prepare:test": "./test/bin/prepare.sh",
     "test": "./test/bin/test.sh"
   },
