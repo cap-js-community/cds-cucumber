@@ -21,8 +21,7 @@ jobs:
       - name: prepare
         run: |
           npm i
-          npm run prepare:samples
-          sh utils/github.ui5.sh
+          npm run prepare:test
       - name: test
         run: |
           SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" npm t
