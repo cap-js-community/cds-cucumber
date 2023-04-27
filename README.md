@@ -6,11 +6,10 @@ This repository contains cucumber step definitions for UI (Fiori Elements) speci
 
 # Usage
 
-
 Make sure you have a CAP project or create a new one with the following command,
 which requires global installation of the [CAP development toolkit](https://cap.cloud.sap/docs/get-started/#local-setup): *npm i -g @sap/cds-dk*
 ```
-cds init --add samples
+npx cds init --add samples,sqlite && npx cds deploy --to sqlite
 ```
 
 In addition the latest version of the **chrome browser** should be present on the system.
@@ -41,7 +40,7 @@ Feature: Fiori preview page
     Then we expect to have 1 table records
 ```
 
-For more information on the available steps see the [documentation](API.md).
+For more information on the available steps see the [documentation](docs/API.md).
 
 ## Run the tests
 
@@ -49,4 +48,4 @@ For more information on the available steps see the [documentation](API.md).
 npx cucumber-js test
 ```
 
-For additional information see the [details](DETAILS.md) page.
+For additional information see the [details](docs/DETAILS.md) page.
