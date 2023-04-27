@@ -26,7 +26,7 @@ npm i git+https://github.com/cap-js/cds-cucumber-fe.git
 npx cds-add-cucumber-fe
 ```
 
-## Add tests
+## Add feature files
 
 File: test/features/first.feature
 ```
@@ -36,13 +36,13 @@ Feature: Fiori preview page
     Given we have started the application
       And we have opened the url "/"
     When we click on first Fiori preview page
-      And we perform basic search for "one"
+      And we perform basic search for "jane"
     Then we expect to have 1 table records
 ```
 
 For more information on the available steps see the [documentation](docs/API.md).
 
-## Run the tests
+## Validate features
 
 ```
 npx cucumber-js test
