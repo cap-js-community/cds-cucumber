@@ -6,6 +6,7 @@ createCucumberConfiguration();
 createTestFeaturesDir();
 createVSCodePluginConfig();
 createFirstFeatureFile();
+createAnnotationsForCdsDkSamples();
 
 function createCucumberConfiguration() {
   const content = `default:
@@ -75,6 +76,42 @@ function createFirstFeatureFile() {
     Then we expect to have 1 table records
 `
   const file = './test/features/first.feature';
+
+  if(!fs.existsSync(file)) {
+    fs.writeFileSync(file, content);
+    console.log(`Created file ${file}`);
+  } else {
+    console.log(`File ${file} already exists`);
+  }
+
+}
+
+function createAnnotationsForCdsDkSamples() {
+  const content = `annotate CatalogService.Books with @(
+    Common.SemanticKey : [ID],
+    UI                 : {
+        SelectionFields : [title],
+        LineItem        : [
+            {Value : title}
+        ],
+    }
+);
+
+annotate CatalogService.Books with @(UI : {HeaderInfo : {
+    TypeName       : 'Book',
+    TypeNamePlural : 'Books',
+    Title          : {Value : title},
+    Description    : {Value : title}
+}, });
+
+annotate CatalogService.Books with {
+    id   @title : 'Id';
+    title @title : 'Title';
+};
+`
+  const file = './srv/annotations.cds';
+
+  if(!fs.existsSync('./srv/cat-service.cds')) return;
 
   if(!fs.existsSync(file)) {
     fs.writeFileSync(file, content);
