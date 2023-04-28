@@ -19,4 +19,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Getting started
+        env:
+          TOKEN: ${{ secrets.MY_TOKEN }}
         run: bash ./test/bin/testGettingStarted.sh
