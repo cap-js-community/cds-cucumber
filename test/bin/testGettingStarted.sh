@@ -7,6 +7,6 @@ npm init -y
 npm i @sap/cds-dk
 rm package.json package-lock.json
 npx cds init --add samples,sqlite && npx cds deploy --to sqlite
-npm i git+https://oauth:$GITHUB_TOKEN@github.com/cap-js/cds-cucumber-fe.git
+npm i git+https://$GITHUB_TOKEN@github.com/cap-js/cds-cucumber-fe.git
 npx cds-add-cucumber-fe
 npx cucumber-js test
