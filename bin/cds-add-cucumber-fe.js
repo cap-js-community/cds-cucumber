@@ -16,12 +16,7 @@ function createCucumberConfiguration() {
   `
   const file = 'cucumber.yml';
 
-  if(!fs.existsSync(file)) {
-    fs.writeFileSync(file, content);
-    console.log(`Created file ${file}`);
-  } else {
-    console.log(`File ${file} already exists`);
-  }
+  createFileIfMissing(file, content);
 }
 
 function getModuleName() {
@@ -56,12 +51,7 @@ function createVSCodePluginConfig() {
 
   const file = './.vscode/settings.json';
 
-  if(!fs.existsSync(file)) {
-    fs.writeFileSync(file, content);
-    console.log(`Created file ${file}`);
-  } else {
-    console.log(`File ${file} already exists`);
-  }
+  createFileIfMissing(file, content);
 
 }
 
@@ -77,15 +67,11 @@ function createFirstFeatureFile() {
 `
   const file = './test/features/first.feature';
 
-  if(!fs.existsSync(file)) {
-    fs.writeFileSync(file, content);
-    console.log(`Created file ${file}`);
-  } else {
-    console.log(`File ${file} already exists`);
-  }
+  createFileIfMissing(file, content);
 
 }
 
+// Fiori Preview page part of "cds add samples" does not have FE annotations - basic search does not work
 function createAnnotationsForCdsDkSamples() {
   const content = `annotate CatalogService.Books with @(
     Common.SemanticKey : [ID],
@@ -111,13 +97,20 @@ annotate CatalogService.Books with {
 `
   const file = './srv/annotations.cds';
 
+  // detect "cds add samples"
   if(!fs.existsSync('./srv/cat-service.cds')) return;
+  if(!fs.existsSync('./db/data-model.cds')) return;
+  if(!fs.existsSync('./db/data/my.bookshop-Books.csv')) return;
 
+  createFileIfMissing(file, content);
+
+}
+
+function createFileIfMissing(file, content) {
   if(!fs.existsSync(file)) {
     fs.writeFileSync(file, content);
     console.log(`Created file ${file}`);
   } else {
     console.log(`File ${file} already exists`);
   }
-
 }
