@@ -6,6 +6,7 @@ createCucumberConfiguration();
 createTestFeaturesDir();
 createVSCodePluginConfig();
 createFirstFeatureFile();
+createAnnotationsForCdsDkSamples();
 
 function createCucumberConfiguration() {
   const content = `default:
@@ -15,12 +16,7 @@ function createCucumberConfiguration() {
   `
   const file = 'cucumber.yml';
 
-  if(!fs.existsSync(file)) {
-    fs.writeFileSync(file, content);
-    console.log(`Created file ${file}`);
-  } else {
-    console.log(`File ${file} already exists`);
-  }
+  createFileIfMissing(file, content);
 }
 
 function getModuleName() {
@@ -55,12 +51,7 @@ function createVSCodePluginConfig() {
 
   const file = './.vscode/settings.json';
 
-  if(!fs.existsSync(file)) {
-    fs.writeFileSync(file, content);
-    console.log(`Created file ${file}`);
-  } else {
-    console.log(`File ${file} already exists`);
-  }
+  createFileIfMissing(file, content);
 
 }
 
@@ -76,11 +67,50 @@ function createFirstFeatureFile() {
 `
   const file = './test/features/first.feature';
 
+  createFileIfMissing(file, content);
+
+}
+
+// Fiori Preview page part of "cds add samples" does not have FE annotations - basic search does not work
+function createAnnotationsForCdsDkSamples() {
+  const content = `annotate CatalogService.Books with @(
+    Common.SemanticKey : [ID],
+    UI                 : {
+        SelectionFields : [title],
+        LineItem        : [
+            {Value : title}
+        ],
+    }
+);
+
+annotate CatalogService.Books with @(UI : {HeaderInfo : {
+    TypeName       : 'Book',
+    TypeNamePlural : 'Books',
+    Title          : {Value : title},
+    Description    : {Value : title}
+}, });
+
+annotate CatalogService.Books with {
+    id   @title : 'Id';
+    title @title : 'Title';
+};
+`
+  const file = './srv/annotations.cds';
+
+  // detect "cds add samples"
+  if(!fs.existsSync('./srv/cat-service.cds')) return;
+  if(!fs.existsSync('./db/data-model.cds')) return;
+  if(!fs.existsSync('./db/data/my.bookshop-Books.csv')) return;
+
+  createFileIfMissing(file, content);
+
+}
+
+function createFileIfMissing(file, content) {
   if(!fs.existsSync(file)) {
     fs.writeFileSync(file, content);
     console.log(`Created file ${file}`);
   } else {
     console.log(`File ${file} already exists`);
   }
-
 }
