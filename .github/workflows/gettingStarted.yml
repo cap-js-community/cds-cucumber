@@ -2,8 +2,7 @@ name: "Getting started"
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
+    branches: [ "run-github-actions" ]
 
 jobs:
   getting-started:
