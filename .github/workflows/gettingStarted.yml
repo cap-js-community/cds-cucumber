@@ -18,8 +18,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: selenium
+        run: |
+          docker run -d -p 4444:4444 --network host selenium/standalone-chrome
       - name: Getting started
         env:
           TOKEN: ${{ secrets.MY_TOKEN }}
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-        run: bash ./test/bin/testGettingStarted.sh
+        run: |
+          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash ./test/bin/testGettingStarted.sh
