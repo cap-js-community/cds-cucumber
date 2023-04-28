@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 test -d tmp/getting-started && rm -r -f tmp/getting-started
 mkdir -p tmp/getting-started
 cd tmp/getting-started
