@@ -9,10 +9,8 @@ Feature: Currency selection
   Scenario: Select currency for booking fee - node
     When we open value help for object field "Booking Fee"
       And we select one row in value help dialog having field 'Description' equal to 'euro'
-      And sleep for 10 seconds
 
   @skip:node
   Scenario: Select currency for booking fee - java
     When we open value help for object field "Booking Fee"
       And we select one row in value help dialog having field 'Description' equal to 'European Euro'
-      And sleep for 10 seconds
