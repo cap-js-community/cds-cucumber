@@ -18,7 +18,7 @@ Feature: test books
     Given we have started the application
       And we have opened the url "fiori-apps.html" with user "alice"
     When we select tile "Manage Books"
-      And we tap on text "Richard Carpenter"
+      And we tap on "Richard Carpenter"
       And sleep for 2 seconds
 
   Scenario: long version books
