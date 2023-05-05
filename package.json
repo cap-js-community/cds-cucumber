@@ -16,7 +16,9 @@
   "scripts": {
     "check": "node ./test/utils/checkAPI.js",
     "prepare:test": "./test/bin/prepare.sh",
-    "test": "./test/bin/test.sh"
+    "test": "./test/bin/test.sh",
+    "test:bookshop": "./test/bin/testBookshop.sh",
+    "test:sflight": "./test/bin/testSFlightNode.sh"
   },
   "dependencies": {
     "chai": "^4.3.7",
