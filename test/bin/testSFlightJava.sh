@@ -8,4 +8,4 @@ export TEST_USER=admin
 export TEST_PASSWORD=admin
 export TEST_SERVICE_DIR=tmp/cap-sflight
 
-npx cucumber-js test/features/sflight/ --tags "not @skip:java"
+npx cucumber-js test/features/sflight --tags "not @skip:java"
