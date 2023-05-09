@@ -24,4 +24,4 @@ jobs:
           npm run prepare:test
       - name: test
         run: |
-          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" npm run test:sflight
+          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" npm t
