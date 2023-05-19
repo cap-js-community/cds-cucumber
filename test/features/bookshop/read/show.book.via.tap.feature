@@ -1,29 +1,29 @@
-Feature: test books
+Feature: Tap on different elements to open a book
 
-  Scenario: short version books
+  Scenario: tap on book link to open compact book page
     Given we have started the application
       And we have opened the url "fiori-apps.html" with user "alice"
     When we select tile "Manage Books"
-      And we tap on link "The Raven"
-      And sleep for 2 seconds
+      And we tap on link "Catweazle"
+    Then we expect field "Title" to be "Catweazle"
 
-  Scenario: short version books
+  Scenario: tap on object identifier to open detailed book page
     Given we have started the application
       And we have opened the url "fiori-apps.html" with user "alice"
     When we select tile "Manage Books"
-      And we tap on object identifier "The Raven"
-      And sleep for 2 seconds
+      And we tap on object identifier "Catweazle"
+    Then we expect field "Title" to be "Catweazle"
 
-  Scenario: long version books
+  Scenario: tap on link or text to open detailed book page
     Given we have started the application
       And we have opened the url "fiori-apps.html" with user "alice"
     When we select tile "Manage Books"
       And we tap on "Richard Carpenter"
-      And sleep for 2 seconds
+    Then we expect field "Title" to be "Catweazle"
 
-  Scenario: long version books
+  Scenario: tap on ganre text to open detailed book page
     Given we have started the application
       And we have opened the url "fiori-apps.html" with user "alice"
     When we select tile "Manage Books"
-      And we tap on text "Romance"
-      And sleep for 2 seconds
+      And we tap on text "Fantasy"
+    Then we expect field "Title" to be "Catweazle"
