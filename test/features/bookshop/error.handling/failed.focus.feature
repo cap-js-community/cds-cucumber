@@ -3,7 +3,7 @@ Feature: Create draft, change status and save
 
   Background: Start service and open travel processor
     Given we have started application "." in path "cap-sflight"
-      And we have opened the protected url "/travel_processor/webapp/index.html"
+      And we have opened the url "/travel_processor/webapp/index.html"
       And table "Travels" has 4133 records
     When we create draft
       And we open value help for object field "Agency"
@@ -17,7 +17,7 @@ Feature: Create draft, change status and save
 
   Scenario: Create, change, keep status open and save a travel draft
     When we save the draft
-      And we navigate to url "/travel_processor/webapp/index.html"
+      And we go back
     Then we expect table "Travels" to contain record
       """
       { "Travel": { "text":"new travel" }, "Travel Status": "Open" }

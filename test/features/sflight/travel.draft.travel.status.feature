@@ -16,7 +16,7 @@ Feature: Create draft, save and change status
 
   Scenario: Create, change, keep status open and save a travel draft
     When we save the draft
-      And we navigate to url "/travel_processor/webapp/index.html"
+      And we go back
     Then we expect table "Travels" to contain record
       """
       { "Travel": { "text":"new travel" }, "Travel Status": "Open" }
@@ -26,7 +26,7 @@ Feature: Create draft, save and change status
   Scenario: Create, change, accept and save a travel draft
     When we save the draft
       And we perform object action "Accept Travel"
-      And we navigate to url "/travel_processor/webapp/index.html"
+      And we go back
     Then we expect table "Travels" to contain record
       """
       { "Travel": { "text":"new travel" }, "Travel Status": "Accepted" }
@@ -36,7 +36,7 @@ Feature: Create draft, save and change status
   Scenario: Create, change, reject and save a travel draft
     When we save the draft
       And we perform object action "Reject Travel"
-      And we navigate to url "/travel_processor/webapp/index.html"
+      And we go back
     Then we expect table "Travels" to contain record
       """
       { "Travel": { "text":"new travel" }, "Travel Status": "Canceled" }

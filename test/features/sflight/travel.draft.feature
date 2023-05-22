@@ -16,7 +16,7 @@ Feature: Create draft
       And we change field "End Date" to "Feb 22, 2033"
       And we change field "Description" to "new travel"
       And we save the draft
-      And we navigate to url "/travel_processor/webapp/index.html"
+      And we go back
     Then we expect table "Travels" to contain record
       """
       { "Travel": { "text":"new travel" } }
@@ -40,7 +40,7 @@ Feature: Create draft
       And we change the field "Flight Date" in the last row of table in section "Bookings" to "2033-01-02"
       And we change the field "Flight Price" in the last row of table in section "Bookings" to "99"
       And we save the draft
-      And we navigate to url "/travel_processor/webapp/index.html"
+      And we go back
     Then we expect table "Travels" to contain record
       """
       { "Travel": { "text":"new travel" } }
