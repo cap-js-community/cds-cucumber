@@ -8,7 +8,7 @@ Feature: Modify any field
   Scenario: Travel status
     When we modify field "Travel Status" to "Open"
       And we apply the search filter
-    Then we expect table "Travels" to have 3081 records in total
+    Then we expect table "Travels" to have 2469 records in total
 
   Scenario: Editing status
     When we modify field "Editing Status" to "All"

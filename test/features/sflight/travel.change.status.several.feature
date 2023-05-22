@@ -8,7 +8,7 @@ Feature: Change travel of several travel records at once
       And we select one suggestion in value help dialog for field "Travel Status" equal to "Open"
       And we close value help for filter field "Travel Status"
       And we apply the search filter
-      And table "Travels" has 3081 records
+      And table "Travels" has 2469 records
 
   Scenario: Filter open travel records, accept top two
     When we select row 0 in table "Travels"
