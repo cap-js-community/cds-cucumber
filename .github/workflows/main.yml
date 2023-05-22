@@ -15,13 +15,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: selenium
+      - name: Run docker image - selenium/standalone-chrome
         run: |
           docker run -d -p 4444:4444 --network host selenium/standalone-chrome
       - name: prepare
         run: |
           npm i
           npm run prepare:test
-      - name: test
+      - name: test bookshop
         run: |
-          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" npm t
+          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" npm run test:bookshop
+      - name: test sflight
+        run: |
+          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" npm run test:sflight
