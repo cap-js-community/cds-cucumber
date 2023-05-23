@@ -23,6 +23,4 @@ Feature: Calendar handling
   Scenario: Fly next year in december
     When we roll calendar to "next year"
       And we select month "December"
-      And sleep for 5 seconds
       And we select day "15"
-      And sleep for 5 seconds
