@@ -33,7 +33,7 @@ When we select tile {string}
 ## Basic search
 
 ```gherkin
-Given we perform basic search for "string"
+Given we search for "string"
 ```
 * target: basic search field in filter bar
 
