@@ -8,6 +8,6 @@ Feature: Create draft
   Scenario: Create travel, create booking and delete it
     When we create draft
       And we create new item for table "Bookings"
-      And we select row 0 in table "Bookings"
+      And we select row 1 in table "Bookings"
       And we delete selected rows in table "Bookings"
       And we confirm the deletion

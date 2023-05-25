@@ -60,7 +60,7 @@ Feature: Create draft
       And we create new item for table in section "Bookings"
       # java - the id is "New Object", it is geven later during activation
       # And we tap on text "1"
-      And we tap on row 0 in table "Bookings"
+      And we tap on row 1 in table "Bookings"
       And we open value help for object field "Customer"
       And we select one row in value help dialog having field "Customer" equal to "000001"
       And we open value help for object field "Airline"

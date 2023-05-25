@@ -5,7 +5,7 @@ Feature: Calendar handling
       And we have opened the url "/travel_processor/webapp/index.html"
     When we create draft
       And we create new item for table in section "Bookings"
-      And we tap on row 0 in table "Bookings"
+      And we tap on row 1 in table "Bookings"
       And we open value help for object field "Flight Date"
 
   Scenario: Fly next month
