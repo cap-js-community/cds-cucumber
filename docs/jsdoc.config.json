@@ -3,8 +3,8 @@
   "templates": {
       "includeDate": true,
       "dateFormat": "DD MMM YYYY",
-      "systemName": "Test Automation",
-      "systemSummary": "Setup and steps documentation.",
+      "systemName": "CDS BDD",
+      "systemSummary": "CDS cucumber steps for Fiori Elements",
       "systemLogo": "",
       "systemColor": "",
       "copyright": "",

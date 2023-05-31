@@ -40,7 +40,7 @@ Feature: Fiori preview page
     Then we expect to have 1 table records
 ```
 
-For more information on the available steps see the [documentation](docs/API.md).
+For more information on the available steps see the [documentation](list_module.html).
 
 ## Validate features
 
