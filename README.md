@@ -6,7 +6,7 @@ This repository contains cucumber step definitions for UI (Fiori Elements) speci
 
 ## API
 
-List of steps and details is available in the [API documentation](list_module.html).
+List of steps and details is available in the [API documentation](list_namespace.html).
 
 ## Usage
 
