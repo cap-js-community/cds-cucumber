@@ -1,1 +1,1 @@
-$( ".signature-attribs" ).hide()
+$( ".signature-attribs" ).hide();
