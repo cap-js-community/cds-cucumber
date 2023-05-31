@@ -6,7 +6,7 @@ This repository contains cucumber step definitions for UI (Fiori Elements) speci
 
 ## API
 
-List of steps and details is available in the API documentation (TODO: add link).
+List of steps and details is available in the [API documentation](list_namespace.html).
 
 ## Usage
 
@@ -49,5 +49,3 @@ Feature: Fiori preview page
 ```
 npx cucumber-js test
 ```
-
-For additional information see the [details](docs/DETAILS.md) page.
