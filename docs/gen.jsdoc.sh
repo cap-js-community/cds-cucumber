@@ -10,6 +10,6 @@ npm init -y
 npm i foodoc
 npm i jsdoc@3.6.11
 
-npx jsdoc -c ../../docs/jsdoc.config.json -t ./node_modules/foodoc/template -R ../../README.md -r ../../lib/steps -d ../../docs
+npx jsdoc -c ../../docs/jsdoc.config.json -t ./node_modules/foodoc/template -R ../../docs/README.md -r ../../lib/steps -d ../../docs -p ../../package.json
 
 popd
