@@ -21,6 +21,8 @@
       "sort": "linenum, longname, version, since",
       "search": true,
       "stylesheets": [],
-      "scripts": []
+      "scripts": [
+        "postproc.js"
+      ]
     }
 }
