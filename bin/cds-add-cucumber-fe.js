@@ -59,13 +59,18 @@ function createFirstFeatureFile() {
   const content = `Feature: Fiori preview page
 
   Scenario: Open first Fiori preview page
-    Given we have started the application
+    Given we have started the CAP application
       And we have opened the url "/"
     When we click on first Fiori preview page
       And we search for "jane"
     Then we expect to have 1 table records
 `
   const file = './test/features/first.feature';
+
+  // detect "cds add samples"
+  if(!fs.existsSync('./srv/cat-service.cds')) return;
+  if(!fs.existsSync('./db/data-model.cds')) return;
+  if(!fs.existsSync('./db/data/my.bookshop-Books.csv')) return;
 
   createFileIfMissing(file, content);
 
