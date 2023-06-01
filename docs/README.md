@@ -20,7 +20,7 @@ The project is in early **beta phase**, please expect changes.
 
 ## API
 
-List of steps and details is available in the [API documentation](list_namespace.html).
+List of steps and details is available in the [API documentation](https://cap-js.github.io/cds-cucumber-fe/list_namespace.html).
 
 ## Usage
 
