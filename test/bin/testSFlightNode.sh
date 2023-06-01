@@ -3,8 +3,8 @@
 export CUCUMBER_PUBLISH_ENABLED=false
 export CUCUMBER_PUBLISH_QUIET=true
 
-export TEST_USER=alice
-export TEST_PASSWORD=admin
-export TEST_SERVICE_DIR=tmp/cap-sflight
+export CDS_USERNAME=alice
+export CDS_PASSWORD=admin
+export CDS_SERVICE_DIR=tmp/cap-sflight
 
 npx cucumber-js test/features/sflight --tags "not @skip:node"

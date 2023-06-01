@@ -20,7 +20,7 @@ Specifies the hostname of the target service.
 
 Specifies the port of the target service.
 
-### CDS_SERVICE_PORT
+### CDS\_SERVICE\_PORT
 
 Specifies the port for the cds service to listen to.
 
@@ -43,7 +43,7 @@ experimental
 ### REPLACE_PREFIX
 experimental
 
-### SAP_UI5_VERSION
+### SAP\_UI5\_VERSION
 experimental
 
 ### CDS_STACK
@@ -59,7 +59,7 @@ Example:
 CDS_STACK=java
 ```
 
-### CDS_SERVICE_DIR
+### CDS\_SERVICE\_DIR
 
 Specifies the root directory of the cds service.
 The cds service will be started in the specified directory by setting it the the current working directory.
@@ -100,7 +100,7 @@ SHOW_BROWSER=1
 
 ## Debbuging UI
 
-### CDS_CUCUMBER_DEBUG
+### CDS\_CUCUMBER\_DEBUG
 
 Used to increase the steps default timeout during debugging sessions and load the steps-browser-library via the webserver instead of injecting it.
 
@@ -109,13 +109,13 @@ Example:
 CDS_CUCUMBER_DEBUG=1
 ```
 
-### CDS_CUCUMBER_LIB_URL
+### CDS\_CUCUMBER\_LIB\_URL
 
 Specifies the path to the steps-library (browser.js) to be loaded during UI debugging sessions.
 
 * default: /x.js
 
-### REMOTE_DEBUGGING_PORT
+### REMOTE\_DEBUGGING\_PORT
 
 Specifies the remote debugging port of the browser and important when debugging the SAP UI5 code.
 
