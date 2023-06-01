@@ -22,7 +22,7 @@
       "search": true,
       "stylesheets": [],
       "scripts": [
-        "postproc.js"
+        "scripts/postproc.js"
       ]
     }
 }
