@@ -1,8 +1,22 @@
 # CDS Cucumber FE
 
-Behavior Driven Development enables you to provide exactly what the customers want.
-The cucumber project provides framework for that.
-This repository contains cucumber step definitions for UI (Fiori Elements) specifications.
+Provides a library to write behaviour-driven tests for CAP applications and SAP Fiori Elements.
+It contains ready-to-use steps that help developers write tests in a BDD style.
+The [cucumber](https://cucumber.io) project provides framework for that.
+
+It would look like that:
+```gherkin
+Feature: Fiori preview page
+
+  Scenario: Open first Fiori preview page
+    Given we have started the CAP application
+      And we have opened the url "/"
+    When we click on first Fiori preview page
+      And we search for "jane"
+    Then we expect to have 1 table records
+```
+
+The project is in early **beta phase**, please expect changes.
 
 ## API
 
@@ -20,8 +34,9 @@ In addition the latest version of the **chrome browser** should be present on th
 
 ### Install
 
+**TODO** replace with npm i cds-cucumber-fe
 ```
-npm i git+https://github.com/cap-js/cds-cucumber-fe.git
+npm i -D git+https://github.com/cap-js/cds-cucumber-fe.git
 ```
 
 ### Configure
@@ -33,19 +48,25 @@ npx cds-add-cucumber-fe
 ### Add feature files
 
 File: test/features/first.feature
-```
+```gherkin
 Feature: Fiori preview page
 
   Scenario: Open first Fiori preview page
-    Given we have started the application
+    Given we have started the CAP application
       And we have opened the url "/"
     When we click on first Fiori preview page
       And we search for "jane"
     Then we expect to have 1 table records
 ```
 
+For existing projects you have to adjust the example above.
+
 ### Validate features
 
 ```
 npx cucumber-js test
 ```
+
+## More
+
+For additional information see the [details](DETAILS.html) page.
