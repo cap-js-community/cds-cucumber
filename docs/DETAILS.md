@@ -1,6 +1,6 @@
 # Detailed information
 
-## Initiaizaton
+## Initialization
 
 Initialization of the steps library is triggered via the command:
 ```
