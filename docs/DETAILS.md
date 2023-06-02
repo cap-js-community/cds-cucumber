@@ -9,13 +9,28 @@ npx cds-addcucumber-ui
 
 It will perform the following operations:
 1. create cucumber configuration file ./cucumber.yml containing the following settings:
-
-- enable **publishQuiet** to suppress message
-- **require** steps module
-
-2. create directory for feature specifications: ./test/features
-3. create directory for own steps: ./test/features/step_definitions
-4. create configuration for cucumber plugin: ./.vscode/settings.json
+    - enable **publishQuiet** to suppress message
+    - **require** steps module
+    ```yaml
+    default:
+        publishQuiet: true
+        requireModule:
+          - cds-cucumber-fe
+    ```
+1. create directory for feature specifications: ./test/features
+1. create directory for own steps: ./test/features/step_definitions
+1. optionally (in case the project matches the **cds samples** one) create first feature file: ./test/features/first.feature
+1. create configuration for [cucumber plugin](#vscode-cucumbergherkin-plugin): ./.vscode/settings.json
+    ```json
+    {
+      "cucumberautocomplete.steps": [
+        "test/features/step_definitions/*.js",
+        "node_modules/cds-cucumber-fe/lib/steps/*.js"
+      ],
+      "cucumberautocomplete.strictGherkinCompletion": true
+    }
+    ```
+1. optionally (in case the project matches the **cds samples** one) create file with CDS annitation: ./srv/annotations.cds
 
 ## Add your own steps
 
