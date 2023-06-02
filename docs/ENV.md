@@ -37,15 +37,6 @@ CDS_COMMAND=watch
 ```
 The resulting command is: npx cds watch
 
-### REPLACE_PAGE
-experimental
-
-### REPLACE_PREFIX
-experimental
-
-### SAP\_UI5\_VERSION
-experimental
-
 ### CDS_STACK
 
 Specified the programming stack to use: node or java, default: node
@@ -137,3 +128,22 @@ Used library: instambul
 ### INSTRUMENTED_CODE
 
 Specifies the instrumented code used for producing a code coverage report.
+
+## Local UI5 version
+
+### REPLACE_PAGE
+experimental
+
+### REPLACE_PREFIX
+experimental
+
+### SAP\_UI5\_VERSION
+experimental
+
+### CDS\__ENABLE\_LOCAL\_UI5\_VERSION
+experimental
+
+Example:
+```
+CDS_ENABLE_LOCAL_UI5_VERSION=1
+```
