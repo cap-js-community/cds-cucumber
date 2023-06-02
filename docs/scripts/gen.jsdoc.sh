@@ -14,14 +14,14 @@ else
   npm init -y
   npm i foodoc
   npm i jsdoc@3.6.11
-  npm i showdown
+  npm i markdown-it
 fi
 
 npx jsdoc -c ../../docs/scripts/jsdoc.config.json -t ./node_modules/foodoc/template -R ../../docs/README.md -r ../../lib/steps -d ../../docs -p ../../package.json
 
 for f in ../../docs/*.md; do
   fh="../../docs/${f:11:-3}.html"
-  npx showdown makehtml -i ${f} -o ${fh} -p github
+  npx markdown-it -o ${fh} ${f}
 done
 
 popd
