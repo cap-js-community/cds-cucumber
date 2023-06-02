@@ -11,7 +11,7 @@ It will perform the following operations:
 1. create cucumber configuration file ./cucumber.yml containing the following settings:
     - enable **publishQuiet** to suppress message
     - **require** steps module
-    ```
+    ```yaml
     default:
         publishQuiet: true
         requireModule:
@@ -21,7 +21,7 @@ It will perform the following operations:
 1. create directory for own steps: ./test/features/step_definitions
 1. optionally (in case the project matches the **cds samples** one) create first feature file: ./test/features/first.feature
 1. create configuration for [cucumber plugin](#vscode-cucumbergherkin-plugin): ./.vscode/settings.json
-    ```
+    ```json
     {
       "cucumberautocomplete.steps": [
         "test/features/step_definitions/*.js",
