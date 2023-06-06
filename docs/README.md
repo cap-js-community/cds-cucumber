@@ -1,6 +1,6 @@
 # CDS Cucumber FE
 
-Provides a library to write behaviour-driven tests for CAP applications and SAP Fiori Elements.
+Provides a library to write behaviour-driven tests for CAP applications and SAP Fiori® Elements.
 It contains ready-to-use steps that help developers write tests in a BDD style.
 The [cucumber](https://cucumber.io) project provides framework for that.
 
