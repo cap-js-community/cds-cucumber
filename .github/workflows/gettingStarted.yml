@@ -2,7 +2,7 @@ name: "Getting started"
 
 on:
   push:
-    branches: [ "run-github-actions" ]
+    branches: [ "test-getting-started" ]
 
 jobs:
   getting-started:
