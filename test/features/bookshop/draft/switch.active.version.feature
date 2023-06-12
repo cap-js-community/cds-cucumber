@@ -8,6 +8,8 @@ Feature: Create and discard a draft
       And we create draft
       And we change the header field "Title" to "Title1"
       And we change the field "Description" in group "General" to "Description1"
+      And we open value help for object field "Author"
+      And we select one row in value help dialog having field "ID" equal to "Richard Carpenter"
       And we save the draft
       And we read the content of the page
       And we edit current object
@@ -25,7 +27,7 @@ Feature: Create and discard a draft
       {
         "Admin": {"Created By": "alice", "Changed By": "alice"},
         "Details": {"Stock": "", "Price": "", "Currency": ""},
-        "General": {"Title": "Title1", "Author": "", "Genre": "", "Description": "Description1"},
-        "Header": {"Title": "Title1", "Name": ""}
+        "General": {"Title": "Title1", "Author": "Richard Carpenter", "Genre": "", "Description": "Description1"},
+        "Header": {"Title": "Title1", "Name": "Richard Carpenter"}
       }
       """
