@@ -8,6 +8,8 @@ Feature: Create draft with two users
       And we create draft
       And we change the header field "Title" to "Title1"
       And we change the field "Description" in group "General" to "Description1"
+      And we open value help for object field "Author"
+      And we select one row in value help dialog having field "ID" equal to "Richard Carpenter"
       And we save the draft
       And we read the content of the page
       And we edit current object
@@ -26,7 +28,7 @@ Feature: Create draft with two users
       {
         "Admin": {"Created By": "alice", "Changed By": "alice"},
         "Details": {"Stock": "", "Price": "", "Currency": ""},
-        "General": {"Title": "Title2", "Author": "", "Genre": "", "Description": "Description2"},
-        "Header": {"Title": "Title2", "Name": ""}
+        "General": {"Title": "Title2", "Author": "Richard Carpenter", "Genre": "", "Description": "Description2"},
+        "Header": {"Title": "Title2", "Name": "Richard Carpenter"}
       }
       """

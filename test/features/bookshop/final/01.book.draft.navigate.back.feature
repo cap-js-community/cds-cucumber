@@ -48,10 +48,13 @@ Feature: Create draft and navigate back
       And table "Books" has 5 records
     When we create draft
       And we change the header field "Title" to "new book"
+      And we change the field "Description" in group "General" to "Description of the new book"
+      And we open value help for object field "Author"
+      And we select one row in value help dialog having field "ID" equal to "Richard Carpenter"
       And we navigate back
       And we decide to save the draft
     Then we expect table "Books" to have 6 records in total
       And we expect table "Books" to contain record
       """
-      { "Author": "", "Title": { "marker": "Flagged", "text": "new book" } }
+      { "Author": "Richard Carpenter", "Title": { "marker": "Flagged", "text": "new book" } }
       """
