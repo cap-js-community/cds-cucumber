@@ -2,6 +2,26 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "SFlight features",
+      "type": "node",
+      "request": "launch",
+      "program": "npx",
+      "args": ["cucumber-js","test/features/sflight"],
+      "env": {
+        "CWD": "${workspaceFolder}",
+        "CDS_USERNAME": "alice",
+        "CDS_PASSWORD": "admin",
+        "CDS_SERVICE_DIR":"tmp/cap-sflight",
+        "CUCUMBER_PUBLISH_ENABLED":"false",
+        "CUCUMBER_PUBLISH_QUIET":"true"
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "outputCapture": "console",
+      "console":"integratedTerminal"
+    },
+    {
       "type": "chrome",
       "name": "Bookshop: Attach to browser",
       "request": "attach",
