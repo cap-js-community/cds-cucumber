@@ -17,6 +17,6 @@ rm package.json
 npx cds init --add samples,sqlite && npx cds deploy --to sqlite
 npm i @sap/cds
 npm i express
-npm i -D git+https://$TOKEN@github.com/cap-js/cds-cucumber-fe.git#$BRANCH_NAME
-npx cds-add-cucumber-fe
+npm i -D git+https://$TOKEN@github.com/cap-js/cds-cucumber.git#$BRANCH_NAME
+npx cds-add-cucumber
 npx cucumber-js test

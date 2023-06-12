@@ -4,12 +4,12 @@ let errors = 0;
 
 let _browser = './lib/browser.js';
 try {
-  _browser = require.resolve('cds-cucumber-fe/lib/browser.js');
+  _browser = require.resolve('cds-cucumber/lib/browser.js');
 } catch(e) {}
 
 let _controller = './lib/controller.js';
 try {
-  _controller = require.resolve('cds-cucumber-fe/lib/controller.js');
+  _controller = require.resolve('cds-cucumber/lib/controller.js');
 } catch(e) {}
 
 let browser = String(fs.readFileSync(_browser))

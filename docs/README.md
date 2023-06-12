@@ -1,8 +1,9 @@
-# CDS Cucumber FE
+# CDS Cucumber
 
-Provides a library to write behaviour-driven tests for CAP applications and SAP Fiori® Elements.
+Provides a library to write behaviour-driven tests for CAP applications.
 It contains ready-to-use steps that help developers write tests in a BDD style.
 The [cucumber](https://cucumber.io) project provides framework for that.
+Currently the library supports SAP Fiori® Elements.
 
 It would look like that:
 ```gherkin
@@ -20,7 +21,7 @@ The project is in early **beta phase**, please expect changes.
 
 ## API
 
-List of steps and details is available in the [API documentation](https://cap-js.github.io/cds-cucumber-fe/list_namespace.html).
+List of steps and details is available in the [API documentation](https://cap-js.github.io/cds-cucumber/list_namespace.html).
 
 ## Usage
 
@@ -34,15 +35,15 @@ In addition the latest version of the **chrome browser** should be present on th
 
 ### Install
 
-**TODO** replace with npm i cds-cucumber-fe
+**TODO** replace with npm i cds-cucumber
 ```
-npm i -D git+https://github.com/cap-js/cds-cucumber-fe.git
+npm i -D git+https://github.com/cap-js/cds-cucumber.git
 ```
 
 ### Configure
 
 ```
-npx cds-add-cucumber-fe
+npx cds-add-cucumber
 ```
 
 ### Add feature files
