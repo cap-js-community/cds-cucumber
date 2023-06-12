@@ -3,8 +3,8 @@
   "templates": {
       "includeDate": true,
       "dateFormat": "DD MMM YYYY",
-      "systemName": "CDS Cucumber FE",
-      "systemSummary": "CDS cucumber steps for Fiori Elements",
+      "systemName": "CDS Cucumber",
+      "systemSummary": "CDS cucumber steps",
       "systemLogo": "",
       "systemColor": "",
       "copyright": "",
