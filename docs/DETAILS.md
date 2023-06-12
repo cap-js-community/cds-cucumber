@@ -4,7 +4,7 @@
 
 Initialization of the steps library is triggered via the command:
 ```
-npx cds-addcucumber-ui
+npx cds-add-cucumber
 ```
 
 It will perform the following operations:
