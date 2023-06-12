@@ -113,7 +113,7 @@ CDS_CUCUMBER_DEBUG=1
 
 Specifies the path to the steps-library (browser.js) to be loaded during UI debugging sessions.
 
-* default: /x.js
+* default: /browser.js
 
 ### REMOTE\_DEBUGGING\_PORT
 
@@ -121,13 +121,13 @@ Specifies the remote debugging port of the browser and important when debugging 
 
 * default value: 9222
 
-### WAIT_DEBUGGER
+### CDS\_CUCUMBER\_WAIT\_DEBUGGER
 
 Forces the initialization process to wait until the debugger is attached
 
 Example:
 ```
-WAIT_DEBUGGER=1
+CDS_CUCUMBER_WAIT_DEBUGGER=1
 ```
 
 ## Code coverage
