@@ -12,7 +12,7 @@ function createCucumberConfiguration() {
   const content = `default:
     publishQuiet: true
     requireModule:
-      - ${getModuleName()}
+      - "${getModuleName()}"
   `
   const file = 'cucumber.yml';
 
