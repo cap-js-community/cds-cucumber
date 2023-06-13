@@ -73,7 +73,7 @@ CDS_SERVICE_DIR=fiori
 
 ### SLOW_QUIT
 
-Specifies the number of secconds to sleep before closing the browser.
+Specifies the number of seconds to sleep before closing the browser.
 
 Example:
 ```
@@ -82,7 +82,7 @@ SLOW_QUIT=2
 
 ### SLOW_DOWN
 
-Specifies the number of secconds to wait between the single operations.
+Specifies the number of seconds to wait between the single operations.
 
 Example:
 ```
@@ -115,9 +115,9 @@ Specifies the path to the steps-library (browser.js) to be loaded during UI debu
 
 * default: /browser.js
 
-### REMOTE\_DEBUGGING\_PORT
+### BROWSER\_DEBUGGING\_PORT
 
-Specifies the remote debugging port of the browser and important when debugging the SAP UI5 code.
+Specifies the remote debugging port of the browser. It is used when debugging the SAP UI5 code.
 
 * default value: 9222
 

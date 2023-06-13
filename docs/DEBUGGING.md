@@ -1,10 +1,10 @@
 # Debugging
 
-The following document describes how to debug the steps-implementation, server-side and browser code using VSCode.
+The following document describes how to debug the step-implementations, server-side and browser code using VSCode.
 
 ## Steps
 
-Debugging the steps-implementation with VSCode has two possibilities.
+Debugging the step-implementations with VSCode has two possibilities.
 
 ### VSCode JavaScript Debug Termninal
 
@@ -32,15 +32,15 @@ File: ./.vscode/launch.json
         "CWD": "${workspaceFolder}",
         "CDS_USERNAME": "alice",
         "CDS_PASSWORD": "admin",
-        "CDS_SERVICE_DIR":"tmp/cap-sflight",
-        "CUCUMBER_PUBLISH_ENABLED":"false",
-        "CUCUMBER_PUBLISH_QUIET":"true"
+        "CDS_SERVICE_DIR": "tmp/cap-sflight",
+        "CUCUMBER_PUBLISH_ENABLED": "false",
+        "CUCUMBER_PUBLISH_QUIET": "true"
       },
       "skipFiles": [
         "<node_internals>/**"
       ],
       "outputCapture": "console",
-      "console":"integratedTerminal"
+      "console": "integratedTerminal"
     }
   ]
 }
@@ -57,7 +57,7 @@ In order to debug the code, you can follow the same procedure as for the [Steps]
 
 ## Browser
 
-VSCode offers attaching and debugging of browser sessions.
+VSCode offers attaching to and debugging of browser sessions.
 Add a new launch configuration as follows:
 
 File: ./.vscode/launch.json
@@ -79,8 +79,8 @@ File: ./.vscode/launch.json
 ```
 
 Description of the parameters:
-- port - browser debugger port to attach to. By default is is 9222, but you can change it via the enviromnent variables.
+- port - browser debugger port to attach to. By default it is 9222, but you can change it via the enviromnent variable [BROWSER\_DEBUGGING\_PORT](ENV.md#browser_debugging_port).
 - webRoot - webserver root directory containing root folder webpages
-- urlFilter - filter to help locating the webpage to attach to. The port 4004 is the default port of the CDS Server which can be changed via the environment variables.
+- urlFilter - filter to help locating the webpage to attach to. The port 4004 is the default port of the CDS Server which can be changed via the environment variable [CDS\_SERVICE\_PORT](ENV.md#cds_service_port).
 
 When the tests are started with debugging enabled, after the CDS server is started and selenuim is initialized, the execution of the steps will wait until the VSCode Debugger is attached.
