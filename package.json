@@ -3,7 +3,7 @@
   "version": "0.1.0-beta1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cap-js/cds-cucumber.git"
+    "url": "https://github.com/cap-js-community/cds-cucumber.git"
   },
   "bin": {
     "cds-add-cucumber": "./bin/cds-add-cucumber.js"
