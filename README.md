@@ -1,4 +1,4 @@
-# CDS Cucumber
+# CDS for Cucumber
 
 Provides a library to write behaviour-driven tests for CAP applications.
 It contains ready-to-use steps that help developers write tests in a BDD style.
@@ -21,7 +21,7 @@ The project is in early **beta phase**, please expect changes.
 
 ## API
 
-List of steps and details is available in the [API documentation](https://cap-js.github.io/cds-cucumber/list_namespace.html).
+List of steps and details is available in the [API documentation](https://cap-js-community.github.io/cds-cucumber/list_namespace.html).
 
 ## Usage
 
@@ -35,10 +35,10 @@ In addition the latest version of the **chrome browser** should be present on th
 
 ### Install
 
-**TODO** replace with npm i cds-cucumber
 ```
-npm i -D git+https://github.com/cap-js/cds-cucumber.git
+npm i -D @cap-js-community/cds-cucumber
 ```
+
 
 ### Configure
 
