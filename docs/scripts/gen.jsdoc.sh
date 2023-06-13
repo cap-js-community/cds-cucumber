@@ -16,8 +16,13 @@ else
   npm i jsdoc@3.6.11
 fi
 
-cp ../../README.md ../../docs/README.md
+cp ../../*.md ../../docs
 sed -i 's/docs\/DETAILS\.md/DETAILS\.html/' ../../docs/README.md
+sed -i 's/\.md/\.html/' ../../docs/README.md
+
+echo "<pre>" > ../../docs/LICENSE.html
+cat ../../LICENSE >> ../../docs/LICENSE.html
+
 npx jsdoc -c ../../docs/scripts/jsdoc.config.json -t ./node_modules/foodoc/template -R ../../docs/README.md -r ../../lib/steps -d ../../docs -p ../../package.json
 
 popd
