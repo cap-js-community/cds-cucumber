@@ -3,7 +3,7 @@
   "templates": {
       "includeDate": true,
       "dateFormat": "DD MMM YYYY",
-      "systemName": "CDS Cucumber",
+      "systemName": "CDS for Cucumber",
       "systemSummary": "CDS cucumber steps",
       "systemLogo": "",
       "systemColor": "",
