@@ -1,0 +1,78 @@
+const { spawn } = require('child_process');
+const { argv } = require('process');
+const fs = require('node:fs');
+const path = require('node:path');
+
+function _execCommand(command, args, options) {
+  return new Promise((resolve,reject) => {
+    var proc = spawn(command, args, options);
+    proc.scriptOutput="";
+
+    if(proc.stdout) {
+      proc.stdout.setEncoding('utf8');
+      proc.stdout.on('data', function(data) {
+        console.log(data)
+        proc.scriptOutput+=data.toString();
+      });
+    }
+  
+    if(proc.stderr) {
+      proc.stderr.setEncoding('utf8');
+      proc.stderr.on('data', function(data) {
+        console.log(data)
+        proc.scriptOutput+=data.toString();
+      });
+    }
+  
+    proc.on('close', function(exitCode) {
+      //console.log('close',exitCode);
+      proc.exitCode=exitCode;
+//      resolve(exitCode);
+    });
+  
+    proc.on('exit', function(exitCode) {
+      //console.log('exit',exitCode);
+      proc.exitCode=exitCode;
+      resolve(proc);
+    });
+  
+  })
+}
+
+async function execCommand(command, args, options) {
+  console.log("---->",command,args)
+  let res = await _execCommand(command, args ,options);
+  return res;
+}
+
+async function addPlugin(pluginName, targetAppWorkspace) {
+  let targetPluginName = pluginName+'-plugin';
+  let mydir = path.dirname(__filename);
+
+  const initWS = await execCommand("npm",['init','-w',targetPluginName,'-y']);
+  let re1 = /Wrote to (.*?):/;
+  let re1res = initWS.scriptOutput.match(re1); 
+  if(!re1res) throw Error('Could not extract newly created workspace directory!');
+  let pluginDir = path.dirname(re1res[1]);
+  console.log("pluginDir:",pluginDir)
+
+  fs.writeFileSync(path.join(pluginDir,'index.js'),'');
+  const content = String(fs.readFileSync(path.join(mydir,pluginName,'cds-plugin.js')));
+  fs.writeFileSync(path.join(pluginDir,'cds-plugin.js'),content);
+
+  if(targetAppWorkspace)
+    await execCommand('npm',['add','-w',targetAppWorkspace,targetPluginName]);
+  else
+    await execCommand('npm',['add',targetPluginName]);
+
+}
+
+(async function () {
+  const pluginName = argv[2];
+  const targetAppWorkspace = argv[3];
+  if(!pluginName) throw Error('No plugin name provided as parameter!');
+  console.log('Add cds-plugin:',pluginName);
+  if(targetAppWorkspace)
+    console.log('  workspace:',targetAppWorkspace);
+  await addPlugin(pluginName,targetAppWorkspace);
+})();
