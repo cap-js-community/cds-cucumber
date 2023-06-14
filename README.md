@@ -1,11 +1,13 @@
 # CDS for Cucumber
 
-Provides a library to write behaviour-driven tests for CAP applications.
-It contains ready-to-use steps that help developers write tests in a BDD style.
+Provides a library for behaviour-driven tests of CAP applications.
+It contains ready-to-use steps that helps you write tests in a BDD style.
 The [cucumber](https://cucumber.io) project provides framework for that.
-Currently the library supports SAP Fiori® Elements.
 
-It would look like that:
+As of now, the library supports SAP Fiori Elements as UI framework.
+
+A typical test looks like this:
+
 ```gherkin
 Feature: Fiori preview page
 
@@ -25,24 +27,27 @@ List of steps and details is available in the [API documentation](https://cap-js
 
 ## Usage
 
-Make sure you have a CAP project or create a new one with the following command,
-which requires global installation of the [CAP development toolkit](https://cap.cloud.sap/docs/get-started/jumpstart#setup): *npm i -g @sap/cds-dk*
-```
-npx cds init --add samples,sqlite && npx cds deploy --to sqlite
-```
+### Setup
 
-In addition the latest version of the **chrome browser** should be present on the system.
+Install the [CAP development toolkit](https://cap.cloud.sap/docs/get-started/jumpstart#setup):
 
-### Install
-
-```
-npm i -D @cap-js-community/cds-cucumber
+```sh
+npm i -g @sap/cds-dk
 ```
 
+### Create a project
+
+Make sure you have a CAP project. You can create one with the following command:
+
+```sh
+cds init --add samples,sqlite
+cds deploy --to sqlite
+```
 
 ### Configure
 
-```
+```sh
+npm i -D @cap-js-community/cds-cucumber
 npx cds-add-cucumber
 ```
 
@@ -62,11 +67,14 @@ Feature: Fiori preview page
 
 For existing projects you have to adjust the example above.
 
-### Validate features
+### Run feature tests
 
 ```
 npx cucumber-js test
 ```
+
+A recent version of the **chrome browser** should be present on the system.
+
 
 ## More
 
@@ -82,4 +90,4 @@ We as members, contributors, and leaders pledge to make participation in our com
 
 ## Licensing
 
-Copyright 2022 SAP SE or an SAP affiliate company and cds-cucumber contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/cap-js-community/cds-cucumber).
+Copyright 2023 SAP SE or an SAP affiliate company and cds-cucumber contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/cap-js-community/cds-cucumber).
