@@ -1,6 +1,6 @@
 # Debugging
 
-The following document describes how to debug the step-implementations, server-side and browser code using VSCode.
+The following document describes how to debug the step-implementations, server-side (CDS Node.js Runtime) and browser code (SAP UI5 and the steps browser extension: browser.js) using VSCode.
 
 ## Steps
 
@@ -8,7 +8,7 @@ Debugging the step-implementations with VSCode has two possibilities.
 
 ### VSCode JavaScript Debug Termninal
 
-Use the follwing command to start javascript debug terminal:
+Use the following command to start javascript debug terminal:
 Keyboard-shortcut: *Ctrl+Shift+P*
 Command: *Debug: JavaScript Debug Treminal*
 
@@ -23,7 +23,7 @@ File: ./.vscode/launch.json
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Cucumber Feature",
+      "name": "SFlight Features",
       "type": "node",
       "request": "launch",
       "program": "npx",
@@ -51,7 +51,7 @@ You can add additional cucumber-js arguments as you wish, and also change the en
 
 ## Server-side
 
-This section describes the possibilities to debug the CDS Nodejs Runtime.
+This section describes the possibilities to debug the CDS Node.js Runtime.
 The CDS Server will be started as a new process via the provided steps.
 In order to debug the code, you can follow the same procedure as for the [Steps](#steps) then you can add breakpoints in the CDS Nodejs Runtime code.
 
@@ -81,6 +81,9 @@ File: ./.vscode/launch.json
 Description of the parameters:
 - port - browser debugger port to attach to. By default it is 9222, but you can change it via the enviromnent variable [BROWSER\_DEBUGGING\_PORT](ENV.md#browser_debugging_port).
 - webRoot - webserver root directory containing root folder webpages
-- urlFilter - filter to help locating the webpage to attach to. The port 4004 is the default port of the CDS Server which can be changed via the environment variable [CDS\_SERVICE\_PORT](ENV.md#cds_service_port).
+- urlFilter - filter to help locating the webpage to attach to.
+The port 4004 is the default port of the CDS Server when running standalone.
+The CDS Server obtains a random port when started via the cds-cucumber library, 
+but can be changed to a fixed one via the environment variable [CDS\_SERVICE\_PORT](ENV.md#cds_service_port).
 
 When the tests are started with debugging enabled, after the CDS server is started and selenuim is initialized, the execution of the steps will wait until the VSCode Debugger is attached.

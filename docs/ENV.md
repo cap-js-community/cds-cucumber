@@ -123,27 +123,8 @@ CDS_CUCUMBER_WAIT_DEBUGGER=1
 
 ## Code coverage
 
-Used library: instambul
+Used module: istanbul
 
-### INSTRUMENTED_CODE
+### CDS\_INSTRUMENTED\_CODECOV\_BROWSER\_EXT
 
 Specifies the instrumented code used for producing a code coverage report.
-
-## Local UI5 version
-
-### REPLACE_PAGE
-experimental
-
-### REPLACE_PREFIX
-experimental
-
-### SAP\_UI5\_VERSION
-experimental
-
-### CDS\__ENABLE\_LOCAL\_UI5\_VERSION
-experimental
-
-Example:
-```
-CDS_ENABLE_LOCAL_UI5_VERSION=1
-```
