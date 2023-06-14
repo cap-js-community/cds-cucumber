@@ -37,7 +37,7 @@ npm i -g @sap/cds-dk
 
 ### Create a project
 
-Make sure you have a CAP project.  You can create a one with the following command:
+Make sure you have a CAP project. You can create one with the following command:
 
 ```sh
 cds init --add samples,sqlite
