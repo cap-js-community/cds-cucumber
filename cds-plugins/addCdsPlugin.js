@@ -39,8 +39,8 @@ function _execCommand(command, args, options) {
   })
 }
 
-async function execCommand(command, args, options) {
-  console.log("---->",command,args)
+async function execCommand(command, args=[], options={}) {
+  console.log("exec:",command,args,options)
   let res = await _execCommand(command, args ,options);
   return res;
 }
@@ -65,6 +65,32 @@ async function addPlugin(pluginName, targetAppWorkspace) {
   else
     await execCommand('npm',['add',targetPluginName]);
 
+  copyFiles(path.join(mydir,pluginName,'files'), pluginDir);
+
+  const initSh = path.join(mydir,pluginName,'init.sh');
+  if(fs.existsSync(initSh)) {
+    await execCommand('bash', [initSh], { cwd: pluginDir })
+  }
+
+}
+
+function copyFiles(fromDir, toDir) {
+  console.log("copyFiles",fromDir,toDir)
+  if(!fs.existsSync(fromDir)) return false;
+  if(!fs.existsSync(toDir)) fs.mkdirSync(toDir);
+  if(!fs.existsSync(toDir)) return false;
+  let files = fs.readdirSync(fromDir);
+  files.forEach(file => {
+    let f1=path.join(fromDir,file);
+    let f2=path.join(toDir,file);
+    if(fs.existsSync(f2)) return;
+    console.log("copy",f1)
+    console.log("->to",f2)
+    if(fs.lstatSync(f1).isDirectory())
+      copyFiles(f1,f2);
+    else
+      fs.writeFileSync(f2,fs.readFileSync(f1));
+  })
 }
 
 (async function () {
