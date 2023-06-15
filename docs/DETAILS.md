@@ -56,7 +56,7 @@ Information can be found [here](ENV.md).
 
 ## Information about the used webdriver
 
-The selenium-webdriver nodejs module is used to controll the browser and it requires a webdriver. The version of the webdriver should match the version of the web browser. The node module [chromedriver](https://www.npmjs.com/package/chromedriver) is used to download the latest webdriver version automatically. Both modules are listed in the dependencies of this module.
+The selenium-webdriver nodejs module is used to control the browser and it requires a webdriver. The version of the webdriver should match the version of the web browser. The node module [chromedriver](https://www.npmjs.com/package/chromedriver) is used to download the latest webdriver version automatically. Both modules are listed in the dependencies of this module.
 
 Most systems are configured to update the browser automatically which requires also an update of the webdriver.
 You can update the chrome webdriver to the latest version with the following command:
