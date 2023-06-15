@@ -20,7 +20,7 @@ function createCucumberConfiguration() {
 }
 
 function getModuleName() {
-  return JSON.parse(String(fs.readFileSync(require.resolve('../package.json')))).name;
+  return require('../package.json').name;
 }
 
 function mkdir(dir) {
