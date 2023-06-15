@@ -50,6 +50,10 @@ In order to get support (like code completion) for VSCode when writing your spec
 
 Information can be found [here](DEBUGGING.md).
 
+## Environment variables
+
+Information can be found [here](ENV.md).
+
 ## Information about the used webdriver
 
 The selenium-webdriver nodejs module is used to controll the browser and it requires a webdriver. The version of the webdriver should match the version of the web browser. The node module [chromedriver](https://www.npmjs.com/package/chromedriver) is used to download the latest webdriver version automatically. Both modules are listed in the dependencies of this module.
