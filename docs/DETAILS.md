@@ -15,7 +15,7 @@ It will perform the following operations:
     default:
         publishQuiet: true
         requireModule:
-          - cds-cucumber
+          - "@cap-js-community/cds-cucumber"
     ```
 1. create directory for feature specifications: ./test/features
 1. create directory for own steps: ./test/features/step_definitions
@@ -25,7 +25,7 @@ It will perform the following operations:
     {
       "cucumberautocomplete.steps": [
         "test/features/step_definitions/*.js",
-        "node_modules/cds-cucumber/lib/steps/*.js"
+        "node_modules/@cap-js-community/cds-cucumber/lib/steps/*.js"
       ],
       "cucumberautocomplete.strictGherkinCompletion": true
     }
