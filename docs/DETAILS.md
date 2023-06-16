@@ -30,7 +30,7 @@ It will perform the following operations:
       "cucumberautocomplete.strictGherkinCompletion": true
     }
     ```
-1. optionally (in case the project matches the **cds samples** one) create file with CDS annitation: ./srv/annotations.cds
+1. optionally (in case the project matches the **cds samples** one) create file with CDS annotations: ./srv/annotations.cds
 
 ## Add your own steps
 
