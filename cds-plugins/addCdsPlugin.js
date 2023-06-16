@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { spawn } = require('child_process');
 const { argv } = require('process');
 const fs = require('node:fs');
