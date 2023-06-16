@@ -39,11 +39,16 @@ The resulting command is: npx cds watch
 
 ### CDS_STACK
 
-Specified the programming stack to use: node or java, default: node
+Specifies the programming stack to use: node or java, default: node.
+Depending on the specified value the framework will start the CDS service with the following command:
 
- * node command: "npx cds run"
+ * for Nodejs:
+ 
+    ```npx cds run```
 
- * java command: "mvn clean spring-boot:run"
+ * for java:
+
+    ```mvn clean spring-boot:run```
 
 Example:
 ```
@@ -53,7 +58,7 @@ CDS_STACK=java
 ### CDS\_SERVICE\_DIR
 
 Specifies the root directory of the cds service.
-The cds service will be started in the specified directory by setting it the the current working directory.
+The cds service will be started in the specified directory by setting it as a current working directory.
 
 Example:
 ```
@@ -82,7 +87,7 @@ SLOW_DOWN=1
 
 ### SHOW_BROWSER
 
-The browser is by default in headless mode and with this variable it can become visible
+Lauches the browser in non-headless mode as by default it is invisible.
 
 Example:
 ```
@@ -114,7 +119,7 @@ Specifies the remote debugging port of the browser. It is used when debugging th
 
 ### CDS\_CUCUMBER\_WAIT\_DEBUGGER
 
-Forces the initialization process to wait until the debugger is attached
+Forces the initialization process to wait until the debugger is attached.
 
 Example:
 ```
