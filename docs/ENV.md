@@ -87,7 +87,7 @@ SLOW_DOWN=1
 
 ### SHOW_BROWSER
 
-Lauches the browser in non-headless mode as by default it is invisible.
+Controls the visability of the browser. By default it is invisible as it is started in headless mode.
 
 Example:
 ```
