@@ -1,15 +1,13 @@
 #!/bin/bash
-args="$@"
+
+ARGS="$@"
+
 set -x
-echo "---------------- init.sh ----------------" $args
-pwd
+set -e
 
 npm i @ui5/cli
-####npx ui5 build preload --include-task generateVersionInfo --all
+####npx ui5 build preload --all --include-task generateVersionInfo
 npx ui5 build self-contained --all --include-task generateVersionInfo
 
-DIR=`pwd`
-pushd .
-cd $TARGET_DIR
-node $DIR/init.js $args
-popd
+cd ${CDS_SERVICE_ROOT_DIR}
+node ${CDS_CUCUMBER_PLUGIN_DIR}/init.js $ARGS

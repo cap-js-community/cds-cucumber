@@ -72,11 +72,12 @@ async function addPlugin(pluginName, targetAppWorkspace) {
   const initSh = path.join(mydir,pluginName,'init.sh');
   if(fs.existsSync(initSh)) {
     let args = [initSh].concat(argv.slice(2));
-    console.log("----args------", args)
     let options = { cwd: pluginDir }
     let rootdir = cwd();
-    options.env = Object.assign( { TARGET_DIR: path.join(rootdir,targetAppWorkspace?targetAppWorkspace:'.') }, env );
-    console.log("----TARGET_DIR------", options.env.TARGET_DIR)
+    options.env = Object.assign( { 
+      CDS_SERVICE_ROOT_DIR: path.join(rootdir,targetAppWorkspace?targetAppWorkspace:'.'),
+      CDS_CUCUMBER_PLUGIN_DIR: path.join(mydir,pluginName),
+    }, env );
     await execCommand('bash', args, options)
   }
 
@@ -106,15 +107,12 @@ function copyFiles(fromDir, toDir) {
   let workspace;
   let param;
   argv.slice(2).forEach(arg => {
-    console.log("arg",arg)
     if(arg[0]=='-') param=arg;
     else {
       if(param=='-p') plugin=arg;
       if(param=='-w') workspace=arg;
     }
   })
-  console.log("plugin", plugin)
-  console.log("workspace", workspace)
   if(!plugin) throw Error('No plugin name provided as parameter!');
   console.log('Add cds-plugin:',plugin);
   if(workspace)

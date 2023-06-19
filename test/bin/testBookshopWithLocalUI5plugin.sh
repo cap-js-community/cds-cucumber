@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ "x$BRANCH_NAME" == "x" ]; then
+  echo BRANCH_NAME not set $BRANCH_NAME
+else
+  echo BRANCH_NAME set $BRANCH_NAME
+fi
+
 set -x
 set -e
 
@@ -17,7 +23,7 @@ test -d node_modules || npm i
 
 test -d node_modules/@sap/cds-dk || npm i @sap/cds-dk
 
-if [ "$BRANCH_NAME" == "" ]; then
+if [ "x$BRANCH_NAME" == "x" ]; then
   test -d node_modules/@cap-js-community/cds-cucumber ||  npm i -D ../../..
 else
   test -d node_modules/@cap-js-community/cds-cucumber ||  npm i -D git+https://$TOKEN@github.com/cap-js-community/cds-cucumber.git#$BRANCH_NAME
@@ -26,6 +32,15 @@ fi
 test -d local-ui5-build-plugin || npx cds-add-cucumber-plugin -p local-ui5-build -w fiori -f app/fiori-apps.html
 
 test -f cucumber.yml || npx cds-add-cucumber
+
+if [ "x$BRANCH_NAME" == "x" ]; then
+cat <<EOF >cucumber.yml
+default:
+    publishQuiet: true
+    require:
+      - ../../../lib/index.js
+EOF
+fi
 
 test -f test/features/list.tiles.feature || cat <<EOF >test/features/list.tiles.feature
 Feature: List tiles
@@ -45,16 +60,6 @@ Feature: List tiles
     ]
     """
 EOF
-
-if [ "$BRANCH_NAME" == "" ]; then
-cat <<EOF >cucumber.yml
-default:
-    publishQuiet: true
-    require:
-      - ../../../lib/index.js
-EOF
-fi
-
 
 export CDS_SERVICE_DIR=fiori
 export CDS_COMMAND=watch
