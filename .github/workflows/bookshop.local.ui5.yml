@@ -22,5 +22,8 @@ jobs:
         run: |
           npm i
       - name: test bookshop
+        env:
+          TOKEN: ${{ secrets.MY_TOKEN }}
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         run: |
           SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash test/bin/testBookshopWithLocalUI5plugin.sh
