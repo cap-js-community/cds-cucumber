@@ -1,0 +1,27 @@
+name: docker-test-bookshop-local-ui5
+on:
+  push:
+    branches: [ "plugins" ]
+jobs:
+  docker-job:
+    name: selenium-docker
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18 ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Run docker image - selenium/standalone-chrome
+        run: |
+          docker run -d -p 4444:4444 --network host selenium/standalone-chrome
+      - name: prepare
+        run: |
+          npm i
+          npm run prepare:test
+      - name: test bookshop
+        run: |
+          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash testBookshopWithLocalUI5plugin.sh

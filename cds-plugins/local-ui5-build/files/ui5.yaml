@@ -19,4 +19,4 @@ framework:
 resources:
   configuration:
     paths:
-      webapp: app
+      webapp: webapp

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const { spawn } = require('child_process');
-const { argv } = require('process');
+const { argv, env, cwd } = require('process');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -42,7 +42,7 @@ function _execCommand(command, args, options) {
 }
 
 async function execCommand(command, args=[], options={}) {
-  console.log("exec:",command,args,options)
+  console.log("exec:",command,args);
   let res = await _execCommand(command, args ,options);
   return res;
 }
@@ -71,7 +71,13 @@ async function addPlugin(pluginName, targetAppWorkspace) {
 
   const initSh = path.join(mydir,pluginName,'init.sh');
   if(fs.existsSync(initSh)) {
-    await execCommand('bash', [initSh], { cwd: pluginDir })
+    let args = [initSh].concat(argv.slice(2));
+    console.log("----args------", args)
+    let options = { cwd: pluginDir }
+    let rootdir = cwd();
+    options.env = Object.assign( { TARGET_DIR: path.join(rootdir,targetAppWorkspace?targetAppWorkspace:'.') }, env );
+    console.log("----TARGET_DIR------", options.env.TARGET_DIR)
+    await execCommand('bash', args, options)
   }
 
 }
@@ -96,11 +102,22 @@ function copyFiles(fromDir, toDir) {
 }
 
 (async function () {
-  const pluginName = argv[2];
-  const targetAppWorkspace = argv[3];
-  if(!pluginName) throw Error('No plugin name provided as parameter!');
-  console.log('Add cds-plugin:',pluginName);
-  if(targetAppWorkspace)
-    console.log('  workspace:',targetAppWorkspace);
-  await addPlugin(pluginName,targetAppWorkspace);
+  let plugin;
+  let workspace;
+  let param;
+  argv.slice(2).forEach(arg => {
+    console.log("arg",arg)
+    if(arg[0]=='-') param=arg;
+    else {
+      if(param=='-p') plugin=arg;
+      if(param=='-w') workspace=arg;
+    }
+  })
+  console.log("plugin", plugin)
+  console.log("workspace", workspace)
+  if(!plugin) throw Error('No plugin name provided as parameter!');
+  console.log('Add cds-plugin:',plugin);
+  if(workspace)
+    console.log('  workspace:',workspace);
+  await addPlugin(plugin,workspace);
 })();
