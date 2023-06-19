@@ -1,15 +1,9 @@
 #!/bin/bash
 
-if [ "x$BRANCH_NAME" == "x" ]; then
-  echo BRANCH_NAME not set $BRANCH_NAME
-else
-  echo BRANCH_NAME set $BRANCH_NAME
-fi
-
 set -x
 set -e
 
-DIR=tmp/try-samples-with-local-ui5-plugin
+DIR=tmp/try-bookshop-with-local-ui5-plugin
 
 #test -d $DIR && rm -r -f $DIR
 test -d $DIR || mkdir -p $DIR
@@ -23,7 +17,7 @@ test -d node_modules || npm i
 
 test -d node_modules/@sap/cds-dk || npm i @sap/cds-dk
 
-if [ "x$BRANCH_NAME" == "x" ]; then
+if [ "$BRANCH_NAME" == "" ]; then
   test -d node_modules/@cap-js-community/cds-cucumber ||  npm i -D ../../..
 else
   test -d node_modules/@cap-js-community/cds-cucumber ||  npm i -D git+https://$TOKEN@github.com/cap-js-community/cds-cucumber.git#$BRANCH_NAME
@@ -33,7 +27,7 @@ test -d local-ui5-build-plugin || npx cds-add-cucumber-plugin -p local-ui5-build
 
 test -f cucumber.yml || npx cds-add-cucumber
 
-if [ "x$BRANCH_NAME" == "x" ]; then
+if [ "$BRANCH_NAME" == "" ]; then
 cat <<EOF >cucumber.yml
 default:
     publishQuiet: true

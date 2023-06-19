@@ -1,4 +1,4 @@
-name: docker-test-bookshop-local-ui5
+name: docker-test-sflight-local-ui5
 on:
   push:
     branches: [ "plugins" ]
@@ -26,4 +26,4 @@ jobs:
           TOKEN: ${{ secrets.MY_TOKEN }}
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         run: |
-          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash test/bin/testBookshopWithLocalUI5plugin.sh
+          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash test/bin/testSFlightWithLocalUI5plugin.sh
