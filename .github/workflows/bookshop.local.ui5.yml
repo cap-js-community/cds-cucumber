@@ -1,7 +1,7 @@
 name: docker-test-bookshop-local-ui5
 on:
   push:
-    branches: [ "plugins" ]
+    branches: [ "run-github-actions-local-ui5" ]
 jobs:
   docker-job:
     name: selenium-docker
