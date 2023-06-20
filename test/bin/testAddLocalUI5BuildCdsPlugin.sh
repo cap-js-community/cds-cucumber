@@ -24,4 +24,4 @@ npx cds init --add samples,sqlite && npx cds deploy --to sqlite
 npm i @sap/cds
 npm i express
 
-node ${ROOT}/cds-plugins/addCdsPlugin.js local-ui5-build
+node ${ROOT}/cds-plugins/addCdsPlugin.js -p local-ui5-build -f app/fiori-apps.html
