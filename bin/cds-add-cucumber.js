@@ -40,7 +40,7 @@ function createTestFeaturesDir() {
 
 function createVSCodePluginConfig() {
   const content = `{
-// Cucumber for Visual Studio Code (CucumberOpen) https://open-vsx.org/extension/CucumberOpen/cucumber-official 
+  // Cucumber for Visual Studio Code (CucumberOpen) https://open-vsx.org/extension/CucumberOpen/cucumber-official 
   "cucumber.features": [
     "test/features/**/*.feature"
   ],
@@ -48,14 +48,12 @@ function createVSCodePluginConfig() {
     "test/features/step_definitions/**/*.js",
     "node_modules/${getModuleName()}/lib/steps/*.js"
   ],
-
   // Cucumber (Gherkin) Full Support https://marketplace.visualstudio.com/items?itemName=alexkrechik.cucumberautocomplete
   "cucumberautocomplete.steps": [
     "test/features/step_definitions/*.js",
     "node_modules/${getModuleName()}/lib/steps/*.js"
   ],
   "cucumberautocomplete.strictGherkinCompletion": true
-
 }
 `
   mkdir('./.vscode');
