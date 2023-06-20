@@ -3,8 +3,19 @@
     ".reuse/**": true,
     "LICENSES/**": true
   },
-  "cucumberautocomplete.steps": [
+    // Cucumber for Visual Studio Code (CucumberOpen) https://open-vsx.org/extension/CucumberOpen/cucumber-official 
+    "cucumber.features": [
+      "test/features/**/*.feature"
+    ],
+    "cucumber.glue": [
+      "test/features/step_definitions/**/*.js",
       "lib/steps/*.js"
-  ],
-  "cucumberautocomplete.strictGherkinCompletion": true
+    ],
+  
+    // Cucumber (Gherkin) Full Support https://marketplace.visualstudio.com/items?itemName=alexkrechik.cucumberautocomplete
+    "cucumberautocomplete.steps": [
+      "test/features/step_definitions/*.js",
+      "lib/steps/*.js"
+    ],
+    "cucumberautocomplete.strictGherkinCompletion": true
 }
