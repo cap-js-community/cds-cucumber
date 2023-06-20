@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { argv, cwd, env } = require('process');
 
-console.log("init.js", JSON.stringify(argv))
+console.log(__filename, JSON.stringify(argv))
 console.log("cwd", cwd())
 
 let param;
