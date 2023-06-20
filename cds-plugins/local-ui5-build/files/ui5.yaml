@@ -1,0 +1,22 @@
+specVersion: '3.0'
+metadata:
+  name: cds-local-ui5-plugin
+  allowSapInternal: true
+type: application
+framework:
+  name: SAPUI5
+  version: "1.110.1"
+  libraries:
+    - name: sap.ui.core
+    - name: sap.fe.core
+    - name: sap.ushell
+    - name: sap.fe.templates
+    - name: sap.suite.ui.generic.template
+    - name: sap.ui.dt
+    - name: sap.ui.generic.template
+    - name: sap.ui.rta
+    - name: themelib_sap_horizon
+resources:
+  configuration:
+    paths:
+      webapp: webapp

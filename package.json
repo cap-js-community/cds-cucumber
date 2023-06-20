@@ -12,12 +12,14 @@
   "license": "SEE LICENSE IN LICENSE",
   "repository": "cap-js-community/cds-cucumber",
   "bin": {
-    "cds-add-cucumber": "./bin/cds-add-cucumber.js"
+    "cds-add-cucumber": "./bin/cds-add-cucumber.js",
+    "cds-add-cucumber-plugin": "cds-plugins/addCdsPlugin.js"
   },
   "main": "./lib/index.js",
   "files": [
     "bin",
-    "lib"
+    "lib",
+    "cds-plugins"
   ],
   "scripts": {
     "check": "./test/bin/check.sh",
