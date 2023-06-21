@@ -13,7 +13,7 @@
   "repository": "cap-js-community/cds-cucumber",
   "bin": {
     "cds-add-cucumber": "./bin/cds-add-cucumber.js",
-    "cds-add-cucumber-plugin": "cds-plugins/addCdsPlugin.js"
+    "cds-add-cucumber-plugin": "./cds-plugins/addCdsPlugin.js"
   },
   "main": "./lib/index.js",
   "files": [
@@ -31,8 +31,8 @@
   "dependencies": {
     "chai": "^4.3.7",
     "chai-shallow-deep-equal": "^1.4.6",
-    "chromedriver": "*",
-    "selenium-webdriver": "*",
+    "chromedriver": "^114.0.2",
+    "selenium-webdriver": "^4.10.0",
     "tree-kill": "^1.2.2"
   },
   "peerDependencies": {
