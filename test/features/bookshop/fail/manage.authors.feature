@@ -14,7 +14,7 @@ Feature: Manage authors
 
   Scenario: long version authors
     Given we have opened the url "fiori-apps.html"
-      And we login with user "alice" using path "/admin"
+      And we login with user "alice" via "/admin"
     When we select tile "Manage Authors"
       And we click on text "Boston, Massachusetts"
       And we read the content of the page
