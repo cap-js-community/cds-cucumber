@@ -67,6 +67,15 @@ Example:
 CDS_SERVICE_APPLICATION=fiori
 ```
 
+### CDS\_ENABLE\_LOCAL\_UI5\_VERSION
+
+Enables the default Fiori Preview page to load local UI5 version by setting the CDS_CONFIG to ```{"preview": {"ui5": { "host": "/" } } }``` but does not overwrite it.
+
+Example:
+```
+CDS_ENABLE_LOCAL_UI5_VERSION=1
+```
+
 ## Execution control
 
 ### SLOW_DOWN

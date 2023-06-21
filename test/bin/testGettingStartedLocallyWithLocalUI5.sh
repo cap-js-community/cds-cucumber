@@ -29,14 +29,5 @@ EOF
 
 npx cds-add-cucumber-plugin -p local-ui5-build
 
-cat <<EOF >.cdsrc.json
-{
-  "preview": {
-    "ui5": {
-      "host":"/"
-    }
-  }
-}
-EOF
-
+export CDS_ENABLE_LOCAL_UI5_VERSION=1
 npx cucumber-js test
