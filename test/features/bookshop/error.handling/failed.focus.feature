@@ -2,7 +2,7 @@
 Feature: Create draft, change status and save
 
   Background: Start service and open travel processor
-    Given we have started application "." in path "cap-sflight"
+    Given we have started application "." in directory "cap-sflight"
       And we have opened the url "/travel_processor/webapp/index.html"
       And table "Travels" has 4133 records
     When we create draft

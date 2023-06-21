@@ -19,12 +19,12 @@ Feature: Create and discard a draft
       And we decide to keep the draft
       And we read the content of the rows in the table
       And we have opened the url "fiori-apps.html"
-      And we login with user "carol" using path "/admin"
+      And we login with user "carol" via "/admin"
       And we select tile "Manage Books"
       And we read the content of the rows in the table
       # clean up the draft
       And we have opened the url "fiori-apps.html"
-      And we login with user "alice" using path "/admin"
+      And we login with user "alice" via "/admin"
       And we select tile "Manage Books"
       And we read the content of the rows in the table
       And we tap on object identifier "Title2"

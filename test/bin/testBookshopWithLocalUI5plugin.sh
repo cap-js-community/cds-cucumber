@@ -55,8 +55,10 @@ Feature: List tiles
     """
 EOF
 
-export CDS_SERVICE_DIR=fiori
-export CDS_COMMAND=watch
+export CDS_SERVICE_APPLICATION=fiori
+export CDS_COMMAND_ARG1="--with-mocks"
+export CDS_COMMAND_ARG2="--in-memory?"
+
 export CDS_USERNAME=alice
 export CDS_PASSWORD=admin
 
