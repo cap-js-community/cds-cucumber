@@ -1,0 +1,23 @@
+name: ui5-restore-cache
+on:
+  push:
+    branches: [ "try-out-cache-ui5" ]
+jobs:
+  build-restore-ui5-cache:
+    name: build-restore-ui5-cache
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/cache/restore@v3
+        id: cache
+        with:
+          path: tmp/sapui5/full-1.110.1/dist
+          key: sapui5-full-1.110.1
+
+      - name: check cache
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: echo "No cache hit"
+
+      - name: list cache
+        run: ls -altr tmp/sapui5/full-1.110.1/dist

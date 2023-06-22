@@ -1,7 +1,7 @@
 name: ui5-save-cache
 on:
   push:
-    branches: [ "try-out-cache-ui5" ]
+    branches: [ "save-ui5-cache" ]
 jobs:
   build-save-ui5-cache:
     name: build-save-ui5-cache
