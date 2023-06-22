@@ -1,0 +1,43 @@
+name: getting-started-cached-ui5
+on:
+  push:
+    branches: [ "run-github-actions-cached-ui5" ]
+jobs:
+  getting-started-cached-ui5:
+    name: getting-started-cached-ui5
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18 ]
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/cache/restore@v3
+        id: cache
+        with:
+          path: tmp/sapui5/full-1.110.1/dist
+          key: sapui5-full-1.110.1
+
+      - name: check cache
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: echo "No cache hit"
+
+      - name: list cache
+        run: ls -altr tmp/sapui5/full-1.110.1/dist
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: prepare
+        run: npm i
+  
+      - name: selenium
+        run: docker run -d -p 4444:4444 --network host selenium/standalone-chrome
+
+      - name: test
+        env:
+          TOKEN: ${{ secrets.MY_TOKEN }}
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+        run: SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash ./test/bin/testGettingStartedReuseUI5LocalBuild.sh

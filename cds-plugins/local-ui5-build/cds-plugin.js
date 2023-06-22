@@ -1,7 +1,10 @@
 const path = require('path');
 const fs = require('fs');
+const { env } = require('process');
 
-let dist = path.join(__dirname, 'dist');
+let dist = env.SAPUI5_DIST_DIRECTORY;
+if(!dist)
+  dist = path.join(__dirname, 'dist');
 if(!fs.existsSync(dist))
   dist = path.join(process.cwd(), 'dist');
 
