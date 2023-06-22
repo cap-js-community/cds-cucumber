@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-#set -x
+set -x
 
 ROOT_DIR=`pwd`
 DIR=tmp/getting-started-locally-reuse-local-ui5
@@ -24,7 +24,11 @@ else
   npx cds init --add samples,sqlite && npx cds deploy --to sqlite
   npm i @sap/cds
   npm i express
-  npm i ../../.. || true
+  if [ -d ../../../cds-plugins ]; then
+    npm i ../../.. || true
+  else
+    npm i -D git+https://$TOKEN@github.com/cap-js-community/cds-cucumber.git#$BRANCH_NAME
+  fi
 fi
 
 if [ -f "cucumber.yml" ]; then
