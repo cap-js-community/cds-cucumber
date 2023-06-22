@@ -21,3 +21,6 @@ jobs:
 
       - name: list cache
         run: ls -altr tmp/sapui5/full-1.110.1/dist
+
+      - name: run tests
+        run: ./test/bin/testGettingStartedLocallyReuseUI5LocalBuild.sh
