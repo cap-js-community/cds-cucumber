@@ -35,6 +35,8 @@ if [ -f "cucumber.yml" ]; then
   echo "Cucumber already enabled."
 else
 npx cds-add-cucumber
+
+if [ "$BRANCH_NAME" == "" ]; then
 # requireModule does not work with links -> require the steps directly
 cat <<EOF >cucumber.yml
 default:
@@ -42,6 +44,8 @@ default:
     require:
       - ../../../lib/index.js
 EOF
+fi
+
 fi
 
 export SAPUI5_DIST_DIRECTORY=${ROOT_DIR}/tmp/sapui5/full-1.110.1/dist
