@@ -1,7 +1,7 @@
 name: getting-started-cached-ui5
 on:
   push:
-    branches: [ "run-github-actions-cached-ui5" ]
+    branches: [ "run-github-actions-cached-ui5-on-the-fly" ]
 jobs:
   getting-started-cached-ui5:
     name: getting-started-cached-ui5
@@ -18,9 +18,15 @@ jobs:
           path: tmp/sapui5/full-1.110.1/dist
           key: sapui5-full-1.110.1
 
-      - name: check cache
+      - name: Build UI5
         if: steps.cache.outputs.cache-hit != 'true'
-        run: echo "No cache hit"
+        run: ./test/bin/build.ui5.sh
+
+      - uses: actions/cache/save@v3
+        if: steps.cache.outputs.cache-hit != 'true'
+        with:
+          path: tmp/sapui5/full-1.110.1/dist
+          key: sapui5-full-1.110.1
 
       - name: list cache
         run: ls -altr tmp/sapui5/full-1.110.1/dist
