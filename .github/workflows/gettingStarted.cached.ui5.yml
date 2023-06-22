@@ -4,7 +4,7 @@ on:
     branches: [ "run-github-actions-cached-ui5" ]
 jobs:
   getting-started-cached-ui5:
-    name: build-restore-ui5-cache
+    name: getting-started-cached-ui5
     runs-on: ubuntu-latest
     strategy:
       matrix:
