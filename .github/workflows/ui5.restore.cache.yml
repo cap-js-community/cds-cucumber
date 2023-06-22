@@ -30,6 +30,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: prepare
+        run: |
+          npm i
+  
       - name: selenium
         run: |
           docker run -d -p 4444:4444 --network host selenium/standalone-chrome
