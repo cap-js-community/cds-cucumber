@@ -1,0 +1,19 @@
+name: ui5-save-cache
+on:
+  push:
+    branches: [ "try-out-cache-ui5" ]
+jobs:
+  build-save-ui5-cache:
+    name: build-save-ui5-cache
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build
+        run: ./test/bin/build.ui5.sh
+
+      - uses: actions/cache/save@v3
+        id: cache
+        with:
+          path: tmp/sapui5/full-1.110.1/dist
+          key: sapui5-full-1.110.1
