@@ -17,7 +17,8 @@
                           "sap.ui.generic.template": {},
                           "sap.ui.rta": {},
                           "sap.m": {},
-                          "sap.f": {}
+                          "sap.f": {},
+                          "sap.ui.codeeditor": {}
                   }
           }
   }

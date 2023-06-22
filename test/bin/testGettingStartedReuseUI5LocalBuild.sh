@@ -3,6 +3,8 @@
 set -e
 set -x
 
+. ./test/bin/.sapui5.version.sh
+
 ROOT_DIR=`pwd`
 DIR=tmp/getting-started-locally-reuse-local-ui5
 
@@ -48,7 +50,7 @@ fi
 
 fi
 
-export SAPUI5_DIST_DIRECTORY=${ROOT_DIR}/tmp/sapui5/full-1.110.1/dist
+export SAPUI5_DIST_DIRECTORY=${ROOT_DIR}/tmp/sapui5/full-${SAP_UI5_VERSION}/dist
 if [ -d ${SAPUI5_DIST_DIRECTORY} ]; then
   echo "Found UI5 local build: ${SAPUI5_DIST_DIRECTORY}"
 else
