@@ -58,4 +58,5 @@ else
 fi
 
 export CDS_ENABLE_LOCAL_UI5_VERSION=1
+npm i @cucumber/cucumber
 npx cucumber-js test
