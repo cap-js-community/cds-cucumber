@@ -24,7 +24,7 @@ else
   npx cds init --add samples,sqlite && npx cds deploy --to sqlite
   npm i @sap/cds
   npm i express
-  if [ -d ../../../cds-plugins ]; then
+  if [ "$BRANCH_NAME" == "" ]; then
     npm i ../../.. || true
   else
     npm i -D git+https://$TOKEN@github.com/cap-js-community/cds-cucumber.git#$BRANCH_NAME
