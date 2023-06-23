@@ -9,14 +9,15 @@ jobs:
     strategy:
       matrix:
         node-version: [ 18 ]
+        sap-ui5-version: [ 1.110.1, 1.113.0, 1.114.0 ]
     steps:
       - uses: actions/checkout@v3
 
       - uses: actions/cache/restore@v3
         id: cache
         with:
-          path: tmp/sapui5/full-1.110.1/dist
-          key: sapui5-full-1.110.1
+          path: tmp/sapui5/full-${{ matrix.sap-ui5-version }}/dist
+          key: sapui5-full-${{ matrix.sap-ui5-version }}
 
       - name: Build UI5
         if: steps.cache.outputs.cache-hit != 'true'
@@ -25,11 +26,11 @@ jobs:
       - uses: actions/cache/save@v3
         if: steps.cache.outputs.cache-hit != 'true'
         with:
-          path: tmp/sapui5/full-1.110.1/dist
-          key: sapui5-full-1.110.1
+          path: tmp/sapui5/${{ matrix.sap-ui5-version }}/dist
+          key: sapui5-full-${{ matrix.sap-ui5-version }}
 
       - name: list cache
-        run: ls -altr tmp/sapui5/full-1.110.1/dist
+        run: ls -altr tmp/sapui5/${{ matrix.sap-ui5-version }}/dist
 
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
