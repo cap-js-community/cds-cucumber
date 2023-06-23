@@ -21,6 +21,8 @@ jobs:
 
       - name: Build UI5
         if: steps.cache.outputs.cache-hit != 'true'
+        env:
+          SAP_UI5_VERSION: ${{ matrix.sap-ui5-version }}
         run: ./test/bin/build.ui5.sh
 
       - uses: actions/cache/save@v3
