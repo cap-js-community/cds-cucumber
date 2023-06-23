@@ -26,10 +26,10 @@ files.forEach(file => {
   let content = String(fs.readFileSync(fp));
 
   let re1 = new RegExp('https\:\/\/.*sap-ui-core.js','g');
-  content=content.replaceAll(re1,"resources/sap-ui-custom.js");
+  content=content.replaceAll(re1,"/resources/sap-ui-custom.js");
 
   let re2 = new RegExp('https\:\/\/.*test-resources\/sap\/ushell\/bootstrap\/sandbox.js', 'g');
-  content=content.replaceAll(re2,"test-resources/sap/ushell/bootstrap/sandbox.js");
+  content=content.replaceAll(re2,"/test-resources/sap/ushell/bootstrap/sandbox.js");
 
   fs.writeFileSync(fp, content);
   console.log('Wrote file:', fp);

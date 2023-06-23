@@ -8,7 +8,7 @@ set -e
 ROOT_DIR=`pwd`
 DIR=tmp/try-bookshop-with-local-ui5-plugin
 
-test -d $DIR && rm -r -f $DIR
+#test -d $DIR && rm -r -f $DIR
 test -d $DIR || mkdir -p $DIR
 cd $DIR
 
@@ -56,4 +56,4 @@ export CDS_COMMAND_ARG2="--in-memory?"
 export CDS_USERNAME=alice
 export CDS_PASSWORD=admin
 
-npx cucumber-js test --tags "not @todo"
+npx cucumber-js test/features/bookshop --tags "not @todo"
