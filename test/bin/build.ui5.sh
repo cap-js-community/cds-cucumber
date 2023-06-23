@@ -3,7 +3,11 @@
 set -e
 set -x
 
+echo "Start build of SAP UI5 version ${SAP_UI5_VERSION}"
+
 . ./test/bin/.sapui5.version.sh
+
+echo "Build SAP UI5 version ${SAP_UI5_VERSION}"
 
 DIR=tmp/sapui5/full-${SAP_UI5_VERSION}
 
