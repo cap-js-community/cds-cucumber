@@ -32,7 +32,7 @@ jobs:
           key: sapui5-full-${{ matrix.sap-ui5-version }}
 
       - name: list cache
-        run: ls -altr tmp/sapui5/${{ matrix.sap-ui5-version }}/dist
+        run: ls -altr tmp/sapui5/full-${{ matrix.sap-ui5-version }}/dist
 
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
