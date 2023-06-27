@@ -86,4 +86,4 @@ The port 4004 is the default port of the CDS Server when running standalone.
 The CDS Server obtains a random port when started via the cds-cucumber library, 
 but can be changed to a fixed one via the environment variable [CDS\_SERVICE\_PORT](ENV.md#cds_service_port).
 
-When the tests are started with debugging enabled via [CDS\_CUCUMBER\_DEBUG](ENV.md#cds_cucumber_debug), after the CDS server is started, selenuim is initialized and the step-library is loaded in the browser, the execution of the steps will wait until the VSCode Debugger is attached to the browser session but only in case the environment variable [CDS\_CUCUMBER\_WAIT\_DEBUGGER](ENV.md#cds_cucumber_wait_debugger) is set.
+When the tests are started with debugging enabled via [CDS\_CUCUMBER\_DEBUG](ENV.md#cds_cucumber_debug), the CDS server is running, selenuim is initialized and the step-library is loaded into the browser, the execution of the steps will wait until the VSCode Debugger is attached to the browser session but only in case the environment variable [CDS\_CUCUMBER\_WAIT\_DEBUGGER](ENV.md#cds_cucumber_wait_debugger) is set.
