@@ -2,16 +2,37 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Bookshop features",
+      "type": "node",
+      "request": "launch",
+      "program": "/usr/bin/npx",
+      "args": ["cucumber-js","test/features/bookshop"],
+      "env": {
+        "CWD": "${workspaceFolder}",
+        "CDS_COMMAND_ARG1": "--with-mocks",
+        "CDS_COMMAND_ARG2": "--in-memory?",
+        "CDS_USERNAME": "alice",
+        "CDS_SERVICE_DIRECTORY":"tmp/cloud-cap-samples/fiori",
+        "CUCUMBER_PUBLISH_ENABLED":"false",
+        "CUCUMBER_PUBLISH_QUIET":"true"
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "outputCapture": "console",
+      "console":"integratedTerminal"
+    },
+    {
       "name": "SFlight features",
       "type": "node",
       "request": "launch",
-      "program": "npx",
+      "program": "/usr/bin/npx",
       "args": ["cucumber-js","test/features/sflight"],
       "env": {
         "CWD": "${workspaceFolder}",
         "CDS_USERNAME": "alice",
         "CDS_PASSWORD": "admin",
-        "CDS_SERVICE_DIR":"tmp/cap-sflight",
+        "CDS_SERVICE_DIRECTORY":"tmp/cap-sflight",
         "CUCUMBER_PUBLISH_ENABLED":"false",
         "CUCUMBER_PUBLISH_QUIET":"true"
       },
