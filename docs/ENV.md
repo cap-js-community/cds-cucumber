@@ -111,7 +111,7 @@ SLOW_QUIT=2
 
 ### CDS\_CUCUMBER\_DEBUG
 
-Used to increase the steps default timeout during debugging sessions and load the steps-browser-library via the webserver instead of injecting it.
+Used to increase the steps default timeout during debugging sessions, create symlink of the steps-browser-library (browser.js) and load it via the webserver instead of injecting it.
 
 Example:
 ```
@@ -132,7 +132,7 @@ Specifies the remote debugging port of the browser. It is used when debugging th
 
 ### CDS\_CUCUMBER\_WAIT\_DEBUGGER
 
-Forces the initialization process to wait until the debugger is attached.
+Forces the initialization process to wait until the debugger is attached. This happens right after the steps-library (browser.js) is loaded in the browser.
 
 Example:
 ```
