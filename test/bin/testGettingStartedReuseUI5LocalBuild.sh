@@ -63,5 +63,4 @@ else
   npx cds-add-cucumber-plugin -p local-ui5-build
 fi
 
-export CDS_ENABLE_LOCAL_UI5_VERSION=1
 npx cucumber-js test
