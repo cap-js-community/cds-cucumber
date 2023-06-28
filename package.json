@@ -36,6 +36,6 @@
     "tree-kill": "^1.2.2"
   },
   "peerDependencies": {
-    "@cucumber/cucumber": "^9.1.2"
+    "@cucumber/cucumber": "^9.2.0"
   }
 }
