@@ -43,7 +43,7 @@ test/features/step_definitions
 
 ## VSCode Cucumber(Gherkin) plugin
 
-In order to get support (like code completion) for VSCode when writing your specifications, you can install one of the following plugins:
+In order to get support (like code completion) for VSCode while writing your specifications, you can install one of the following plugins:
 
 * [Cucumber for Visual Studio Code (CucumberOpen)](https://open-vsx.org/extension/CucumberOpen/cucumber-official)
 

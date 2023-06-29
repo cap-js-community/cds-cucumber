@@ -6,7 +6,7 @@ The following document describes how to debug the step-implementations, server-s
 
 Debugging the step-implementations with VSCode is possible in two ways.
 
-### VSCode JavaScript Debug Termninal
+### VSCode JavaScript Debug Terminal
 
 Use the following command to start javascript debug terminal:
 Keyboard-shortcut: *Ctrl+Shift+P*
