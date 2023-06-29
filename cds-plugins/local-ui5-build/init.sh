@@ -8,8 +8,8 @@ set -e
 if [ "${SAPUI5_DIST_DIRECTORY}" = "" ]; then
   echo "Build UI5"
   npm i @ui5/cli
-  ####npx ui5 build preload --all --include-task generateVersionInfo
-  npx ui5 build self-contained --all --include-task generateVersionInfo
+  # ./build.preload.sh
+  ./build.self-contained.sh
 else  
   echo "Reuse UI5 build: ${SAPUI5_DIST_DIRECTORY}"
 fi

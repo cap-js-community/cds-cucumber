@@ -95,10 +95,12 @@ function copyFiles(fromDir, toDir) {
     if(fs.existsSync(f2)) return;
     console.log("copy",f1)
     console.log("->to",f2)
-    if(fs.lstatSync(f1).isDirectory())
+    if(fs.lstatSync(f1).isDirectory()) {
       copyFiles(f1,f2);
-    else
+    } else {
       fs.writeFileSync(f2,fs.readFileSync(f1));
+      fs.chmodSync(f2, fs.lstatSync(f1).mode);
+    }
   })
 }
 
