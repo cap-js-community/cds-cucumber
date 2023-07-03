@@ -2,7 +2,7 @@ name: "Getting started"
 
 on:
   push:
-    branches: [ "run-github-actions" ]
+    branches: [ "run-guthub-action-getting-started" ]
 
 jobs:
   getting-started:
@@ -25,4 +25,5 @@ jobs:
           TOKEN: ${{ secrets.MY_TOKEN }}
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         run: |
-          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash ./test/bin/testGettingStarted.sh
+          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash ./test/bin/testGettingStarted683.sh
+          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash ./test/bin/testGettingStarted700.sh
