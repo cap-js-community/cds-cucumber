@@ -59,8 +59,7 @@ async function addPlugin(pluginName, targetAppWorkspace) {
   console.log("pluginDir:",pluginDir)
 
   fs.writeFileSync(path.join(pluginDir,'index.js'),'');
-  const content = String(fs.readFileSync(path.join(mydir,pluginName,'cds-plugin.js')));
-  fs.writeFileSync(path.join(pluginDir,'cds-plugin.js'),content);
+  fs.copyFileSync(path.join(mydir,pluginName,'cds-plugin.js'), path.join(pluginDir,'cds-plugin.js'))
 
   if(targetAppWorkspace)
     await execCommand('npm',['add','-w',targetAppWorkspace,targetPluginName]);
@@ -98,8 +97,7 @@ function copyFiles(fromDir, toDir) {
     if(fs.lstatSync(f1).isDirectory()) {
       copyFiles(f1,f2);
     } else {
-      fs.writeFileSync(f2,fs.readFileSync(f1));
-      fs.chmodSync(f2, fs.lstatSync(f1).mode);
+      fs.copyFileSync(f1, f2);
     }
   })
 }
