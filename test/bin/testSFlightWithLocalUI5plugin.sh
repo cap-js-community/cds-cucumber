@@ -23,7 +23,7 @@ test -d node_modules/@sap/cds-dk || npm i @sap/cds-dk
 if [ "$BRANCH_NAME" == "" ]; then
   test -d node_modules/@cap-js-community/cds-cucumber ||  npm i -D ../../..
 else
-  test -d node_modules/@cap-js-community/cds-cucumber ||  npm i -D git+https://$TOKEN@github.com/cap-js-community/cds-cucumber.git#$BRANCH_NAME
+  test -d node_modules/@cap-js-community/cds-cucumber ||  npm i -D git+https://github.com/cap-js-community/cds-cucumber.git#$BRANCH_NAME
 fi
 
 export SAPUI5_DIST_DIRECTORY=${ROOT_DIR}/tmp/sapui5/full-${SAP_UI5_VERSION}/dist

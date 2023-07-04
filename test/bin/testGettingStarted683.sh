@@ -25,8 +25,8 @@ npm i express
 if [ "$BRANCH_NAME" == "" ]; then
   npm i ../../.. || true
 else
-    npm i -D git+https://$TOKEN@github.com/cap-js-community/cds-cucumber.git#$BRANCH_NAME
-    #npm i -D https://$TOKEN@github.com/cap-js-community/cds-cucumber/tarball/$BRANCH_NAME
+    npm i -D git+https://github.com/cap-js-community/cds-cucumber.git#$BRANCH_NAME
+    #npm i -D https://github.com/cap-js-community/cds-cucumber/tarball/$BRANCH_NAME
 fi
 npx cds-add-cucumber
 
