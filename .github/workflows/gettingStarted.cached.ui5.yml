@@ -49,4 +49,6 @@ jobs:
         env:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           SAP_UI5_VERSION: ${{ matrix.sap-ui5-version }}
-        run: SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash ./test/bin/testGettingStartedReuseUI5LocalBuild.sh
+        run: |
+          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash ./test/bin/testGettingStartedReuseUI5LocalBuild683.sh
+          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash ./test/bin/testGettingStartedReuseUI5LocalBuild700.sh
