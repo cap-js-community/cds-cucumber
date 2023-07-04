@@ -5,15 +5,19 @@ set -x
 
 . ./test/bin/.sapui5.version.sh
 
+if [ "${CDS_VERSION}" == "" ]; then
+  export CDS_VERSION="^7.0.0"
+fi
+
 ROOT_DIR=`pwd`
-DIR=tmp/getting-started-locally-reuse-local-ui5-cds70
+DIR=tmp/getting-started-locally-reuse-local-ui5-cds-${CDS_VERSION/\^/}
 
 test -d $DIR && rm -r -f $DIR
 test -d ${DIR} || mkdir -p $DIR
 cd $DIR
 test -f package.json || npm init -y
 test -d dk || npm init -w dk -y
-test -d node_modules/@sap/cds-dk || npm i -w dk @sap/cds-dk@^7.0.0
+test -d node_modules/@sap/cds-dk || npm i -w dk @sap/cds-dk@${CDS_VERSION}
 
 if [ -d "service" ]; then
   echo "Service already generated."
@@ -24,7 +28,7 @@ else
   cd service
 
   npx cds init --add sample,sqlite && npx cds deploy --to sqlite
-  npm i @sap/cds@^7.0.0
+  npm i @sap/cds@${CDS_VERSION}
   npm i express
   if [ "$BRANCH_NAME" == "" ]; then
     npm i ../../.. || true
