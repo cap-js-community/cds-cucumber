@@ -31,7 +31,6 @@ if [ -d ${SAPUI5_DIST_DIRECTORY} ]; then
   echo "Found UI5 local build: ${SAPUI5_DIST_DIRECTORY}"
 else
   echo "Missing UI5 local build: ${SAPUI5_DIST_DIRECTORY}"
-  exit 1
 fi
 
 test -d local-ui5-build-plugin || npx cds-add-cucumber-plugin -p local-ui5-build -f app/travel_processor/webapp/index.html
