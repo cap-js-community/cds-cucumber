@@ -18,8 +18,6 @@ cd cap-sflight
 
 test -d node_modules || npm i
 
-test -d node_modules/@sap/cds-dk || npm i @sap/cds-dk
-
 if [ "$BRANCH_NAME" == "" ]; then
   test -d node_modules/@cap-js-community/cds-cucumber ||  npm i -D ../../..
 else

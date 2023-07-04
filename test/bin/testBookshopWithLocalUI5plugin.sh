@@ -17,8 +17,7 @@ test -d cloud-cap-samples || git clone https://github.com/SAP-samples/cloud-cap-
 cd cloud-cap-samples
 
 test -d node_modules || npm i
-
-test -d node_modules/@sap/cds-dk || npm i @sap/cds-dk
+test -d node_modules/sqlite3 || npm i -D sqlite3
 
 if [ "$BRANCH_NAME" == "" ]; then
   test -d node_modules/@cap-js-community/cds-cucumber ||  npm i -D ../../..
