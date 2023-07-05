@@ -40,7 +40,8 @@ npm i -g @sap/cds-dk
 Make sure you have a CAP project. You can create one with the following command:
 
 ```sh
-cds init --add samples,sqlite
+cds init --add samples,sqlite bookshop
+cd bookshop
 cds deploy --to sqlite
 ```
 
