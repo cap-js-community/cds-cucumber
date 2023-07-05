@@ -24,7 +24,7 @@ npx cds init --add samples,sqlite && npx cds deploy --to sqlite
 npm i @sap/cds
 npm i express
 
-node ${ROOT}/cds-plugins/addCdsPlugin.js just-exit
+node ${ROOT}/cds-plugins/addCdsPlugin.js -p just-exit
 
 set +e
 timeout -s SIGUSR2 5 npx cds run &
