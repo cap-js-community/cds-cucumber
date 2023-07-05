@@ -3,7 +3,7 @@
 set -e
 set -x
 
-if [ "${CDS_VERSION}" == "" ]; then
+if [ "${CDS_VERSION}" = "" ]; then
   export CDS_VERSION="^7.0.0"
 fi
 
