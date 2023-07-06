@@ -48,7 +48,7 @@ cds deploy --to sqlite
 ### Configure
 
 ```sh
-npm i -D @cap-js-community/cds-cucumber
+npm i -D https://github.com/cap-js-community/cds-cucumber.git
 npx cds-add-cucumber
 ```
 
