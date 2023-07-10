@@ -19,7 +19,7 @@
   "files": [
     "bin",
     "lib",
-    "cds-plugins"
+    "cds-plugins/local-ui5-build"
   ],
   "scripts": {
     "check": "./test/bin/check.sh",
