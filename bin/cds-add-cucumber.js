@@ -132,7 +132,7 @@ function createBookshopFirstFeatureFile() {
       And we search for "jane"
     Then we expect to have 2 table records
 `
-  const file = './test/features/bookshop.feature';
+  const file = './test/features/bookshop-search.feature';
 
   // detect "cds add sample"
   if(!fs.existsSync('./app/index.html')) return false;

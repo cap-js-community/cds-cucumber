@@ -40,7 +40,7 @@ npm i -g @sap/cds-dk
 Make sure you have a CAP project. You can create one with the following command:
 
 ```sh
-cds init --add samples,sqlite bookshop
+cds init --add sample,sqlite bookshop
 cd bookshop
 cds deploy --to sqlite
 ```
@@ -54,16 +54,16 @@ npx cds-add-cucumber
 
 ### Add feature files
 
-File: test/features/first.feature
+File: test/features/bookshop-search.feature
 ```gherkin
-Feature: Fiori preview page
+Feature: Bookshop search
 
-  Scenario: Open first Fiori preview page
+  Scenario: Open "Manage Books" as "alice" and search for "jane"
     Given we have started the CAP application
-      And we have opened the url "/"
-    When we click on first Fiori preview page
+      And we have opened the url "/" with user "alice"
+    When we select tile "Manage Books"
       And we search for "jane"
-    Then we expect to have 1 table records
+    Then we expect to have 2 table records
 ```
 
 For existing projects you have to adjust the example above.
