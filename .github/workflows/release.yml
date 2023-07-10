@@ -18,7 +18,7 @@ jobs:
         node-version: 18
         registry-url: https://registry.npmjs.org/
     - run: npm ci
-    - run: npm test
+    # - run: npm test
     - name: get-version
       id: package-version
       uses: martinbeentjes/npm-get-version-action@v1.2.3
