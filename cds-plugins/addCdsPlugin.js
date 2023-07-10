@@ -8,7 +8,7 @@ const path = require('node:path');
 function _execCommand(command, args, options) {
   return new Promise((resolve,reject) => {
     var proc = spawn(command, args, options);
-    proc.scriptOutput="";
+    proc.scriptOutput='';
 
     if(proc.stdout) {
       proc.stdout.setEncoding('utf8');
@@ -26,49 +26,47 @@ function _execCommand(command, args, options) {
       });
     }
   
-    proc.on('close', function(exitCode) {
-      //console.log('close',exitCode);
-      proc.exitCode=exitCode;
-//      resolve(exitCode);
-    });
-  
     proc.on('exit', function(exitCode) {
-      //console.log('exit',exitCode);
       proc.exitCode=exitCode;
-      resolve(proc);
+      if(exitCode===0)
+        resolve(proc);
+      else
+        reject(proc);
     });
   
   })
 }
 
 async function execCommand(command, args=[], options={}) {
-  console.log("exec:",command,args);
+  console.log('exec:', command, args);
   let res = await _execCommand(command, args ,options);
   return res;
 }
 
 async function addPlugin(pluginName, targetAppWorkspace) {
   let targetPluginName = pluginName+'-plugin';
-  let mydir = path.dirname(__filename);
+  let srcPluginDir = path.join(path.dirname(__filename), pluginName);
+  if(!fs.existsSync(srcPluginDir))
+    throw Error(`Plugin source directory missing: ${srcPluginDir}`);
 
-  const initWS = await execCommand("npm",['init','-w',targetPluginName,'-y']);
+  const initWS = await execCommand('npm',['init','-w',targetPluginName,'-y']);
   let re1 = /Wrote to (.*?):/;
   let re1res = initWS.scriptOutput.match(re1); 
   if(!re1res) throw Error('Could not extract newly created workspace directory!');
   let pluginDir = path.dirname(re1res[1]);
-  console.log("pluginDir:",pluginDir)
+  console.log('pluginDir:',pluginDir)
 
   fs.writeFileSync(path.join(pluginDir,'index.js'),'');
-  fs.copyFileSync(path.join(mydir,pluginName,'cds-plugin.js'), path.join(pluginDir,'cds-plugin.js'))
+  fs.copyFileSync(path.join(srcPluginDir,'cds-plugin.js'), path.join(pluginDir,'cds-plugin.js'))
 
   if(targetAppWorkspace)
     await execCommand('npm',['add','-w',targetAppWorkspace,targetPluginName]);
   else
     await execCommand('npm',['add',targetPluginName]);
 
-  copyFiles(path.join(mydir,pluginName,'files'), pluginDir);
+  copyFiles(path.join(srcPluginDir,'files'), pluginDir);
 
-  const initSh = path.join(mydir,pluginName,'init.sh');
+  const initSh = path.join(srcPluginDir,'init.sh');
   if(fs.existsSync(initSh)) {
     let args = [initSh].concat(argv.slice(2));
     let options = { cwd: pluginDir }
@@ -83,7 +81,7 @@ async function addPlugin(pluginName, targetAppWorkspace) {
 }
 
 function copyFiles(fromDir, toDir) {
-  console.log("copyFiles",fromDir,toDir)
+  console.log('copyFiles',fromDir,toDir)
   if(!fs.existsSync(fromDir)) return false;
   if(!fs.existsSync(toDir)) fs.mkdirSync(toDir);
   if(!fs.existsSync(toDir)) return false;
@@ -92,8 +90,8 @@ function copyFiles(fromDir, toDir) {
     let f1=path.join(fromDir,file);
     let f2=path.join(toDir,file);
     if(fs.existsSync(f2)) return;
-    console.log("copy",f1)
-    console.log("->to",f2)
+    console.log('copy',f1)
+    console.log('->to',f2)
     if(fs.lstatSync(f1).isDirectory()) {
       copyFiles(f1,f2);
     } else {
@@ -102,20 +100,28 @@ function copyFiles(fromDir, toDir) {
   })
 }
 
-(async function () {
-  let plugin;
-  let workspace;
-  let param;
-  argv.slice(2).forEach(arg => {
-    if(arg[0]=='-') param=arg;
-    else {
-      if(param=='-p') plugin=arg;
-      if(param=='-w') workspace=arg;
-    }
-  })
-  if(!plugin) throw Error('No plugin name provided as parameter!');
-  console.log('Add cds-plugin:',plugin);
-  if(workspace)
-    console.log('  workspace:',workspace);
-  await addPlugin(plugin,workspace);
-})();
+if (require.main === module) {
+
+  (async function () {
+    let plugin;
+    let workspace;
+    let param;
+    argv.slice(2).forEach(arg => {
+      if(arg[0]=='-') param=arg;
+      else {
+        if(param=='-p') plugin=arg;
+        if(param=='-w') workspace=arg;
+      }
+    })
+    if(!plugin) throw Error('No plugin name provided as parameter!');
+    console.log('Add cds-plugin:',plugin);
+    if(workspace)
+      console.log('  workspace:',workspace);
+    await addPlugin(plugin,workspace);
+  })();
+
+} else {
+
+  module.exports = execCommand
+
+}
