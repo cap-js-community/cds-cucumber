@@ -13,7 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Plugins:
   - reject failing commands
   - hide test plugins
-* Parallel run
+* Parallel run:
+  `npx cucumber-js test --parallel 2`
 
 ## Version 0.1.0 - 2023-07-10
 

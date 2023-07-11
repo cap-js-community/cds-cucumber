@@ -119,8 +119,6 @@ Specifies the path to the steps-library (browser.js) to be loaded during UI debu
 
 Specifies the remote debugging port of the browser. It is used when debugging the SAP UI5 code.
 
-* default value: 9222
-
 ### CDS\_CUCUMBER\_WAIT\_DEBUGGER
 
 Forces the initialization process to wait until the debugger is attached. This happens right after the steps-library (browser.js) is loaded in the browser.
