@@ -67,4 +67,5 @@ else
   npx cds-add-cucumber-plugin -p local-ui5-build -f app/index.html
 fi
 
-npx cucumber-js test
+cp test/features/bookshop.feature test/features/bookshop1.feature
+npx cucumber-js test --parallel 2
