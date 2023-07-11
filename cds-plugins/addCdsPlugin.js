@@ -73,7 +73,7 @@ async function addPlugin(pluginName, targetAppWorkspace) {
     let rootdir = cwd();
     options.env = Object.assign( { 
       CDS_SERVICE_ROOT_DIR: path.join(rootdir,targetAppWorkspace?targetAppWorkspace:'.'),
-      CDS_CUCUMBER_PLUGIN_DIR: path.join(mydir,pluginName),
+      CDS_CUCUMBER_PLUGIN_DIR: srcPluginDir,
     }, env );
     await execCommand('bash', args, options)
   }
