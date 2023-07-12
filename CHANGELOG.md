@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Plugins:
   - reject failing commands
   - hide test plugins
-* Parallel run:
+* Concurrency:
   - allow cucumber parallel jobs: `npx cucumber-js test --parallel 2`
   - always create new Chome working directory (user name and process ID dependent)
 
