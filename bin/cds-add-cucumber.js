@@ -12,10 +12,10 @@ if(!createBookshopFirstFeatureFile()) {
 
 function createCucumberConfiguration() {
   const content = `default:
-    publishQuiet: true
-    requireModule:
-      - "${getModuleName()}"
-  `
+  publishQuiet: true
+  requireModule:
+    - "${getModuleName()}"
+`
   const file = 'cucumber.yml';
 
   createFileIfMissing(file, content);

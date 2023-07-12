@@ -79,7 +79,7 @@ File: ./.vscode/launch.json
 ```
 
 Description of the parameters:
-- port - browser debugger port to attach to. By default it is 9222, but you can change it via the enviromnent variable [BROWSER\_DEBUGGING\_PORT](ENV.md#browser_debugging_port).
+- port - browser debugger port to attach to, configurable via enviromnent variable [BROWSER\_DEBUGGING\_PORT](ENV.md#browser_debugging_port).
 - webRoot - webserver root directory containing root folder webpages
 - urlFilter - filter to help locating the webpage to attach to.
 The port 4004 is the default port of the CDS Server when running standalone.
