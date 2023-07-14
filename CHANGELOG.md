@@ -15,7 +15,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - hide test plugins
 * Concurrency:
   - allow cucumber parallel jobs: `npx cucumber-js test --parallel 2`
-  - always create new Chome working directory (user name and process ID dependent)
+  - create new working directory (user name and process ID dependent) using it as follows:
+    - Chome: user data directory
+    - CAP services: home directory
 
 ## Version 0.1.0 - 2023-07-10
 
