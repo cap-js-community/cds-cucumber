@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - create new working directory (user name and process ID dependent) using it as follows:
     - Chome: user data directory
     - CAP services: home directory
+* Steps:
+  - detect technical issues when selecting tile
 
 ## Version 0.1.0 - 2023-07-10
 
