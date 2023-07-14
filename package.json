@@ -19,7 +19,8 @@
   "files": [
     "bin",
     "lib",
-    "cds-plugins/local-ui5-build"
+    "cds-plugins/local-ui5-build",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "check": "./test/bin/check.sh",
