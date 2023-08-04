@@ -15,11 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - hide test plugins
 * Concurrency:
   - allow cucumber parallel jobs: `npx cucumber-js test --parallel 2`
-  - create new working directory (user name and process ID dependent) using it as follows:
-    - Chome: user data directory
+  - create new working directory (username and process ID dependent) using it as follows:
+    - Chrome: user data directory
     - CAP services: home directory
 * Steps:
-  - detect technical issues when selecting tile
+  - detect technical issues when selecting tiles
 
 ## Version 0.1.0 - 2023-07-10
 
