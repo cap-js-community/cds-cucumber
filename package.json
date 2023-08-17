@@ -1,6 +1,6 @@
 {
   "name": "@cap-js-community/cds-cucumber",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A library to write behaviour-driven tests for CAP applications",
   "homepage": "https://cap-js-community.github.io/cds-cucumber/",
   "keywords": [
@@ -30,11 +30,16 @@
     "test:sflight": "./test/bin/testSFlightNode.sh"
   },
   "dependencies": {
+    "@sap-cloud-sdk/http-client": "^3",
+    "@sap-cloud-sdk/resilience": "^3",
+    "@sap/cds": "^7",
     "chai": "^4",
     "chai-shallow-deep-equal": "^1",
+    "chai-sorted": "^0.2",
     "chromedriver": "^115",
     "selenium-webdriver": "^4",
-    "tree-kill": "^1.2.2"
+    "sqlite3": "^5",
+    "tree-kill": "^1.2"
   },
   "peerDependencies": {
     "@cucumber/cucumber": "^9"

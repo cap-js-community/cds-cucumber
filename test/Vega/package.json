@@ -1,0 +1,48 @@
+{
+  "name": "vega",
+  "version": "1.0.0",
+  "description": "Vega test service.",
+  "private": true,
+  "dependencies": {
+    "@cap-js-community/cds-cucumber": "file:../..",
+    "@sap-cloud-sdk/http-client": "*",
+    "@sap-cloud-sdk/resilience": "*",
+    "@sap/cds": "*",
+    "@sap/cds-dk": "*",
+    "express": "*",
+    "sqlite3": "*"
+  },
+  "scripts": {
+    "start": "npx cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "db": "sqlite"
+    }
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "es2020": true,
+      "node": true,
+      "jest": true,
+      "mocha": true
+    },
+    "globals": {
+      "SELECT": true,
+      "INSERT": true,
+      "UPDATE": true,
+      "DELETE": true,
+      "CREATE": true,
+      "DROP": true,
+      "CDL": true,
+      "CQL": true,
+      "CXL": true,
+      "cds": true
+    },
+    "rules": {
+      "no-console": "off",
+      "require-atomic-updates": "off"
+    }
+  }
+}

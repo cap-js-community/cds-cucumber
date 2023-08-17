@@ -1,12 +1,14 @@
 #!/bin/bash
 
-set -x
 set -e
+#set -x
 
 . ./test/bin/.sapui5.version.sh
 
 ROOT_DIR=`pwd`
-DIR=tmp/try-bookshop-with-local-ui5-plugin
+DIR=tmp/try-bookshop-with-local-ui5-plugin-odata
+
+export NODE_PATH=${DIR}/node_modules
 
 #test -d $DIR && rm -r -f $DIR
 test -d $DIR || mkdir -p $DIR
@@ -18,6 +20,8 @@ cd cloud-cap-samples
 
 test -d node_modules || npm i
 test -d node_modules/sqlite3 || npm i -D sqlite3
+test -d cds-cucumber || mkdir cds-cucumber
+cp -v -r ${ROOT_DIR}/lib cds-cucumber
 
 if [ "$BRANCH_NAME" == "" ]; then
   test -d node_modules/@cap-js-community/cds-cucumber ||  npm i -D ../../..
@@ -41,11 +45,14 @@ if [ "$BRANCH_NAME" == "" ]; then
 cat <<EOF >cucumber.yml
 default:
     require:
-      - ../../../lib/index.js
+      - ./cds-cucumber/lib/index.js
 EOF
 fi
 
-test -f test/features/bookshop || cp -r ../../../test/features/bookshop test/features
+# clean test files
+test -d test/features && rm -r -f test/features
+test -d test/features || mkdir -p test/features
+cp -r ../../../test/features/bookshop test/features
 
 export CDS_SERVICE_APPLICATION=fiori
 export CDS_COMMAND_ARG1="--with-mocks"
@@ -54,5 +61,4 @@ export CDS_COMMAND_ARG2="--in-memory?"
 export CDS_USERNAME=alice
 export CDS_PASSWORD=admin
 
-export THREADS=$((`nproc --all` - 1))
-npx cucumber-js test/features/bookshop --tags "not @todo" --parallel $THREADS
+npx cucumber-js test/features/bookshop/odata --tags "not @todo"

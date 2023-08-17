@@ -1,0 +1,24 @@
+{
+  "requires": {
+    "db": {
+      "kind": "sql"
+    },
+    "auth": {
+      "kind": "basic-auth",
+      "users": {
+        "administrator": {
+          "password": "admin123",
+          "roles": ["admin"]
+        },
+        "nonadmin": {
+          "password": "nonadmin123"
+        },
+        "tester": {
+          "password": "test1234",
+          "roles": ["test"]
+        },
+        "*": false
+      }
+    }
+  }
+}
