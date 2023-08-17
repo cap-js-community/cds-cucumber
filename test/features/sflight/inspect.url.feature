@@ -1,4 +1,4 @@
-@todo
+@internal @skip:node @skip:java
 Feature: Inspect url
 
   Scenario: Inspect several urls
