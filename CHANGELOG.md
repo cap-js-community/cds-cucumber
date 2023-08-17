@@ -20,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - CAP services: home directory
 * Steps:
   - detect technical issues when selecting tiles
+  - detect missing ValueHelp popup
+  - add new step: remove ValueHelp selection
 
 ## Version 0.1.0 - 2023-07-10
 
