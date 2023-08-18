@@ -12,7 +12,6 @@ if(!createBookshopFirstFeatureFile()) {
 
 function createCucumberConfiguration() {
   const content = `default:
-  publishQuiet: true
   requireModule:
     - "${getModuleName()}"
 `
