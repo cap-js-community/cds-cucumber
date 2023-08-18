@@ -9,11 +9,9 @@ npx cds-add-cucumber
 
 It will perform the following operations:
 1. create cucumber configuration file ./cucumber.yml containing the following settings:
-    - enable **publishQuiet** to suppress message
     - **require** steps module
     ```yaml
     default:
-        publishQuiet: true
         requireModule:
           - "@cap-js-community/cds-cucumber"
     ```

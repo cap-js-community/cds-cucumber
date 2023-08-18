@@ -37,7 +37,6 @@ test -f cucumber.yml || npx cds-add-cucumber
 if [ "$BRANCH_NAME" == "" ]; then
 cat <<EOF >cucumber.yml
 default:
-    publishQuiet: true
     require:
       - ../../../lib/index.js
 EOF

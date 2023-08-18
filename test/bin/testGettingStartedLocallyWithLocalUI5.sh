@@ -22,7 +22,6 @@ npx cds-add-cucumber
 # requireModule does not work with links -> require the steps directly
 cat <<EOF >cucumber.yml
 default:
-    publishQuiet: true
     require:
       - ../../../lib/index.js
 EOF
