@@ -30,13 +30,13 @@
     "test:sflight": "./test/bin/testSFlightNode.sh"
   },
   "dependencies": {
-    "chai": "^4.3.7",
-    "chai-shallow-deep-equal": "^1.4.6",
-    "chromedriver": "^114.0.2",
-    "selenium-webdriver": "^4.10.0",
+    "chai": "^4",
+    "chai-shallow-deep-equal": "^1",
+    "chromedriver": "^115",
+    "selenium-webdriver": "^4",
     "tree-kill": "^1.2.2"
   },
   "peerDependencies": {
-    "@cucumber/cucumber": "^9.3.0"
+    "@cucumber/cucumber": "^9"
   }
 }

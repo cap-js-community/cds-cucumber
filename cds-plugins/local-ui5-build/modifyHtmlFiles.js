@@ -17,7 +17,7 @@ argv.slice(2).forEach(arg => {
 })
 
 files.forEach(file => {
-  let fp = path.join(env.CDS_SERVICE_ROOT_DIR,file);
+  let fp = path.join(env.CDS_SERVICE_ROOT_DIR || '.',file);
   if(!fs.existsSync(fp)) {
     console.log("Ignore missing file:", fp)
     return;
