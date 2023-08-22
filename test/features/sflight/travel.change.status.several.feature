@@ -4,35 +4,18 @@ Feature: Change travel of several travel records at once
     Given we have started the application
       And we have opened the url "/travel_processor/webapp/index.html"
       And table "Travels" has 4133 records
+      # workaround for missing ValueHelp popup
+      And we open value help for filter field "Editing Status"
       And we open value help for filter field "Travel Status"
       And we select one suggestion in value help dialog for field "Travel Status" equal to "Open"
       And we close value help for filter field "Travel Status"
       And we apply the search filter
       And table "Travels" has 2469 records
 
-  @todo
-  # remote version 1.116.0 does not open ValueHelp
   Scenario: Filter open travel records, accept top two
     When we select row 1 in table "Travels"
       And we select row 2 in table "Travels"
       And we press button "Accept Travel"
-      And we apply the search filter
-    Then we expect table "Travels" to have 2467 records in total
-
-  @fixed
-  # fix previous scenario: clear selection and apply filter
-  Scenario: Filter open travel records, accept top two
-    When we select row 1 in table "Travels"
-      And we select row 2 in table "Travels"
-      And we press button "Accept Travel"
-      And we apply the search filter
-      And we open value help for filter field "Travel Status"
-      And we remove selections in value help dialog for field "Travel Status"
-      And we close value help for filter field "Travel Status"
-      And we apply the search filter
-      And we open value help for filter field "Travel Status"
-      And we select one suggestion in value help dialog for field "Travel Status" equal to "Open"
-      And we close value help for filter field "Travel Status"
       And we apply the search filter
     Then we expect table "Travels" to have 2467 records in total
 
