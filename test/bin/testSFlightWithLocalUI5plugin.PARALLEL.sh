@@ -47,5 +47,5 @@ test -f test/features/sflight || cp -r ../../../test/features/sflight test/featu
 export CDS_USERNAME=alice
 export CDS_PASSWORD=admin
 
-export PROCCOUNT=`nproc --all`
-npx cucumber-js test/features/sflight --tags "not @skip:node"  --parallel $PROCCOUNT
+export THREADS=$((`nproc --all` - 1))
+npx cucumber-js test/features/sflight --tags "not @skip:node"  --parallel $THREADS

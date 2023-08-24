@@ -6,5 +6,5 @@ if [ "${SAP_UI5_VERSION}" == "" ]; then
   #export SAP_UI5_VERSION="1.114.2"
   #export SAP_UI5_VERSION="1.115.1"
   #export SAP_UI5_VERSION="1.116.0"
-  export SAP_UI5_VERSION="1.117.0"
+  export SAP_UI5_VERSION="1.117.1"
 fi
