@@ -23,6 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - detect missing ValueHelp popup
   - add new step: remove ValueHelp selection
   - locating active dialog
+* cucumber:
+  - remove deprecated configuration: publishQuiet
 
 ## Version 0.1.0 - 2023-07-10
 

@@ -12,9 +12,7 @@
         "CDS_COMMAND_ARG1": "--with-mocks",
         "CDS_COMMAND_ARG2": "--in-memory?",
         "CDS_USERNAME": "alice",
-        "CDS_SERVICE_DIRECTORY":"tmp/cloud-cap-samples/fiori",
-        "CUCUMBER_PUBLISH_ENABLED":"false",
-        "CUCUMBER_PUBLISH_QUIET":"true"
+        "CDS_SERVICE_DIRECTORY":"tmp/cloud-cap-samples/fiori"
       },
       "skipFiles": [
         "<node_internals>/**"
@@ -32,9 +30,7 @@
         "CWD": "${workspaceFolder}",
         "CDS_USERNAME": "alice",
         "CDS_PASSWORD": "admin",
-        "CDS_SERVICE_DIRECTORY":"tmp/cap-sflight",
-        "CUCUMBER_PUBLISH_ENABLED":"false",
-        "CUCUMBER_PUBLISH_QUIET":"true"
+        "CDS_SERVICE_DIRECTORY":"tmp/cap-sflight"
       },
       "skipFiles": [
         "<node_internals>/**"
