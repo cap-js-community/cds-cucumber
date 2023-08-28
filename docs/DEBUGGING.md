@@ -32,9 +32,7 @@ File: ./.vscode/launch.json
         "CWD": "${workspaceFolder}",
         "CDS_USERNAME": "alice",
         "CDS_PASSWORD": "admin",
-        "CDS_SERVICE_DIR": "tmp/cap-sflight",
-        "CUCUMBER_PUBLISH_ENABLED": "false",
-        "CUCUMBER_PUBLISH_QUIET": "true"
+        "CDS_SERVICE_DIR": "tmp/cap-sflight"
       },
       "skipFiles": [
         "<node_internals>/**"
