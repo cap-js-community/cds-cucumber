@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * OData steps
 
+### Changed
+
+* Readme: switch to bookshop sample "cds add sample"
+
 ### Fixed
 
 * Readme: install from npm repository
