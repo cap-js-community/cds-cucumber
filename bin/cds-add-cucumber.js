@@ -47,12 +47,12 @@ function createVSCodePluginConfig() {
   ],
   "cucumber.glue": [
     "test/features/step_definitions/**/*.js",
-    "node_modules/${getModuleName()}/lib/steps/*.js"
+    "node_modules/${getModuleName()}/lib/steps/**/*.js"
   ],
   // Cucumber (Gherkin) Full Support https://marketplace.visualstudio.com/items?itemName=alexkrechik.cucumberautocomplete
   "cucumberautocomplete.steps": [
     "test/features/step_definitions/*.js",
-    "node_modules/${getModuleName()}/lib/steps/*.js"
+    "node_modules/${getModuleName()}/lib/steps/**/*.js"
   ],
   "cucumberautocomplete.strictGherkinCompletion": true
 }

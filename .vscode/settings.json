@@ -9,13 +9,13 @@
     ],
     "cucumber.glue": [
       "test/features/step_definitions/**/*.js",
-      "lib/steps/*.js"
+      "lib/steps/**/*.js"
     ],
   
     // Cucumber (Gherkin) Full Support https://marketplace.visualstudio.com/items?itemName=alexkrechik.cucumberautocomplete
     "cucumberautocomplete.steps": [
       "test/features/step_definitions/*.js",
-      "lib/steps/*.js"
+      "lib/steps/**/*.js"
     ],
     "cucumberautocomplete.strictGherkinCompletion": true
 }

@@ -28,10 +28,12 @@ else
   test -d node_modules/@cap-js-community/cds-cucumber ||  npm i -D git+https://github.com/cap-js-community/cds-cucumber.git#$BRANCH_NAME
 fi
 
-DIR_CANDIDATE=${ROOT_DIR}/tmp/sapui5/full-${SAP_UI5_VERSION}/dist
-if [ -d ${DIR_CANDIDATE} ]; then
-  export SAPUI5_DIST_DIRECTORY=${DIR_CANDIDATE}
+. ${ROOT_DIR}/test/bin/.sapui5.dist.dir.sh
+if [ -d ${SAPUI5_DIST_DIRECTORY} ]; then
   echo "Found UI5 local build: ${SAPUI5_DIST_DIRECTORY}"
+else
+  echo "Could not find UI5 local build"
+  exit 1
 fi
 
 test -d local-ui5-build-plugin || npx cds-add-cucumber-plugin -p local-ui5-build -w fiori -f app/fiori-apps.html
@@ -85,3 +87,8 @@ touch ${CDS_SERVICES_FILE}.lock
 #rm -f ${CDS_SERVICES_FILE}
 
 npx cucumber-js test/features/bookshop/modify/create.order.item.feature
+
+# Fails as expected:
+#  ✖ When we select tile "Manage Orders" # ../../../lib/steps/navigation.js:37
+#       Error: Found unexpected error message: {"description":"Could not load metadata: 404 Not Found","title":"Application could not be started due to technical issues."}
+#           at World.<anonymous> (/home/vl-leon/workspace/cds-cucumber/lib/steps/navigation.js:42:11)

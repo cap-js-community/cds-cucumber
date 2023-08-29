@@ -1,22 +1,30 @@
-const { error } = require('console');
 const fs = require('fs');
 const path = require('node:path');
 
-const dir = './lib/steps/';
+const dir = './lib/steps';
 
-let ff = fs.readdirSync(dir);
-let r = ff.map(oneFile)
-let errors = r.reduce((old,value) => old+=value, 0)
+let errors = 0;
+checkDir(dir);
+
 if(errors!=0)
-  throw Error(`Found ${errors}`);
+  throw Error(`Found ${errors} errors`);
 else
   console.log('no errors');
 
-function oneFile(f) {
+function checkDir(dir) {
+  const files = fs.readdirSync(dir);
+  return files.map(F => {
+    let fn = path.join(dir,F); 
+    if(fs.lstatSync(fn).isDirectory()) return checkDir(fn);
+    if(!F.endsWith('.js')) return;
+    console.log('check',fn)
+    errors += oneFile(fn);
+  })
+}
+
+function oneFile(fp) {
   let errors=0;
-  if(f=='index.js') return errors;
-  let fp = path.join(dir,f);
-  console.log('check',fp)
+  if(fp.endsWith('index.js')) return errors;
   let s = String(fs.readFileSync(fp));
   if(s.match(/\@ignore/)) return 0;
   let rns = s.match(/\@namespace (.*?) /);

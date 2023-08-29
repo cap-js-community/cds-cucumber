@@ -53,10 +53,11 @@ fi
 
 fi
 
-export SAPUI5_DIST_DIRECTORY=${ROOT_DIR}/tmp/sapui5/full-${SAP_UI5_VERSION}/dist
+. ${ROOT_DIR}/test/bin/.sapui5.dist.dir.sh
 if [ -d ${SAPUI5_DIST_DIRECTORY} ]; then
   echo "Found UI5 local build: ${SAPUI5_DIST_DIRECTORY}"
 else
+  echo "Could not find UI5 local build"
   exit 1
 fi
 
