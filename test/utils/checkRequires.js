@@ -2,8 +2,9 @@ const fs = require('fs');
 const path = require('node:path');
 
 const skip=[
-  'assert', 'chai', 'process', 'node:path', 'node:fs', 'tree-kill', 'chai-shallow-deep-equal', 'chai-sorted',
-  '@cucumber/cucumber'
+  'node:process', 'node:path', 'node:fs',
+  'assert', 'chai', 'chai-shallow-deep-equal', 'chai-sorted',
+  'tree-kill', '@cucumber/cucumber'
 ]
 
 let errors = 0;
