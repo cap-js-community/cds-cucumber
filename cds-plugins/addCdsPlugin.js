@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const { spawn } = require('child_process');
-const { argv, env, cwd } = require('process');
+const { spawn } = require('node:child_process');
+const { argv, env, cwd } = require('node:process');
 const fs = require('node:fs');
 const path = require('node:path');
 
