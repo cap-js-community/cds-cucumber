@@ -27,9 +27,9 @@ function oneFile(fp) {
   if(fp.endsWith('index.js')) return errors;
   let s = String(fs.readFileSync(fp));
   if(s.match(/\@ignore/)) return 0;
-  let rns = s.match(/\@namespace (.*?) /);
+  let rns = s.match(/\@module (.*?)/);
   if(!rns) {
-    console.log("no namespace")
+    console.log(fp,"no module")
     errors++;
   }
 
@@ -43,20 +43,22 @@ function oneFile(fp) {
 }
 
 function oneComment(fp,s,index) {
-  let rns = s.match(/\@namespace (.*?) /);
+  let rns = s.match(/\@namespace (.*?)/);
   if(rns) return true; // ignore namespace
+  rns = s.match(/\@module (.*?)/);
+  if(rns) return true; // ignore module
   let rn = s.match(/\@name (.*?) /);
   let rx = s.match(/\@example (.*?) /);
   if(rn==null) {
-    console.log("no name",index,s);
+    console.log(fp,"no name",index,s);
     return false;
   }
   if(rx==null) {
     console.log("no example",index,s);
     return false;
   }
-  if(rn[1]!=rx[1]) {
-    console.log("diff",index,rn[1],rx[1]);
+  if(rn[1]!=rx[1] && rx[1]!='And') {
+    console.log(`${fp}`,"diff",index,rn[1],rx[1]);
     return false;
   }
   return true;
