@@ -27,9 +27,7 @@ else
   rm service/package.json
   cd service
 
-  npx cds init --add sample,sqlite && npx cds deploy --to sqlite
-  npm i @sap/cds@${CDS_VERSION}
-  npm i express
+  npx cds init --add sample
   if [ "$BRANCH_NAME" == "" ]; then
     npm i ../../.. || true
   else
