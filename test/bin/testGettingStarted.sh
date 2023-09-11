@@ -34,11 +34,7 @@ rm package.json
 
 npx cds init
 npx cds add ${CDS_ADD_SAMPLE_COMMAND}
-npx cds add sqlite
-npx cds deploy --to sqlite
 
-npm i @sap/cds@${CDS_VERSION}
-npm i express
 if [ "$BRANCH_NAME" = "" ]; then
   npm i ../../.. || true
 else

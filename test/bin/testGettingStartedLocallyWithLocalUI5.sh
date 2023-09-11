@@ -14,9 +14,7 @@ npm init -w service -y
 cd service
 rm package.json
 
-npx cds init --add samples,sqlite && npx cds deploy --to sqlite
-npm i @sap/cds
-npm i express
+npx cds init --add samples
 npm i ../../.. || true
 npx cds-add-cucumber
 # requireModule does not work with links -> require the steps directly
