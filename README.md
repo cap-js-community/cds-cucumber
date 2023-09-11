@@ -4,7 +4,7 @@ Provides a library for behaviour-driven tests of CAP applications.
 It contains ready-to-use steps that helps you write tests in a BDD style.
 The [cucumber](https://cucumber.io) project provides framework for that.
 
-As of now, the library supports SAP Fiori Elements as UI framework and OData as communication protocol.
+As of now, the library supports SAP Fiori® Elements as UI framework and OData as communication protocol.
 
 A typical test looks like this:
 
