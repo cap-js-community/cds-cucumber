@@ -4,6 +4,7 @@ const { spawn } = require('node:child_process');
 const { argv, env, cwd } = require('node:process');
 const fs = require('node:fs');
 const path = require('node:path');
+const npm = path.sep == '/' ? 'npm':'npm.cmd';
 
 function _execCommand(command, args, options) {
   return new Promise((resolve,reject) => {
@@ -49,9 +50,9 @@ async function addPlugin(pluginName, targetAppWorkspace) {
   if(!fs.existsSync(srcPluginDir))
     throw Error(`Plugin source directory missing: ${srcPluginDir}`);
 
-  const initWS = await execCommand('npm',['init','-w',targetPluginName,'-y']);
-  let re1 = /Wrote to (.*?):/;
-  let re1res = initWS.scriptOutput.match(re1); 
+  const initWS = await execCommand(npm,['init','-w',targetPluginName,'-y']);
+  let re1 = /Wrote to (.*?):\n/;
+  let re1res = initWS.scriptOutput.match(re1);
   if(!re1res) throw Error('Could not extract newly created workspace directory!');
   let pluginDir = path.dirname(re1res[1]);
   console.log('pluginDir:',pluginDir)
@@ -60,9 +61,9 @@ async function addPlugin(pluginName, targetAppWorkspace) {
   fs.copyFileSync(path.join(srcPluginDir,'cds-plugin.js'), path.join(pluginDir,'cds-plugin.js'))
 
   if(targetAppWorkspace)
-    await execCommand('npm',['add','-w',targetAppWorkspace,targetPluginName]);
+    await execCommand(npm,['add','-w',targetAppWorkspace,targetPluginName]);
   else
-    await execCommand('npm',['add',targetPluginName]);
+    await execCommand(npm,['add',targetPluginName]);
 
   copyFiles(path.join(srcPluginDir,'files'), pluginDir);
 
