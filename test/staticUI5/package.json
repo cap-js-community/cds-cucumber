@@ -1,0 +1,12 @@
+{
+  "name": "static-ui5",
+  "version": "1.0.0",
+  "description": "Serve static SAP UI5 resources",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
