@@ -98,6 +98,16 @@ Example:
 SLOW_QUIT=2
 ```
 
+### ENABLE_CORS
+
+Enables Cross-Origin Resource Sharing, useful when SAP UI5 is served separately.
+By default it is disabled.
+
+Example:
+```
+ENABLE_CORS=1
+```
+
 ## Debbuging UI
 
 ### CDS\_CUCUMBER\_DEBUG
