@@ -7,7 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version 0.2.1 - 2023-xx-xx
 ### Added
+
+* Windows OS support
+* UI
+  - enable CORS
+* OData
+  - expectation for count(*) result
+
 ### Changed
+
+* "Getting started" guide simplified
+
 ### Fixed
 
 ## Version 0.2.0 - 2023-09-06
