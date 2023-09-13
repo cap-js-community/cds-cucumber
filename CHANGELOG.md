@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Windows OS support
 * UI
   - enable CORS
+  - specify Accept-Language
 * OData
   - expectation for count(*) result
 

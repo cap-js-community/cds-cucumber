@@ -108,6 +108,15 @@ Example:
 ENABLE_CORS=1
 ```
 
+### ACCEPT_LANG
+
+Specifies Accept-Language to send to the server.
+
+Example:
+```
+ACCEPT_LANG=en
+```
+
 ## Debbuging UI
 
 ### CDS\_CUCUMBER\_DEBUG
