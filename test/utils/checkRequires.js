@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('node:path');
 
 const skip=[
-  'node:process', 'node:path', 'node:fs',
+  'node:process', 'node:path', 'node:fs', 'node:os',
   'assert', 'chai', 'chai-shallow-deep-equal', 'chai-sorted',
   'tree-kill', '@cucumber/cucumber'
 ]

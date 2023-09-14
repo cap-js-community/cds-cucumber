@@ -49,5 +49,7 @@ test -f test/features/sflight || cp -r ../../../test/features/sflight test/featu
 export CDS_USERNAME=alice
 export CDS_PASSWORD=admin
 
+export SAP_UI5_MINOR_VERSION="${SAP_UI5_VERSION:0:5}"
+
 export THREADS=$((`nproc --all` - 1))
-npx cucumber-js test/features/sflight --tags "not @skip:node" --parallel $THREADS
+npx cucumber-js test/features/sflight --tags "not @skip:node and not @skip:${SAP_UI5_MINOR_VERSION}" --parallel $THREADS

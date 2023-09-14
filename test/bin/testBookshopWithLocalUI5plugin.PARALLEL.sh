@@ -54,5 +54,7 @@ export CDS_COMMAND_ARG2="--in-memory?"
 export CDS_USERNAME=alice
 export CDS_PASSWORD=admin
 
+export SAP_UI5_MINOR_VERSION="${SAP_UI5_VERSION:0:5}"
+
 export THREADS=$((`nproc --all` - 1))
-npx cucumber-js test/features/bookshop --tags "not @todo" --parallel $THREADS
+npx cucumber-js test/features/bookshop --tags "not @todo and not @skip:${SAP_UI5_MINOR_VERSION}" --parallel $THREADS

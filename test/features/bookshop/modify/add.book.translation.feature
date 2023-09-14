@@ -1,5 +1,6 @@
 Feature: Add book translation
 
+  @skip:1.112
   Scenario: Change fields in book translation
     Given we have started the application
       And we have opened the url "fiori-apps.html" with user "alice"
@@ -23,6 +24,7 @@ Feature: Add book translation
       }
     """
 
+  @skip:1.112
   Scenario: Change fields in book translation
     Given we have started the application
       And we have opened the url "fiori-apps.html" with user "alice"

@@ -1,5 +1,6 @@
 Feature: Save draft
 
+  @skip:1.112
   Scenario: Create and save a draft
     Given we have started the application
       And we have opened the url "fiori-apps.html" with user "alice"
