@@ -17,9 +17,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* "Getting started" guide simplified
+* Simplified "Getting started" guide
+* UI
+  - step "we select one row in value help dialog" does not clear the previous selection
+
+### Removed
+
+* UI
+  - step "we select additional row in value help dialog"
 
 ### Fixed
+
+* UI
+  - step "we select one row in value help dialog" works with all target UI5 versions
+* temporary directory creation when running in parallel
 
 ## Version 0.2.0 - 2023-09-06
 

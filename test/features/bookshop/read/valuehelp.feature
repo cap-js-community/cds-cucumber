@@ -35,7 +35,7 @@ Feature: Use Value Helper
     When we select tile "Manage Books"
       And we open value help for filter field "Author"
       And we select one row in value help dialog having field "ID" equal to "Richard Carpenter"
-      And we select additional row in value help dialog having field "ID" equal to "Edgar Allen Poe"
+      And we select one row in value help dialog having field "ID" equal to "Edgar Allen Poe"
       And we confirm value help dialog
       And we apply the search filter
       And we read the content of the rows in the table

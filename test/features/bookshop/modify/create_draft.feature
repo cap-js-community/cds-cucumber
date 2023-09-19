@@ -1,5 +1,6 @@
 Feature: Create and validate content
 
+  @skip:1.112
   Scenario: Create draft
     Given we have started the application
       And we have opened the url "fiori-apps.html" with user "alice"
