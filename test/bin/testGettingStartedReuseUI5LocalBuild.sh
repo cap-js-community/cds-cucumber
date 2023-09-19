@@ -29,9 +29,9 @@ else
 
   npx cds init --add sample
   if [ "$BRANCH_NAME" == "" ]; then
-    npm i ../../.. || true
+    npm add ../../.. || true
   else
-    npm i -D git+https://github.com/cap-js-community/cds-cucumber.git#$BRANCH_NAME
+    npm add -D git+https://github.com/cap-js-community/cds-cucumber.git#$BRANCH_NAME
   fi
 fi
 

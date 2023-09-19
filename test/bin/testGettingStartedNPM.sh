@@ -22,7 +22,7 @@ rm package.json
 npx cds init
 npx cds add sample
 
-npm i -D @cap-js-community/cds-cucumber
+npm add -D @cap-js-community/cds-cucumber
 npx cds-add-cucumber
 
 npx cucumber-js test
