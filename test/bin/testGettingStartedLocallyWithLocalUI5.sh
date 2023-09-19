@@ -15,7 +15,7 @@ cd service
 rm package.json
 
 npx cds init --add samples
-npm i ../../.. || true
+npm add ../../.. || true
 npx cds-add-cucumber
 # requireModule does not work with links -> require the steps directly
 cat <<EOF >cucumber.yml

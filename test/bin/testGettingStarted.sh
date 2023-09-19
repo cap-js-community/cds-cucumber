@@ -36,10 +36,10 @@ npx cds init
 npx cds add ${CDS_ADD_SAMPLE_COMMAND}
 
 if [ "$BRANCH_NAME" = "" ]; then
-  npm i ../../.. || true
+  npm add ../../.. || true
 else
-    npm i -D git+https://github.com/cap-js-community/cds-cucumber.git#$BRANCH_NAME
-    #npm i -D https://github.com/cap-js-community/cds-cucumber/tarball/$BRANCH_NAME
+  npm add -D git+https://github.com/cap-js-community/cds-cucumber.git#$BRANCH_NAME
+  #npm add -D https://github.com/cap-js-community/cds-cucumber/tarball/$BRANCH_NAME
 fi
 npx cds-add-cucumber
 

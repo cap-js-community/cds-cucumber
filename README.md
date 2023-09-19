@@ -47,7 +47,7 @@ cd bookshop
 ### Configure
 
 ```sh
-npm i -D @cap-js-community/cds-cucumber
+npm add -D @cap-js-community/cds-cucumber
 npx cds-add-cucumber
 ```
 
