@@ -17,7 +17,7 @@ test -d ${DIR} || mkdir -p $DIR
 cd $DIR
 test -f package.json || npm init -y
 test -d dk || npm init -w dk -y
-test -d node_modules/@sap/cds-dk || npm i -w dk @sap/cds-dk@${CDS_VERSION}
+test -d node_modules/@sap/cds-dk || npm add -w dk @sap/cds-dk@${CDS_VERSION}
 
 if [ -d "service" ]; then
   echo "Service already generated."
