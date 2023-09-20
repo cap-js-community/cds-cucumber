@@ -25,7 +25,7 @@ cd $DIR
 npm init -y
 
 npm init -w dk -y
-npm i -w dk @sap/cds-dk@${CDS_VERSION}
+npm add -w dk @sap/cds-dk@${CDS_VERSION}
 
 npm init -w service -y
 

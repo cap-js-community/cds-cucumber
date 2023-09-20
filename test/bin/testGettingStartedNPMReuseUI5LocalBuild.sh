@@ -13,7 +13,7 @@ cd $DIR
 npm init -y
 
 npm init -w dk -y
-npm i -w dk @sap/cds-dk
+npm add -w dk @sap/cds-dk
 
 npm init -w service -y
 
