@@ -90,9 +90,9 @@ function copyFiles(fromDir, toDir) {
   files.forEach(file => {
     let f1=path.join(fromDir,file);
     let f2=path.join(toDir,file);
-    if(fs.existsSync(f2)) return;
+    if(fs.existsSync(f2) && env.CDS_CUCUMBER_PLUGIN_OVERWRITE!=="1") return;
     console.log('copy',f1)
-    console.log('->to',f2)
+    console.log('  ->to',f2)
     if(fs.lstatSync(f1).isDirectory()) {
       copyFiles(f1,f2);
     } else {

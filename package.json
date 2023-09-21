@@ -20,6 +20,7 @@
     "bin",
     "lib",
     "cds-plugins/local-ui5-build",
+    "cds-plugins/local-ui5-tgz",
     "CHANGELOG.md"
   ],
   "scripts": {
