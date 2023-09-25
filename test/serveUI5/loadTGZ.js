@@ -13,7 +13,8 @@ extract.on('entry', function(header, stream, next) {
   let filename = header.name;
   if(count>0 && count%1000==0)
     console.log(count,filename);
-  if(filename.indexOf('/resources/')==-1 && filename.indexOf('/test-resources/')==-1) {
+  if(filename.indexOf('/resources/')==-1 && filename.indexOf('/test-resources/')==-1
+      && !filename.startsWith('resources/') && !filename.startsWith('test-resources/')) {
     filename="";
   } else {
     let parts = filename.split('/');
@@ -39,10 +40,6 @@ extract.on('entry', function(header, stream, next) {
   stream.resume();
 });
 
-extract.on('finish', function() {
-  console.log("loaded",count)
-});
-
 if(require.main == module) {
   let { argv } = process;
   loadTGZ(argv[2]);
@@ -51,10 +48,16 @@ if(require.main == module) {
 }
 
 function loadTGZ(filename) {
-  fs.createReadStream(filename)
-    .pipe(zlib.createGunzip())
-    .pipe(extract);
-  return files;
+  return new Promise((resolve, reject) => {
+    fs.createReadStream(filename)
+      .pipe(zlib.createGunzip())
+      .pipe(extract);
+    extract.on('finish', function() {
+      files.done=true;
+      resolve(files);
+    });
+    
+  })
 }
 
 module.exports = loadTGZ;
