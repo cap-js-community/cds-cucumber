@@ -11,22 +11,22 @@ The SAP UI5 version will be obtained automatically from the following file:
 ## Usage
 - directly:
 ```
-node test/staticUI5/index.js
+node test/serveUI5/index.js
 ```
 
 - change the directory:
 ```
-cd test/staticUI5 && npm start
+cd test/serveUI5 && npm start
 ```
 
 - use another port where 8888 is the default
 ```
-PORT=8080 node test/staticUI5/index.js
+PORT=8080 node test/serveUI5/index.js
 ```
 
 - use another hostname where 'localhost' is the default
 ```
-HOSTNAME=127.0.0.1 node test/staticUI5/index.js
+HOSTNAME=127.0.0.1 node test/serveUI5/index.js
 ```
 
 - use custom SAP UI5 directory

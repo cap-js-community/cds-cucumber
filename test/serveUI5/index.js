@@ -69,9 +69,13 @@ function serveDir(directory) {
 
 const mimetypes = require('./mimetypes');
 
-function serveArchive(filename) {
-  console.log('Loading',filename);
-  let content = require('./loadTGZ')(filename);
+async function serveArchive(filename) {
+  let files;
+
+  const loadTGZ = require('./loadTGZ');
+  console.log(`-->> Loading SAP UI5 files from ${filename} ...`);
+  files = await loadTGZ(filename);
+  console.log(`<<-- SAP UI5 files loaded: ${Object.keys(files).length}`);
 
   const express = require('express');
 
@@ -81,12 +85,26 @@ function serveArchive(filename) {
   const HOSTNAME = env.HOSTNAME || 'localhost';
   const PORT = env.PORT || 8888;
 
-  app.get('*', (req, res) => {
+  app.get('*', async (req, res) => {
+    while(!files) await sleep(10);
+    while(!files.done) await sleep(10);
     if(req.url == '/')
-      res.send(Object.keys(content).filter(F=>!F.endsWith('/')).map(F=>`<a href=${F}>${F}</a>`).join("<br>\n"));
+      res.send(Object.keys(files)
+        .filter(F=>!F.endsWith('/'))
+        .filter(F=>Array.isArray(files[F]))
+        .map(F=>`<a href=${F}>${F}</a>`).join("<br>\n"));
     else {
       const fn = req.url.substring(1);
-      if(!content[fn]) {
+      if(fn==='$version') {
+        const versoinFile = 'resources/sap-ui-version.json';
+        const versionContent = files[versoinFile];
+        if(!versionContent) {
+          res.status(404).send('Not found: '+versoinFile);
+        } else {
+          const o = JSON.parse(versionContent.join(''));
+          res.send(o.version);
+        }
+      } else if(!files[fn]) {
         res.status(404).send('Not found: '+fn);
       } else {
         let sp=fn.split(".")
@@ -96,7 +114,7 @@ function serveArchive(filename) {
           res.setHeader('content-type', contentType);
         else
           console.log("mimetype",fn,ending)
-        let chunks = content[fn];
+        let chunks = files[fn];
         chunks.forEach(C => res.write(C))
         res.end();
       }
@@ -116,20 +134,24 @@ function quessSAPUI5Version() {
   return found[found.length-1];
 }
 
-if(require.main == module) {
-  let { argv } = process;
-  const arg = argv[2];
-  if(arg) {
-    if(arg.endsWith('.tgz'))
-      serveArchive(arg);
+async function serve(source) {
+  if(source) {
+    if(source.endsWith('.tgz'))
+      serveArchive(source);
     else
-      serveDir(arg);
+      serveDir(source);
   } else {
-    let tgz = locateSAPUI5Archive();
-    if(tgz) serveArchive(tgz);
+    let archive = locateSAPUI5Archive();
+    if(archive) serveArchive(archive);
     else serveDir();
   }
+}
 
+if(require.main == module) {
+  (async function() {
+    let { argv } = process;
+    await serve(argv[2]);
+  })();
 } else {
   module.exports = { serveDir, serveArchive }
 }

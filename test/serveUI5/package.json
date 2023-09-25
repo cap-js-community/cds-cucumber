@@ -1,5 +1,5 @@
 {
-  "name": "static-ui5",
+  "name": "serve-ui5",
   "version": "1.0.0",
   "description": "Serve static SAP UI5 resources",
   "main": "index.js",
