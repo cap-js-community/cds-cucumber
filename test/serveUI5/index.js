@@ -63,8 +63,11 @@ function serveDir(directory) {
     let s = `<h1>${process.cwd()}</h1>`+fs.readdirSync('.'+req.url).map(file => `<a href=${file}>${file}</a>`).join('<br>\n')
     res.send(s);
   });
-
-  app.listen(PORT, () => console.log(`Serving http://${HOSTNAME}:${PORT}`));
+  let uds = env.SAPUI5_UNIX_DOMAIN_SOCKET;
+  if(uds)
+    app.listen(uds, () => console.log(`Serving ${uds}`));
+  else
+    app.listen(PORT, () => console.log(`Serving http://${HOSTNAME}:${PORT}`));
 }
 
 const mimetypes = require('./mimetypes');
@@ -120,7 +123,14 @@ async function serveArchive(filename) {
       }
     }
   });
-  app.listen(PORT, () => console.log(`Serving http://${HOSTNAME}:${PORT}`));
+  const winPipePrefix = '\\\\.\\pipe\\';
+  let uds = env.SAPUI5_UNIX_DOMAIN_SOCKET;
+  if(path.sep=='\\' && !uds.startsWith(winPipePrefix))
+    uds = path.join(winPipePrefix,uds).replace(':','');
+  if(uds)
+    app.listen(uds, () => console.log(`Serving ${uds}`));
+  else
+    app.listen(PORT, () => console.log(`Serving http://${HOSTNAME}:${PORT}`));
 }
 
 function quessSAPUI5Version() {
