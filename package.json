@@ -1,6 +1,6 @@
 {
   "name": "@cap-js-community/cds-cucumber",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A library to write behaviour-driven tests for CAP applications",
   "homepage": "https://cap-js-community.github.io/cds-cucumber/",
   "keywords": [
@@ -23,6 +23,9 @@
     "cds-plugins/local-ui5-tgz",
     "CHANGELOG.md"
   ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "check": "./test/bin/check.sh",
     "prepare:test": "./test/bin/prepare.sh",
@@ -37,7 +40,7 @@
     "chai": "^4",
     "chai-shallow-deep-equal": "^1",
     "chai-sorted": "^0.2",
-    "chromedriver": "^116",
+    "chromedriver": "^117",
     "selenium-webdriver": "^4",
     "sqlite3": "^5",
     "tree-kill": "^1.2"
