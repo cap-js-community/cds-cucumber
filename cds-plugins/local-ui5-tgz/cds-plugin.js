@@ -94,7 +94,7 @@ async function serveArchiveFile(req,res) {
   let fileext = sp[sp.length -1];
   let contentType = mimetypes[fileext];
   if(!files[filename]) {
-    res.status(404).send('Not found: '+filename);
+    res.status(404).end();
   } else {
     if(contentType)
       res.setHeader('content-type', contentType);

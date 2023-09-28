@@ -102,13 +102,13 @@ async function serveArchive(filename) {
         const versoinFile = 'resources/sap-ui-version.json';
         const versionContent = files[versoinFile];
         if(!versionContent) {
-          res.status(404).send('Not found: '+versoinFile);
+          res.status(404).end();
         } else {
           const o = JSON.parse(versionContent.join(''));
           res.send(o.version);
         }
       } else if(!files[fn]) {
-        res.status(404).send('Not found: '+fn);
+        res.status(404).end();
       } else {
         let sp=fn.split(".")
         let ending = sp[sp.length-1];
@@ -123,14 +123,15 @@ async function serveArchive(filename) {
       }
     }
   });
-  const winPipePrefix = '\\\\.\\pipe\\';
   let uds = env.SAPUI5_UNIX_DOMAIN_SOCKET;
-  if(path.sep=='\\' && !uds.startsWith(winPipePrefix))
-    uds = path.join(winPipePrefix,uds).replace(':','');
-  if(uds)
+  if(uds) {
+    const winPipePrefix = '\\\\.\\pipe\\';
+    if(path.sep=='\\' && !uds.startsWith(winPipePrefix))
+      uds = path.join(winPipePrefix,uds).replace(':','');
     app.listen(uds, () => console.log(`Serving ${uds}`));
-  else
+  } else {
     app.listen(PORT, () => console.log(`Serving http://${HOSTNAME}:${PORT}`));
+  }
 }
 
 function quessSAPUI5Version() {
