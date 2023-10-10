@@ -117,30 +117,6 @@ Feature: crud
     [ { "number": 2 }, { "number": 1 } ]
     """
 
-  Scenario: order by - full match
-    Given we have created a new record in entity OrderBy
-      """
-      {"number":2}
-      """
-      And we have created a new record in entity OrderBy
-        """
-        {"number":1}
-        """
-    When we prepare to read entity OrderBy
-      And select its number
-      And order by number
-      And do perform the read
-    Then we expect the result to contain the following details
-    """
-    [ { "number": 1 }, { "number": 2 } ]
-    """
-    When we want to order descending by number
-      And we read entity OrderBy by selecting number
-    Then we expect the result to contain the following details
-    """
-    [ { "number": 2 }, { "number": 1 } ]
-    """
-
   # group by
 
   Scenario: group by
