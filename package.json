@@ -45,6 +45,6 @@
     "sqlite3": "^5"
   },
   "peerDependencies": {
-    "@cucumber/cucumber": "^9"
+    "@cucumber/cucumber": "^10"
   }
 }

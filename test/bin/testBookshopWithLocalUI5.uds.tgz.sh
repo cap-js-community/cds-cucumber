@@ -4,7 +4,7 @@ set -x
 set -e
 
 ROOT_DIR=`pwd`
-DIR=tmp/try-bookshop-with-local-ui5-tgz
+DIR=tmp/try-bookshop-with-local-ui5-uds-tgz
 
 . ./test/bin/.sapui5.version.sh
 . ./test/bin/.sapui5.tgz.sh
@@ -77,7 +77,7 @@ cd fiori
 #export SLOW_QUIT=1000
 export ACCEPT_LANG=en
 
-npx cucumber-js ../../../../test/features/bookshop --tags "not @todo and not @skip:${SAP_UI5_MINOR_VERSION}" --parallel $THREADS --fail-fast
+npx cucumber-js ../../../../test/features/bookshop --tags "not @todo and not @skip:${SAP_UI5_MINOR_VERSION}" --parallel $THREADS
 RC=$?
 set -e
 
