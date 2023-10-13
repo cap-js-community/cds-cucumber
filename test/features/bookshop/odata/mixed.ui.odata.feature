@@ -2,7 +2,7 @@ Feature: Mixed UI with OData steps
 
   Scenario: List all books
     Given we have started the application
-      And we have connected to service CatalogService in directory "fiori" as user "alice" with password ""
+      And we have connected to service CatalogService as user "alice" with password ""
       And we have opened the url "fiori-apps.html" with user "alice"
     When we select tile "Browse Books"
       And we read all records from entity Books
