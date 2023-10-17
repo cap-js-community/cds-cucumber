@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 ### Fixed
 
+* OData: expectation step "its {word} to be {word}"
+
 ## Version 0.3.1 - 2023-10-13
 ### Fixed
 
