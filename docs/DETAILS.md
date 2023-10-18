@@ -39,6 +39,10 @@ By default they should be located in the following folder:
 test/features/step_definitions
 ```
 
+## Local SAP UI5 build
+
+Additional information about using local SAP UI5 build can be found [here](LOCALSAPUI5.md).
+
 ## VSCode Cucumber(Gherkin) plugin
 
 In order to get support (like code completion) for VSCode while writing your specifications, you can install one of the following plugins:

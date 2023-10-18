@@ -19,6 +19,7 @@ fi
 cp ../../*.md ../../docs
 sed -i 's/docs\/DETAILS\.md/DETAILS\.html/' ../../docs/README.md
 sed -i 's/CONTRIBUTING\.md/\CONTRIBUTING\.html/' ../../docs/README.md
+sed -i 's/docs\/LOCALSAPUI5\.md/LOCALSAPUI5\.html/' ../../docs/DETAILS.md
 
 echo "<pre>" > ../../docs/LICENSE.html
 cat ../../LICENSE >> ../../docs/LICENSE.html
