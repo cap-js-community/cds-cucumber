@@ -1,3 +1,5 @@
+# 1.119.2 introduces ValueHelp instead of calendar for "Flight Date"
+@skip:1.119
 Feature: Calendar handling
 
   Background: Prepare the application

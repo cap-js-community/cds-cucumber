@@ -8,5 +8,5 @@ if [ -z "${SAP_UI5_VERSION}" ]; then
   #export SAP_UI5_VERSION="1.116.0"
   #export SAP_UI5_VERSION="1.117.3"
   #export SAP_UI5_VERSION="1.118.1"
-  export SAP_UI5_VERSION="1.119.1"
+  export SAP_UI5_VERSION="1.119.2"
 fi
