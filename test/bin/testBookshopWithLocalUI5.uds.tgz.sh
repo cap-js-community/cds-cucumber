@@ -54,7 +54,8 @@ echo "SAPUI5_UNIX_DOMAIN_SOCKET: ${SAPUI5_UNIX_DOMAIN_SOCKET}"
 test -d ${ROOT_DIR}/tmp/uds || mkdir -p ${ROOT_DIR}/tmp/uds
 
 pushd .
-cd ${ROOT_DIR}/test/serveUI5 && npm i
+cd ${ROOT_DIR}/test/serveUI5
+test -d node_modules || npm i
 popd
 node ${ROOT_DIR}/test/serveUI5/index.js &
 CDSPID=$!
