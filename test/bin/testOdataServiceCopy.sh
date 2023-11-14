@@ -15,7 +15,7 @@ WORK_DIR=`pwd`
 export NODE_PATH=${WORK_DIR}/node_modules
 
 test -f package.json || npm init -y
-test -d node_modules/@sap/cds || npm i @sap/cds
+test -d node_modules/@sap/cds-dk || npm i @sap/cds-dk
 test -d node_modules/express || npm i express
 test -d node_modules/sqlite3 || npm i sqlite3
 test -d node_modules/@sap-cloud-sdk/resilience || npm i @sap-cloud-sdk/resilience

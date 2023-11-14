@@ -23,26 +23,8 @@ jobs:
         run: |
           docker run -d -p 4444:4444 --network host selenium/standalone-chrome
 
-      - name: Getting started with @sap/cds@^6.8.3
+      - name: Test
         env:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-          CDS_VERSION: ^6.8.3
-          CDS_ADD_SAMPLE_COMMAND: samples
-        run: |
-          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash ./test/bin/testGettingStarted.sh
-
-      - name: Getting started with @sap/cds@^7.0.0 with "samples"
-        env:
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-          CDS_VERSION: ^7.0.0
-          CDS_ADD_SAMPLE_COMMAND: samples
-        run: |
-          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash ./test/bin/testGettingStarted.sh
-
-      - name: Getting started with @sap/cds@^7.0.0 with "sample"
-        env:
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-          CDS_VERSION: ^7.0.0
-          CDS_ADD_SAMPLE_COMMAND: sample
         run: |
           SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash ./test/bin/testGettingStarted.sh

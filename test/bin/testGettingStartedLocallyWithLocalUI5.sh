@@ -14,7 +14,7 @@ npm init -w service -y
 cd service
 rm package.json
 
-npx cds init --add samples
+npx cds init --add sample
 npm add ../../.. || true
 npx cds-add-cucumber
 # requireModule does not work with links -> require the steps directly

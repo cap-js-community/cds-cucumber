@@ -16,7 +16,49 @@ Feature: Activate travel draft without bookings
 
   Scenario: Activate open travel draft without bookings
     Then we save the draft
+      And we go back
+      And we filter by "Customer" equal to "000001"
+      And we apply the search filter
+      And table "Travels" has 6 records
+      And we expect table "Travels" to contain record
+      """
+      {
+        "Agency": "Fly High (070002)",
+        "Booking Fee": {
+          "value": "10"
+        },
+        "Customer": "Buchholm (000001)",
+        "Total Price": {
+          "value": "10"
+        },
+        "Travel": {
+          "text": "new travel"
+        },
+        "Travel Status": "Open"
+      }
+      """
 
   Scenario: Activate accepted travel draft without bookings
     When we press button "Accept Travel"
     Then we save the draft
+      And we go back
+      And we filter by "Customer" equal to "000001"
+      And we apply the search filter
+      And table "Travels" has 6 records
+      And we expect table "Travels" to contain record
+      """
+      {
+        "Agency": "Fly High (070002)",
+        "Booking Fee": {
+          "value": "10"
+        },
+        "Customer": "Buchholm (000001)",
+        "Total Price": {
+          "value": "10"
+        },
+        "Travel": {
+          "text": "new travel"
+        },
+        "Travel Status": "Accepted"
+      }
+      """

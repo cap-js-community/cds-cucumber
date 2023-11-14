@@ -20,7 +20,7 @@ npm init -w service -y
 cd service
 rm package.json
 
-npx cds init --add samples,sqlite && npx cds deploy --to sqlite
+npx cds init --add sample && npx cds deploy --to sqlite
 npm i @sap/cds
 npm i express
 

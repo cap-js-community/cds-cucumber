@@ -40,7 +40,7 @@
     "chai": "^4",
     "chai-shallow-deep-equal": "^1",
     "chai-sorted": "^0.2",
-    "chromedriver": "^119",
+    "chromedriver": "latest",
     "selenium-webdriver": "^4",
     "sqlite3": "^5"
   },
