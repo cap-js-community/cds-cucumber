@@ -30,6 +30,9 @@ files.forEach(file => {
 
   let re2 = new RegExp('https\:\/\/.*test-resources\/sap\/ushell\/bootstrap\/sandbox.js', 'g');
   content=content.replaceAll(re2,"/test-resources/sap/ushell/bootstrap/sandbox.js");
+  
+  let re3 = new RegExp('data-sap-ui-flexibilityServices=\"\"', 'g');
+  content=content.replaceAll(re3,"");
 
   fs.writeFileSync(fp, content);
   console.log('Wrote file:', fp);
