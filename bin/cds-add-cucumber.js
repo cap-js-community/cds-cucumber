@@ -40,7 +40,7 @@ function createTestFeaturesDir() {
 }
 
 function createVSCodePluginConfig() {
-  const content = `{
+  const settingsJson = `{
   // Cucumber for Visual Studio Code (CucumberOpen) https://open-vsx.org/extension/CucumberOpen/cucumber-official 
   "cucumber.features": [
     "test/features/**/*.feature"
@@ -57,11 +57,17 @@ function createVSCodePluginConfig() {
   "cucumberautocomplete.strictGherkinCompletion": true
 }
 `
+
+  const extensionsJson = `{
+  "recommendations": [
+    "cucumberopen.cucumber-official",
+  ]
+}
+`
   mkdir('./.vscode');
 
-  const file = './.vscode/settings.json';
-
-  createFileIfMissing(file, content);
+  createFileIfMissing('./.vscode/settings.json', settingsJson);
+  createFileIfMissing('./.vscode/extensions.json', extensionsJson);
 
 }
 
