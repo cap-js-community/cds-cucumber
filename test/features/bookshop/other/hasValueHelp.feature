@@ -36,4 +36,4 @@ Feature: Test has ValueHelp step
       And we create draft
     Then we modify field "Price" to "123"
       And we open value help for field "Price"
-      And we select one row in value help dialog having field 'Currency Code' equal to 'EUR'
+      And we select one row in value help dialog having field "Currency Code" equal to "EUR"
