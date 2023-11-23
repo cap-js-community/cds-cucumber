@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 * UI: enable SAP UI5 1.120.1
-* add-cds-plugin: create vscode extensions recommendation file when missing
+* cds-add-cucumber: create vscode extensions recommendation file when missing
 
 ### Changed
 * chromedriver: changed dependency to "latest"
