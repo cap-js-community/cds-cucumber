@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 ### Fixed
+* OData: retrieve service path from annotation @path
 
 ## Version 0.3.3 - 2023-11-21
 
