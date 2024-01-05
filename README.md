@@ -1,7 +1,7 @@
 # CDS for Cucumber
 
 Provides a library for behaviour-driven tests of CAP applications.
-It contains ready-to-use steps that helps you write tests in a BDD style.
+It contains ready-to-use steps that help you write tests in a BDD style.
 The [cucumber](https://cucumber.io) project provides framework for that.
 
 As of now, the library supports SAP Fiori® Elements as UI framework and OData as communication protocol.
@@ -21,9 +21,9 @@ Feature: Fiori preview page
 
 The project is in early **beta phase**, please expect changes.
 
-## API
+## Documentation
 
-List of steps and details is available in the [API documentation](https://cap-js-community.github.io/cds-cucumber/list_namespace.html).
+List of steps and details is available in the [documentation](https://cap-js-community.github.io/cds-cucumber/list_namespace.html).
 
 ## Usage
 
