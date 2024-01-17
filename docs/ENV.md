@@ -117,6 +117,15 @@ Example:
 ACCEPT_LANG=en
 ```
 
+### CDS_CUCUMBER_FIREFOX
+
+Instructs library to use the Firefox web browser.
+
+Example:
+```
+CDS_CUCUMBER_FIREFOX=1
+```
+
 ## Debbuging UI
 
 ### CDS\_CUCUMBER\_DEBUG
