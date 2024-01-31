@@ -1,7 +1,7 @@
 Feature: Modify any field
 
   Scenario: Modify field Author having ValueHelp dialog
-    Given we have started the CAP application
+    Given we have started the application
       And we have opened the url "fiori-apps.html" with user "alice"
     When we select tile "Manage Books"
       And we create draft
