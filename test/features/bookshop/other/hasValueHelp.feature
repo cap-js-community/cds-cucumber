@@ -1,7 +1,7 @@
 Feature: Test has ValueHelp step
 
   Scenario: Check if fields have ValueHelp
-    Given we have started the CAP application
+    Given we have started the application
       And we have opened the url "fiori-apps.html" with user "alice"
     When we select tile "Manage Books"
       And field "Editing Status" has value help
@@ -20,7 +20,7 @@ Feature: Test has ValueHelp step
       And field "Price" has value help
 
   Scenario: Check ValueHelp in filter dialog
-    Given we have started the CAP application
+    Given we have started the application
       And we have opened the url "fiori-apps.html" with user "alice"
     When we select tile "Manage Books"
       And we create draft
@@ -30,7 +30,7 @@ Feature: Test has ValueHelp step
       And we open value help for field "Name"
 
   Scenario: Modify field Price via ValueHelp
-    Given we have started the CAP application
+    Given we have started the application
       And we have opened the url "fiori-apps.html" with user "alice"
     When we select tile "Manage Books"
       And we create draft

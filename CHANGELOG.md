@@ -10,7 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 ### Changed
 ### Removed
+
+* Steps *Given we have started the CAP application*  
+  alternative: *Given we have started the application*
+
 ### Fixed
+
+* selenium-webdriver: add option *--headless*
 
 ## Version 0.3.4 - 2024-01-17
 
