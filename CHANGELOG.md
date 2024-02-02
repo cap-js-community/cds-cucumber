@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version 0.3.5 - 2024-xx-xx
 
 ### Added
+
+* Documentation: environment variable CDS_COMMAND_ARGn
+
 ### Changed
 ### Removed
 
