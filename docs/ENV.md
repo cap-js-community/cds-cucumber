@@ -67,6 +67,16 @@ Example:
 CDS_SERVICE_APPLICATION=fiori
 ```
 
+### CDS\_COMMAND\_ARG{N}
+
+Specifies additional CDS Service command line arguments where **N** is a number between 1 and 9, and in addition this number indicates the order of the arguments.
+
+Example:
+```
+CDS_COMMAND_ARG1="--with-mocks"
+CDS_COMMAND_ARG2="--in-memory?"
+```
+
 ## Execution control
 
 ### SLOW_DOWN
