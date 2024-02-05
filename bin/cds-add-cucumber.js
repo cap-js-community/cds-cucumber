@@ -75,7 +75,7 @@ function createFirstFeatureFile() {
   const content = `Feature: Fiori preview page
 
   Scenario: Open first Fiori preview page
-    Given we have started the CAP application
+    Given we have started the application
       And we have opened the url "/"
     When we click on first Fiori preview page
       And we search for "jane"
@@ -131,7 +131,7 @@ function createBookshopFirstFeatureFile() {
   const content = `Feature: Bookshop first feature file
 
   Scenario: Open "Manage Books" as "alice" and search for "jane"
-    Given we have started the CAP application
+    Given we have started the application
       And we have opened the url "/" with user "alice"
     When we select tile "Manage Books"
       And we search for "jane"
