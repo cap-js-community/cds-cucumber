@@ -8,9 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version 0.3.7 - 2024-xx-xx
 
 ### Added
+
+* Environment variable: CDS_CUCUMBER_BROWSER=chrome|firefox
+
 ### Changed
+
+* Browser: default browser set to 'firefox' when Application Studio is detected
+
 ### Removed
+
+* Environment variable: CDS_CUCUMBER_FIREFOX
+
 ### Fixed
+
+* Secure working directory removal
 
 ## Version 0.3.6 - 2024-02-05
 
