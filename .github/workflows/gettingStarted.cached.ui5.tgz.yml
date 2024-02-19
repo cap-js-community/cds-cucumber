@@ -1,0 +1,53 @@
+name: getting-started-cached-ui5-tgz
+on:
+  push:
+    branches: [ "run-github-actions-cached-ui5-tgz" ]
+jobs:
+  getting-started-cached-ui5-tgz:
+    name: getting-started-cached-ui5-tgz
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18 ]
+        sap-ui5-version: [ 1.120.6 ]
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/cache/restore@v3
+        id: cache
+        with:
+          path: tmp/sapui5/sapui5-${{ matrix.sap-ui5-version }}.tgz
+          key: sapui5-${{ matrix.sap-ui5-version }}-tgz
+
+      - name: Build UI5
+        if: steps.cache.outputs.cache-hit != 'true'
+        env:
+          SAP_UI5_VERSION: ${{ matrix.sap-ui5-version }}
+        run: ./test/bin/build.ui5.tgz.sh
+
+      - uses: actions/cache/save@v3
+        if: steps.cache.outputs.cache-hit != 'true'
+        with:
+          path: tmp/sapui5/sapui5-${{ matrix.sap-ui5-version }}.tgz
+          key: sapui5-${{ matrix.sap-ui5-version }}-tgz
+
+      - name: list cache
+        run: ls -altr tmp/sapui5/sapui5-${{ matrix.sap-ui5-version }}.tgz
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: prepare
+        run: npm ci
+  
+      - name: selenium
+        run: docker run -d -p 4444:4444 --network host selenium/standalone-chrome
+
+      - name: test
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+          SAP_UI5_VERSION: ${{ matrix.sap-ui5-version }}
+        run: |
+          SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" bash ./test/bin/testGettingStartedReuseUI5LocalBuild.tgz.sh
