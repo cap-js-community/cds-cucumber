@@ -10,4 +10,4 @@ SAP_UI5_VERSION="1.116.0" ./test/bin/build.ui5.tgz.sh
 SAP_UI5_VERSION="1.117.5" ./test/bin/build.ui5.tgz.sh
 SAP_UI5_VERSION="1.118.1" ./test/bin/build.ui5.tgz.sh
 SAP_UI5_VERSION="1.119.2" ./test/bin/build.ui5.tgz.sh
-SAP_UI5_VERSION="1.120.6" ./test/bin/build.ui5.tgz.sh
+SAP_UI5_VERSION="1.120.8" ./test/bin/build.ui5.tgz.sh
