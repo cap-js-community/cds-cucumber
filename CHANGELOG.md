@@ -59,7 +59,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Firefox support enabled via environment variable CDS_CUCUMBER_FIREFOX=1
 
 ### Fixed
-* OData: retrieve service path via annotation @path
+
+* OData: retrieve service path via annotation "@path"
 
 ## Version 0.3.3 - 2023-11-21
 
