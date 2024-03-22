@@ -13,7 +13,8 @@
   "repository": "cap-js-community/cds-cucumber",
   "bin": {
     "cds-add-cucumber": "./bin/cds-add-cucumber.js",
-    "cds-add-cucumber-plugin": "./cds-plugins/addCdsPlugin.js"
+    "cds-add-cucumber-plugin": "./cds-plugins/addCdsPlugin.js",
+    "cds-cucumber-build-ui5-tgz": "./cds-plugins/local-ui5-tgz/build.sh"
   },
   "main": "./lib/index.js",
   "files": [
