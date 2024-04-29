@@ -5,6 +5,7 @@ const fs = require('node:fs');
 createCucumberConfiguration();
 createTestFeaturesDir();
 createVSCodePluginConfig();
+createGitHubActionsWorkflow();
 if(!createBookshopFirstFeatureFile()) {
   createFirstFeatureFile();
   createAnnotationsForCdsDkSamples();
@@ -69,6 +70,91 @@ function createVSCodePluginConfig() {
   createFileIfMissing('./.vscode/settings.json', settingsJson);
   createFileIfMissing('./.vscode/extensions.json', extensionsJson);
 
+}
+
+function createGitHubActionsWorkflow() {
+  const content = `name: test-with-cached-ui5
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  test-with-cached-ui5:
+    name: Test with cached UI5
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18 ]
+        sap-ui5-version: [ 1.120.11 ]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js \${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: \${{ matrix.node-version }}
+
+      - name: prepare
+        run: npm ci
+
+      - name: Add UI5 local tgz plugin
+        run: npx cds-add-cucumber-plugin -p local-ui5-tgz -f app/index.html
+
+      - uses: actions/cache/restore@v3
+        id: cache-ui5
+        with:
+          path: tmp/sapui5/sapui5-\${{ matrix.sap-ui5-version }}.tgz
+          key: sapui5-\${{ matrix.sap-ui5-version }}-tgz
+
+      - name: Build UI5
+        if: steps.cache-ui5.outputs.cache-hit != 'true'
+        env:
+          SAP_UI5_VERSION: \${{ matrix.sap-ui5-version }}
+        run: npx cds-cucumber-build-ui5-tgz
+
+      - uses: actions/cache/save@v3
+        if: steps.cache-ui5.outputs.cache-hit != 'true'
+        with:
+          path: tmp/sapui5/sapui5-\${{ matrix.sap-ui5-version }}.tgz
+          key: sapui5-\${{ matrix.sap-ui5-version }}-tgz
+
+      - uses: actions/cache/restore@v3
+        id: cache-selenium
+        with:
+          path: tmp/selenium.tar
+          key: selenium
+
+      - name: download selenium
+        if: steps.cache-selenium.outputs.cache-hit != 'true'
+        run: docker pull selenium/standalone-chrome && docker image save selenium/standalone-chrome --output tmp/selenium.tar
+
+      - uses: actions/cache/save@v3
+        if: steps.cache-selenium.outputs.cache-hit != 'true'
+        with:
+          path: tmp/selenium.tar
+          key: selenium
+
+      - name: load selenium
+        run: docker image load --input tmp/selenium.tar
+
+      - name: run selenium
+        run: docker run -d -p 4444:4444 --network host selenium/standalone-chrome
+
+      - name: test
+        env:
+          BRANCH_NAME: \${{ github.head_ref || github.ref_name }}
+          SAP_UI5_VERSION: \${{ matrix.sap-ui5-version }}
+          SAPUI5_ARCHIVE_FILE: ./tmp/sapui5/sapui5-\${{ matrix.sap-ui5-version }}.tgz
+          SELENIUM_REMOTE_URL: http://127.0.0.1:4444/wd/hub
+        run: npx cucumber-js test
+`
+  const file = '.github/workflows/test-cached-ui5-tgz.yml';
+
+  mkdir('.github');
+  mkdir('.github/workflows');
+
+  createFileIfMissing(file, content);
 }
 
 function createFirstFeatureFile() {
