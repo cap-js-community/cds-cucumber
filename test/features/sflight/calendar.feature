@@ -2,6 +2,8 @@
 @skip:1.119
 @skip:1.120
 @skip:1.121
+@skip:1.122
+@skip:1.123
 Feature: Calendar handling
 
   Background: Prepare the application

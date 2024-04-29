@@ -8,10 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version 0.3.9 - 2024-xx-xx
 
 ### Added
+* cds-add-cucumber - creates an example github actions workflow file
 ### Changed
 ### Removed
 ### Fixed
-
+* UI - skip InvisibleText elements
 ## Version 0.3.8 - 2024-03-12
 
 ### Fixed
