@@ -119,3 +119,7 @@ By default the selenium/standalone-chrome image opens the port 4444 to access th
 ```
 SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" npx cucumber-js test
 ```
+
+## Code coverage
+
+Server-side code-covarage is available using the native V8 code-coverage module **c8** and it can be activated via the environment variable [CDS_CUCUMBER_CODECOV](ENV.md#cds_cucumber_codecov).
