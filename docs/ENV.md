@@ -169,15 +169,15 @@ Example:
 CDS_CUCUMBER_WAIT_DEBUGGER=1
 ```
 
-## Client-side code coverage
+## Client-side code-coverage
 
 Used module: istanbul
 
 ### CDS\_INSTRUMENTED\_CODECOV\_BROWSER\_EXT
 
-Specifies the instrumented code used for producing a code coverage report.
+Specifies the instrumented code used for producing a code-coverage report.
 
-## Server-side code coverage
+## Server-side code-coverage
 
 ### CDS\_CUCUMBER\_CODECOV
 
