@@ -83,4 +83,4 @@ EOF
 
 rm -r -f tmp/coverage
 CDS_CUCUMBER_CODECOV="c8" npx cucumber-js test
-ls -altr tmp/coverage/index.html
+ls -altr ${WORK_DIR}/tmp/coverage/index.html
