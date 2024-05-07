@@ -169,10 +169,26 @@ Example:
 CDS_CUCUMBER_WAIT_DEBUGGER=1
 ```
 
-## Code coverage
+## Client-side code coverage
 
 Used module: istanbul
 
 ### CDS\_INSTRUMENTED\_CODECOV\_BROWSER\_EXT
 
 Specifies the instrumented code used for producing a code coverage report.
+
+## Server-side code coverage
+
+### CDS\_CUCUMBER\_CODECOV
+
+* using native V8 code-coverage module **c8**
+```
+CDS_CUCUMBER_CODECOV="c8"
+```
+
+The **c8** module is not listed in the dependencies and needs to be installed:
+```
+npm add --no-save c8
+```
+
+Additional configration options are available via the c8 configuration files.
