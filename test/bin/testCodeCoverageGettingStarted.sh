@@ -18,7 +18,7 @@ test -d ${WORK_DIR} || mkdir -p $WORK_DIR
 export PACKED_FILE=${WORK_DIR}/cap-js-community-cds-cucumber-${CURRENT_VERSION:1:-1}.tgz
 rm $PACKED_FILE
 if [ -f ${PACKED_FILE} ]; then
-  echo "already packed: ${PACKED_FILE}"
+  echo "cds-cucumber already packed: ${PACKED_FILE}"
 else
   npm pack --pack-destination=${WORK_DIR}
 fi
@@ -26,14 +26,14 @@ fi
 cd $WORK_DIR
 
 if [ -f package.json ]; then
-  echo "package.json initialized"
+  echo "package.json already initialized"
 else
   npm init -y
   test -d node_modules/@sap/cds-dk || npm add @sap/cds-dk
 fi
 
 if [ -f .cdsrc.json ]; then
-  echo "added"
+  echo "cds sample already initialized"
 else
   npx cds init --add sample
 fi
@@ -41,7 +41,7 @@ fi
 npm add ${PACKED_FILE}
 
 if [ -f "cucumber.yml" ]; then
-  echo "Cucumber already enabled."
+  echo "cucumber already enabled"
 else
   npx cds-add-cucumber
 fi
@@ -55,7 +55,7 @@ else
 fi
 
 if [ -d "local-ui5-tgz-plugin" ]; then
-  echo "Plugin local-ui5-build already installed."
+  echo "plugin local-ui5-build already installed"
 else
   npx cds-add-cucumber-plugin -p local-ui5-tgz -f app/index.html
 fi
@@ -63,7 +63,7 @@ fi
 cp test/features/bookshop.feature test/features/bookshop1.feature
 
 if [ -d "./node_modules/c8" ]; then
-  echo "C8 installed"
+  echo "c8 already added"
 else
   npm add -D c8
 fi
@@ -83,3 +83,4 @@ EOF
 
 rm -r -f tmp/coverage
 CDS_CUCUMBER_CODECOV="c8" npx cucumber-js test
+ls -altr tmp/coverage/index.html
