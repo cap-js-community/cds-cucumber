@@ -123,3 +123,29 @@ SELENIUM_REMOTE_URL="http://127.0.0.1:4444/wd/hub" npx cucumber-js test
 ## Code coverage
 
 Server-side code-covarage is available using the native V8 code-coverage module **c8** and it can be activated via the environment variable [CDS_CUCUMBER_CODECOV](ENV.md#cds_cucumber_codecov).
+
+# OData v2
+
+* enable OData v2 plugin
+```bash
+npm add @cap-js-community/odata-v2-adapter
+```
+
+* use the appropriate step to require the OData v2 protocol:
+```gherkin
+  Given we require communication protocol "odata-v2"
+```
+
+* alternatively set the environment variable CDS_CUCUMBER_COMMUNICATION_PROTOCOL
+```bash
+CDS_CUCUMBER_COMMUNICATION_PROTOCOL="odata-v2"
+```
+
+* configure the path of the CDS service using the CDS annotations in case it differs from the default
+```cds
+annotate AdminService with 
+@protocol: [
+  { kind: 'odata-v2', path: '/odata/v2/admin' },
+  { kind: 'odata-v4', path: '/odata/v4/admin' }
+];
+```

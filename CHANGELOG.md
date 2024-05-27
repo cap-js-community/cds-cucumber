@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 * server-side code-coverage
+* OData:
+  - support protocol version 2: *Given we require communication protocol "odata-v2"*
+  - perform actions: *When we execute action {word} with payload*
 
 ### Changed
 ### Removed

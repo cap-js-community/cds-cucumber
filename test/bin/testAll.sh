@@ -12,6 +12,9 @@ test/bin/testBookshopWithLocalUI5plugin.PARALLEL.sh
 test/bin/testSFlightWithLocalUI5plugin.sh
 test/bin/testSFlightWithLocalUI5plugin.PARALLEL.sh
 
-test/bin/testOdataServiceCopy.sh
-test/bin/testOdataServiceDirectEmbedded.sh
-test/bin/testOdataServiceDirectRemote.sh
+test/bin/testODataServiceCopy.sh
+test/bin/testODataV2GettingStartetAnnotated.sh
+test/bin/testODataV4GettingStartet.sh
+test/bin/testODataV2GettingStartet.sh
+test/bin/testODataServiceDirectEmbedded.sh
+test/bin/testODataV4DirectRemote.sh
