@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Version 0.3.10 - 2024-xx-xx
+## Version 0.4.0 - 2024-06-05
 
 ### Added
 
@@ -13,10 +13,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * OData:
   - support protocol version 2: *Given we require communication protocol "odata-v2"*
   - perform actions: *When we execute action {word} with payload*
-
-### Changed
-### Removed
-### Fixed
 
 ## Version 0.3.9 - 2024-04-30
 
