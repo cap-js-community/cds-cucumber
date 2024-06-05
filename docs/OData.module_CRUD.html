@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>OData.CRUD</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"DD MMM YYYY","systemName":"CDS for Cucumber","systemSummary":"CDS cucumber steps","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"","linenums":false,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":false,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":["scripts/postproc.js"],"monospaceLinks":false,"cleverLinks":false};
+			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					CDS for Cucumber
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="OData.module_Actions.html">OData.Actions</a></li>
+											<li><a href="OData.module_CRUD.html">OData.CRUD</a></li>
+											<li><a href="OData.module_Expectations.html">OData.Expectations</a></li>
+											<li><a href="OData.module_HTTP-Response.html">OData.HTTP-Response</a></li>
+											<li><a href="OData.module_Initialization.html">OData.Initialization</a></li>
+											<li><a href="OData.module_Query.html">OData.Query</a></li>
+											<li><a href="UI.module_Actions.html">UI.Actions</a></li>
+											<li><a href="UI.module_Draft.html">UI.Draft</a></li>
+											<li><a href="UI.module_Expectations.html">UI.Expectations</a></li>
+											<li><a href="UI.module_Extraction.html">UI.Extraction</a></li>
+											<li><a href="UI.module_Filter.html">UI.Filter</a></li>
+											<li><a href="UI.module_Initialization.html">UI.Initialization</a></li>
+											<li><a href="UI.module_Modify.html">UI.Modify</a></li>
+											<li><a href="UI.module_Navigate.html">UI.Navigate</a></li>
+											<li><a href="UI.module_Preconditions.html">UI.Preconditions</a></li>
+											<li><a href="UI.module_Search.html">UI.Search</a></li>
+											<li><a href="UI.module_Select.html">UI.Select</a></li>
+											<li><a href="UI.module_ValueHelp.html">UI.ValueHelp</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="OData.html">OData</a></li>
+											<li><a href="UI.html">UI</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">module</span>
+				<h1><span class="ancestors"><a href="OData.html">OData</a>.</span><span class="name">CRUD</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-9 main-content">
+						<ol class="breadcrumb">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="list_module.html">Modules</a></li>
+							<li class="active"><a href="OData.html">OData</a>.CRUD</li>
+						</ol>
+					<section>
+		<dl class="symbol">
+			<dt class="symbol-title "></dt>
+			<dd class="symbol-details ">
+				<div class="symbol-details-inner">
+				</div>
+			</dd>
+		</dl>
+							<article class="secondary">
+									<h3>Members</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Givenwehavecreatedanewemptyrecord" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">Given we have created a new empty record</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Create a new empty record targeting previously specified entity</p></div>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">Given we have created a new empty record</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Givenwehavecreatedanewemptyrecordinentity%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">Given we have created a new empty record in entity {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Create a new empty record targeting the specified entity</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>entity</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>target entity name</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">Given we have created a new empty record in entity Books</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Givenwehavecreatedanewrecord" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">Given we have created a new record</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Create a new record targeting previously specified entity</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>data</code></td>
+							<td><span class="param-type">attachment</span></td>
+							<td class="last">
+									<p>provides JSON-formatted record</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">Given we have created a new record
+			&quot;&quot;&quot;
+			{ &quot;id&quot;:1, &quot;name&quot;: &quot;new instance&quot; }
+			&quot;&quot;&quot;</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Givenwehavecreatedanewrecordinentity%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">Given we have created a new record in entity {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Create a new record targeting the specified entity</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>entity</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>target entity name</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>data</code></td>
+							<td><span class="param-type">attachment</span></td>
+							<td class="last">
+									<p>provides JSON-formatted record</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">Given we have created a new record in entity Books
+			&quot;&quot;&quot;
+			{ &quot;id&quot;:1, &quot;name&quot;: &quot;new book&quot; }
+			&quot;&quot;&quot;</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Givenwehavecreatednewrecordsinentity%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">Given we have created new records in entity {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Create a new record targeting the specified entity</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>entity</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>target entity name</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>data</code></td>
+							<td><span class="param-type">attachment</span></td>
+							<td class="last">
+									<p>provides the JSON-formatted record</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">Given we have created new records in entity {word}</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Givenwehavecreatedanewrecordwith%7Bword%7Dsetto%7Bfloat%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">Given we have created a new record with {word} set to {float}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Create a new record targeting previously specified entity</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>field</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>name of the target field</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>value</code></td>
+							<td><span class="param-type">float</span></td>
+							<td class="last">
+									<p>float value to store into the specified field</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">Given we have created a new record with Price set to 12,50</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Givenwehavecreatedanewrecordwith%7Bword%7Dsetto%7Bstring%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">Given we have created a new record with {word} set to {string}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Create a new record targeting previously specified entity</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>field</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>name of the target field</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>value</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+									<p>string value to store into the specified field</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">Given we have created a new record with Name set to &quot;New Name&quot;</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Givenwehavecreatedanewrecordwith%7Bword%7Dsetto%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">Given we have created a new record with {word} set to {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Create a new record targeting previously specified entity</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>field</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>name of the target field</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>value</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>value to store into the specified field</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">Given we have created a new record with Status set to Open</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Givenwehavereadrecordsmatching%7Bword%7Dequalto%7Bstring%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">Given we have read records matching {word} equal to {string}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Performs a read request targeting previously specified entity while filtering by the specified field equal to the provided value</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>field</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>name of the field to use in the filter</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>value</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+									<p>exact value to match the specified field with</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">Given we have read records matching Title equal to &quot;New Title&quot;</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenwereadallrecords" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we read all records</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Performs a read request without any restrictions targeting previously specified entity</p></div>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we read all records</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenwereadallrecordsfromentity%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we read all records from entity {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Performs a read request without any restrictions targeting the specified entity</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>entity</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>target entity name</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we read all records from entity Books</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenwereadentity%7Bword%7Dbyselectingthefollowingfields" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we read entity {word} by selecting the following fields</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Performs a read request targeting the specified entity and obtaining only the requested fields</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>entity</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>target entity name</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>fields</code></td>
+							<td><span class="param-type">attachment</span></td>
+							<td class="last">
+									<p>comma-separated list of fields provided as a string attachment</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we read entity Books by selecting the following fields
+			&quot;&quot;&quot;
+			id, name, price
+			&quot;&quot;&quot;</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenwereadentity%7Bword%7Dbyselecting%7Bword%7Dand%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we read entity {word} by selecting {word} and {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Performs a read request targeting the specified entity and obtaining only the requested two fields</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>entity</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>target entity name</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>fieldName1</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>first target field</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>fieldName2</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>second target field</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we read entity Books by selecting name and price</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenwereadentity%7Bword%7Dbyselecting%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we read entity {word} by selecting {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Performs a read request targeting the specified entity and obtaining only the requested field</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>entity</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>target entity name</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>fieldName</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>target field</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we read entity Books by selecting title</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenwereadentity%7Bword%7Dbyexpanding%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we read entity {word} by expanding {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Performs a read request targeting the specified entity and expanding the specified association</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>entity</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>target entity name</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>associationName</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>association to follow</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we read entity Author by expanding books</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenweusethefollowingfilter" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we use the following filter</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Appends the specified filter to the WHERE clause of the current query ( see: <a href="https://cap.cloud.sap/docs/node.js/cds-ql#where">CDS QL: where</a> )</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>filter</code></td>
+							<td><span class="param-type">attachment</span></td>
+							<td class="last">
+									<p>specified filter provided as a JSON-formatted string attachment</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we use the following filter
+			&quot;&quot;&quot;
+			[{ &quot;ref&quot;: [&quot;id&quot;] }, &quot;&gt;&quot;, { &quot;val&quot;: 2 }]
+			&quot;&quot;&quot;</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenwewanttoorderascendingby%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we want to order ascending by {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Appends the specified field to the ORDER BY clause of the current query requesting ascending order of the values</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>field</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>name of the field to use</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we want to order ascending by {word}</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenwewanttoorderdescendingby%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we want to order descending by {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Appends the specified field to the ORDER BY clause of the current query requesting descending order of the values</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>field</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>name of the field to use</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we want to order descending by {word}</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenwewanttogroupby%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we want to group by {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Appends the specified field to the GROUP BY clause of the current query</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>field</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>name of the field to use when grouping the records</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we want to group by {word}</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenweupdatetherecordwiththefollowingdata" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we update the record with the following data</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Performs an update of a record identified by the previously stored keys</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>data</code></td>
+							<td><span class="param-type">attachment</span></td>
+							<td class="last">
+									<p>specified the fields with corresponding values as a JSON-formatted string to use in the update operation</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we update the record with the following data</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenweupdaterecordsbysetting%7Bstring%7Dto%7Bstring%7Dusingfilter" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we update records by setting {string} to {string} using filter</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Performs an update of a field in records matching the specified filter</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>field</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+									<p>name of the field to update</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>value</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+									<p>value update the field with</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>filter</code></td>
+							<td><span class="param-type">attachment</span></td>
+							<td class="last">
+									<p>JSON-formatted string used to identify the target records</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we update records by setting {string} to {string} using filter</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenwedeletetherecordfromentity%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we delete the record from entity {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Deletes record identified by the previously stored keys located in the target entity</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>entity</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>target entity name</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we delete the record from entity {word}</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenwedeletematchingrecordsfromentity%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we delete matching records from entity {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Deletes the records located in the target entity and matching filter provided as JSON-formatted string</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>entity</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>target entity name</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>filter</code></td>
+							<td><span class="param-type">attachment</span></td>
+							<td class="last">
+									<p>JSON-formatted string specifying the filter to use</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we delete matching records from entity {word}</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenwedeletetherecords" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we delete the records</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Delete previously selected records using their keys</p></div>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we delete the records</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenwedeletetherecord" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we delete the record</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Delete previously selected record using its key</p></div>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we delete the record</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Thenreadallrecordsinentity%7Bword%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">Then read all records in entity {word}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Obtain a list of all records in an entity by selecting their IDs</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>entity</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>target entity name</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">Then read all records in entity Books</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Thenshowresultkeys" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">Then show result keys</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Prints the current results keys on the console</p></div>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">Then show result keys</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Thenshowtheresult" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">Then show the result</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Prints the current result on the console</p></div>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">Then show the result</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="~Whenweread%7Bword%7Dofentity%7Bword%7Dwithkey%7Bint%7D" class="member public"><span class="signature-attribs">&lt;inner> </span><span class="name">When we read {word} of entity {word} with key {int}</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Selects the associated records of record with the specified key the target entity</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>association</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>name of the association to follow</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>entity</code></td>
+							<td><span class="param-type">word</span></td>
+							<td class="last">
+									<p>target entity name</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>key</code></td>
+							<td><span class="param-type">int</span></td>
+							<td class="last">
+									<p>key of the target record</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">When we read auhtor of entity Books with key 1001</code></pre>
+					</div>
+			</div>	</div>
+</dd>
+									</dl>
+							</article>
+					</section>
+			</div>
+				<div class="col-md-3 side-content">
+					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+				</div>
+		</div>
+	</div>
+	<footer>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 05 Jun 2024 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="scripts/postproc.js"></script>
+	
+</body>
+</html>

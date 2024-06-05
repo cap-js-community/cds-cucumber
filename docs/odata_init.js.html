@@ -1,0 +1,417 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>odata/init.js</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"DD MMM YYYY","systemName":"CDS for Cucumber","systemSummary":"CDS cucumber steps","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"","linenums":false,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":false,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":["scripts/postproc.js"],"monospaceLinks":false,"cleverLinks":false};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					CDS for Cucumber
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="OData.module_Actions.html">OData.Actions</a></li>
+											<li><a href="OData.module_CRUD.html">OData.CRUD</a></li>
+											<li><a href="OData.module_Expectations.html">OData.Expectations</a></li>
+											<li><a href="OData.module_HTTP-Response.html">OData.HTTP-Response</a></li>
+											<li><a href="OData.module_Initialization.html">OData.Initialization</a></li>
+											<li><a href="OData.module_Query.html">OData.Query</a></li>
+											<li><a href="UI.module_Actions.html">UI.Actions</a></li>
+											<li><a href="UI.module_Draft.html">UI.Draft</a></li>
+											<li><a href="UI.module_Expectations.html">UI.Expectations</a></li>
+											<li><a href="UI.module_Extraction.html">UI.Extraction</a></li>
+											<li><a href="UI.module_Filter.html">UI.Filter</a></li>
+											<li><a href="UI.module_Initialization.html">UI.Initialization</a></li>
+											<li><a href="UI.module_Modify.html">UI.Modify</a></li>
+											<li><a href="UI.module_Navigate.html">UI.Navigate</a></li>
+											<li><a href="UI.module_Preconditions.html">UI.Preconditions</a></li>
+											<li><a href="UI.module_Search.html">UI.Search</a></li>
+											<li><a href="UI.module_Select.html">UI.Select</a></li>
+											<li><a href="UI.module_ValueHelp.html">UI.ValueHelp</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="OData.html">OData</a></li>
+											<li><a href="UI.html">UI</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">odata/init.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript"><code class="language-javascript">/** @namespace OData **/
+
+/**
+ * @module Initialization
+ * @memberof OData
+*/
+
+const { env } = require('node:process');
+const { After, Given } = require('@cucumber/cucumber');
+const assert = require('assert');
+
+After(async function () {
+  const cds = require ('@sap/cds');
+  for(let name in cds.env.requires) {
+    if(cds.env.requires[name].dynamic) {
+      delete cds.env.requires[name];
+    }
+  }
+  if(this.cdsService)
+    delete this.cdsService;
+  if(this.server) {
+    this.server.close();
+    delete this.server;
+  }
+  if(this.error) {
+    throw Error('Pending error: '+this.error.stack)
+  }
+})
+
+/**
+* @name Given we have started embedded server
+* @description Initializes the CAP service in embedded mode utilizing the model of the current application, 
+*              enabling port rotation and configuring the sqlite database usage with in-memory option.
+* @example Given we have started embedded server
+*/
+Given('we have started embedded server', async function() {
+  if(getRemotePort()) { // remote service port configured - do not start embedded server
+    const loadModel = require('../common/loadModel');
+    await loadModel();
+    return;
+  }
+  const cds = require ('@sap/cds');
+  cds.log('remote')._warn = false; // disable warnings
+  cds.log('deploy')._info = false; // disable deploy info
+  cds.requires.db = {
+    "kind": "sqlite"
+  };
+  cds.env.in_memory = true ;
+  cds.env.port = 0; // enable port rotation
+  if(this.server) throw Error('Embedded server already started');
+  this.server = await cds.server(cds.env); // start server
+  this.port = this.server.address().port; // save the port
+})
+
+/**
+* @name Given we require communication protocol {string}
+* @description require the specified protocol to use for communication with the service
+* @param {string} protocol name to use for communication
+* @example Given we require communication protocol "odata-v2"
+*/
+Given('we require communication protocol {string}', async function( communicationProtocol ) {
+  this.communicationProtocol = communicationProtocol;
+})
+
+/**
+* @name Given we have connected to service {word}
+* @description Connects to the specified service
+* @param {word} serviceName name of the service to connect to
+* @example Given we have connected to service bookshop
+*/
+Given('we have connected to service {word}', async function( serviceName ) {
+  await configureRemoteService(this, {serviceName});
+  await connect(this, serviceName);
+})
+
+/**
+* @name Given we have connected to service {word} as user {string} with password {string}
+* @description Connects to the specified service using the provided credentials
+* @param {word} serviceName name of the service to connect to
+* @param {string} username name of the user to connect with
+* @param {string} password valid password to use for authentication
+* @example Given we have connected to service bookshop as user "alice" with password "secret"
+*/
+Given('we have connected to service {word} as user {string} with password {string}', async function( serviceName, username, password ) {
+  if(this.process) {
+    const loadModel = require('../common/loadModel');
+    await loadModel();
+  }
+  let serviceNameWithUser = await configureRemoteService(this, {serviceName, username, password});
+  await connect(this, serviceNameWithUser);
+})
+
+/**
+* @name Given we have connected to service {word} in directory {string} as user {string} with password {string}
+* @description Connects to the specified service located in the mentioned directory using the provided credentials
+* @param {word} serviceName name of the service to connect to
+* @param {string} directory name of the directory where the service is located
+* @param {string} username name of the user to connect with
+* @param {string} password valid password to use for authentication
+* @example Given we have connected to service bookshop in directory "fiori" as user "alice" with password "secret"
+*/
+Given('we have connected to service {word} in directory {string} as user {string} with password {string}', async function( serviceName, directory, username, password ) {
+  let serviceNameWithUser = await configureRemoteService(this, {serviceName, username, password, directory});
+  await connect(this, serviceNameWithUser);
+})
+
+async function connect(that, serviceName) {
+  if(cds.failedServices &amp;&amp; cds.failedServices[serviceName]) // prevent to connect twice to failing services as it blocks the execution
+    throw Error(`Already failed to connect to ${serviceName} with error ${cds.failedServices[serviceName]}`);
+  try {
+    that.cdsService = await cds.connect.to(serviceName); // connect to odata service
+    that.run = tryRun.bind(that);
+    that.serviceName = serviceName;
+    if(getRemotePort(this))
+      await that.cdsService.get('/'); // perform single GET to check the connection
+    that.storeResult = storeResult.bind(that);
+    that.getEntity = getEntity.bind(that);
+    that.getResultKeys = getResultKeys.bind(that);
+    that.selectFrom = selectFrom.bind(that);
+    that.initPrepare = initPrepare.bind(that);
+    that.initPrepare();
+  } catch(e) {
+    // persist failed connection establishments
+    if(!cds.failedServices) cds.failedServices={};
+    cds.failedServices[serviceName]=e;
+    throw e;
+  }
+}
+
+async function configureRemoteService(that, args) {
+  let { serviceName, port, username, password, directory, path, protocol } = args;
+  port ??= getRemotePort(that);
+  protocol ??= getCommunicationProtocol(that);
+  path ??= that.process?.endpoints?.filter(s=>s.service==serviceName &amp;&amp; s.kind==protocol)[0]?.path;
+  if(!path) {
+    let prefix = {'odata-v2':'/odata/v2/', 'odata-v4':'/odata/v4/'};
+    if(!prefix[protocol]) throw Error(`Protocol '${protocol}' no supported, available: ${Object.keys(prefix)}`);
+    path = prefix[protocol]+((serviceName.endsWith('Service')?serviceName.substring(0,serviceName.length-7):serviceName)).toLowerCase();
+  }
+  if(!path) throw Error(`Path for service ${serviceName} with protocol ${protocol} not found`);
+  if(!port) throw Error("Missing service port");
+  try {
+    const loadModel = require('../common/loadModel');
+    await loadModel(directory);
+    if(!cds.model.definitions[serviceName])
+      throw Error(`Service ${serviceName} not found, available: ${Object.keys(cds.model.definitions)}`);
+  } catch(e) {
+    console.log(e.stack)
+    throw e
+  }
+
+  const hostname = getRemoteHostname();
+  if(!path) path = cds.model.definitions[serviceName].path || cds.model.definitions[serviceName]["@path"];
+  if(!path) path = '/odata/v4/';
+  if(protocol=='odata-v2')
+    path = path.replace('/odata/v4/','/odata/v2/');
+  else if(protocol!='odata-v4')
+    throw Error(`Communication protocol '${protocol}' not supported`);
+  this.url = `http://${hostname}:${port}${path}`;
+
+  // inject odata service
+  if(!cds.env.requires) cds.env.requires = {};
+  let credentials = { url: this.url };
+  if(username) {
+    serviceName = `${username}/${password}@${serviceName}:${port}`; // user dependent service name
+    Object.assign(credentials, { username, password, authentication: "BasicAuthentication"})
+  }
+  cds.env.requires[serviceName] = {
+    dynamic: true,
+    kind: protocol,
+    service: serviceName,
+    credentials,
+    
+  }
+  return serviceName;
+}
+
+function storeResult(result, entity = undefined) {
+  this.result = result;
+  this.resultEntity = entity || this.entity;
+}
+
+function getCommunicationProtocol(that) {
+  return env.CDS_CUCUMBER_COMMUNICATION_PROTOCOL || that?.communicationProtocol || 'odata-v4';
+}
+
+function getRemotePort(that) {
+  return env.REMOTE_PORT || that?.process?.port || that?.port;
+}
+
+function getRemoteHostname() {
+  return env.REMOTE_HOSTNAME || 'localhost';
+}
+
+async function tryRun(query) {
+  try {
+    // TODO check for unhandled this.error?
+    this.error = undefined;
+    return await this.cdsService.run(query);
+  } catch (error) {
+    this.error = error;
+  }
+  return undefined;
+}
+
+function getEntity(entity) {
+  let result = cds.model.entities[`${entity}`];
+  if(!result)
+    result = cds.model.entities[`${this.serviceName}.${entity}`]
+  return result;
+}
+
+function getResultKeys(result=undefined) {
+  const service = this.serviceName;
+  const entity = this.resultEntity;
+  const instance = result || this.result;
+
+  assert.ok(instance, 'getResultKeys: result not set)');
+
+  if(Array.isArray(instance))
+    return instance.map(this.getResultKeys)
+
+  let name = `${service}.${entity}`
+  const E = cds.model.definitions[name];
+  let resultKeys = {};
+  for(let prop in E.elements) {
+    let value = instance[prop];
+    if(E.elements[prop].key) resultKeys[prop] = value;
+  }
+  ['IsActiveEntity'].forEach( prop => {
+    if(instance[prop] !== undefined) resultKeys[prop] = instance[prop]
+  });
+  if(Object.keys(resultKeys).length===1) return resultKeys; // one key - no string quoting needed
+  for(let key in resultKeys) {
+    if(E.elements[key].type === 'cds.UUID')
+      resultKeys[key] = `${resultKeys[key]}`; // do not quote UUIDs
+    else if(typeof resultKeys[key] === 'string')
+      resultKeys[key] = `'${resultKeys[key]}'`; // quote strings
+  }
+  return resultKeys;
+}
+
+async function selectFrom(instance=undefined) {
+  let entity = this.prepare.entity || this.entity;
+  let keys = instance ? this.getResultKeys(instance) : undefined;
+  let query = SELECT(entity, keys);
+  let columns = Object.assign([], this.prepare.columns);
+  this.prepare.expand.forEach(item => {
+    if(typeof item === 'string')
+      columns.push({ref:[item], expand:['*']})
+    else
+      columns.push({ref:[item.field], expand:[{ref:item.select}]})
+  })
+  if(columns.length>0) query.columns(columns);
+  if(this.prepare.where) {
+    query = query.where(this.prepare.where);
+  }
+  if(this.prepare.orderBy.length>0) {
+    let orderBy = this.prepare.orderBy.map(X => {
+      return { ref: X[0].split('.'), sort: X[1] };
+    })
+    query = query.orderBy(...orderBy);
+  }
+  if(this.prepare.groupBy.length>0) {
+    query = query.groupBy(...this.prepare.groupBy);
+  }
+  if(this.prepare.limit !== undefined) {
+    if(this.prepare.offset !== undefined)
+      query.limit(this.prepare.limit, this.prepare.offset);
+    else
+      query.limit(this.prepare.limit);
+  }
+  this.storeResult(await this.cdsService.run(query));
+  this.initPrepare();
+}
+
+function initPrepare(operation=undefined, entity=undefined) {
+  this.prepare = {
+    operation: operation || 'read',
+    entity: entity || this.entity,
+    where:undefined,
+    columns:[],
+    expand:[],
+    orderBy:[],
+    groupBy:[],
+    limit:undefined,
+    offset:undefined,
+  }
+}
+</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 05 Jun 2024 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="scripts/postproc.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->

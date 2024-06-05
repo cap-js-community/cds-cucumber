@@ -1,0 +1,335 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>ui/actions.js</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"DD MMM YYYY","systemName":"CDS for Cucumber","systemSummary":"CDS cucumber steps","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"","linenums":false,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":false,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":["scripts/postproc.js"],"monospaceLinks":false,"cleverLinks":false};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					CDS for Cucumber
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="OData.module_Actions.html">OData.Actions</a></li>
+											<li><a href="OData.module_CRUD.html">OData.CRUD</a></li>
+											<li><a href="OData.module_Expectations.html">OData.Expectations</a></li>
+											<li><a href="OData.module_HTTP-Response.html">OData.HTTP-Response</a></li>
+											<li><a href="OData.module_Initialization.html">OData.Initialization</a></li>
+											<li><a href="OData.module_Query.html">OData.Query</a></li>
+											<li><a href="UI.module_Actions.html">UI.Actions</a></li>
+											<li><a href="UI.module_Draft.html">UI.Draft</a></li>
+											<li><a href="UI.module_Expectations.html">UI.Expectations</a></li>
+											<li><a href="UI.module_Extraction.html">UI.Extraction</a></li>
+											<li><a href="UI.module_Filter.html">UI.Filter</a></li>
+											<li><a href="UI.module_Initialization.html">UI.Initialization</a></li>
+											<li><a href="UI.module_Modify.html">UI.Modify</a></li>
+											<li><a href="UI.module_Navigate.html">UI.Navigate</a></li>
+											<li><a href="UI.module_Preconditions.html">UI.Preconditions</a></li>
+											<li><a href="UI.module_Search.html">UI.Search</a></li>
+											<li><a href="UI.module_Select.html">UI.Select</a></li>
+											<li><a href="UI.module_ValueHelp.html">UI.ValueHelp</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="OData.html">OData</a></li>
+											<li><a href="UI.html">UI</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">ui/actions.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript"><code class="language-javascript">/**
+ * @module Actions
+ * @memberof UI
+*/
+
+const { When } = require('@cucumber/cucumber');
+
+/**
+* @name When we press button {string} in active dialog
+* @description Press the specified button in the currently active dialog
+* @param {string} label the label of the target button as displayed in the browser
+* @example When we press button "Accept" in active dialog
+*/
+When('we press button {string} in active dialog', async function( label ) {
+  await this.controller.pressButtonInActiveDialog(label);
+  await this.controller.waitToLoad();
+})
+
+/**
+* @name When we press button {string}
+* @description Press the specified button located on the current page
+* @param {string} label the label of the target button as displayed in the browser
+* @example When we press button "Create"
+*/
+When('we press button {string}', async function( label ) {
+  await this.controller.pressButton(label);
+  await this.controller.waitToLoad();
+})
+
+/**
+* @name When we create new item
+* @description Triggers creation of a new item by pressing the "Create" button located on the current page
+* @example When we create new item
+*/
+When('we create new item', async function() {
+  await this.controller.pressButtonForLineItemTable('Create');
+  await this.controller.waitToLoad();
+})
+
+/**
+* @name When we create new item for table {string}
+* @description Triggers creation of a new item for the specified table located on the current page by pressing its "Create" button
+* @param {string} tableName the name of the target table as displayed in the browser
+* @example When we create new item for table "Books"
+*/
+When('we create new item for table {string}', async function( tableName ) {
+  await this.controller.pressButtonForLineItemTable('Create', tableName);
+  await this.controller.waitToLoad();
+})
+
+/**
+* @name When we delete selected rows in table {string}
+* @description Triggers deletion of selected items for the specified table located on the current page by pressing its "Delete" button
+* @param {string} tableName the name of the target table as displayed in the browser
+* @example When we delete selected rows in table "Books"
+*/
+When('we delete selected rows in table {string}', async function( tableName ) {
+  await this.controller.pressButtonForLineItemTable('Delete', tableName);
+  await this.controller.waitEvents();
+})
+
+/**
+* @name When we create new item for table in section {string}
+* @description Triggers creation of a new item for the table located in the section with the specified name by pressing its "Create" button
+* @param {string} sectionName the name of the section as displayed in the browser which contais the target table
+* @example When we create new item for table in section "Books"
+*/
+When('we create new item for table in section {string}', async function( sectionName ) {
+  await this.controller.pressButtonForLineItemTableInSection('Create', sectionName);
+  await this.controller.waitToLoad();
+})
+
+/**
+* @name When we delete the object instance
+* @description Triggers deletion of the current object instance in an ObjectPage by pressing its "Delete" button
+* @example When we delete the object instance
+*/
+When('we delete the object instance', async function() {
+  await this.controller.deleteObjectInstance();
+  await this.controller.waitEvents();
+})
+
+/**
+* @name When we confirm the deletion
+* @description Confirms triggered deletion in the currently visible "Delete" dialog by pressing its "Delete" button
+* @example When we confirm the deletion
+*/
+When('we confirm the deletion', async function() {
+  await this.controller.pressButtonInDialog('Delete', 'Delete');
+  await this.controller.waitToLoad();
+})
+
+/**
+* @name When we perform object action {string}
+* @description Triggers the specified action of the current object instance located on an ObjectPage by pressing the button with the specified label
+* @param {string} label the label of the target button as displayed in the browser
+* @example When we perform object action "Reject"
+*/
+When('we perform object action {string}', async function( label ) {
+  await this.controller.pressObjectPageActionBarButton(label);
+  await this.controller.waitEvents();
+})
+
+/**
+* @name When we click on text {string}
+* @description Locates an element having the specified text and performs a mouse click on it.
+* @param {string} text the text of the target UI element
+* @example When we click on text "John Doe"
+*/
+When('we click on text {string}', async function( text ) {
+  this.result = await this.controller.clickOnText(text);
+  await this.controller.waitToLoad();
+})
+
+/**
+* @name When we click on link {string}
+* @description Locates a link having the specified text and performs a mouse click on it.
+* @param {string} text the text of the target link
+* @example When we click on link "John Doe"
+*/
+When('we click on link {string}', async function( text ) {
+  this.result = await this.controller.clickOnLink(text);
+  await this.controller.waitToLoad();
+})
+
+/**
+* @name When we click on object identifier {string}
+* @description Locates an object identifier having the specified text and performs a mouse click on it.
+* @param {string} text the text of the target object identifier
+* @example When we click on object identifier "John Doe"
+*/
+When('we click on object identifier {string}', async function( text ) {
+  this.result = await this.controller.clickOnObjectIdentifier(text);
+  await this.controller.waitToLoad();
+})
+
+/**
+* @name When we tap on text {string}
+* @description Locates an element having the specified text and fires a tap event on it.
+* @param {string} text the text of the target UI element
+* @example When we tap on text "John Doe"
+*/
+When('we tap on text {string}', async function( text ) {
+  this.result = await this.controller.tapOnText(text);
+  await this.controller.waitToLoad();
+})
+
+/**
+* @name When we tap on link {string}
+* @description Locates a link having the specified text and fires a tap event on it.
+* @param {string} text the text of the target link
+* @example When we tap on link "John Doe"
+*/
+When('we tap on link {string}', async function( text ) {
+  this.result = await this.controller.tapOnLink(text);
+  await this.controller.waitToLoad();
+})
+
+/**
+* @name When we tap on object identifier {string}
+* @description Locates an object identifier having the specified text and fires a tap event on it.
+* @param {string} text the text of the target object identifier
+* @example When we tap on object identifier "John Doe"
+*/
+When('we tap on object identifier {string}', async function( text ) {
+  this.result = await this.controller.tapOnObjectIdentifier(text);
+  await this.controller.waitToLoad();
+})
+
+/**
+* @name When we tap on {string}
+* @description Locates a Text or a Link element having the specified text and fires a tap event on it.
+* @param {string} text the text of the target UI element
+* @example When we tap on "John Doe"
+*/
+When('we tap on {string}', async function( textOrLink ) {
+  this.result = await this.controller.tapOn(textOrLink);
+  await this.controller.waitToLoad();
+})
+
+// TODO
+When('save the result', async function() {
+  this.saved=this.result;
+})
+
+/**
+* @name When we tap on row {int} in table {string}
+* @description Locates the target table labeled with that name and fires a tap event on the specified row number.
+* @param {int} row target row number
+* @param {string} tableName target table
+* @example When we tap on row 5 in table "Books"
+*/
+When('we tap on row {int} in table {string}', async function( row, tableName ) {
+  if(row&lt;1) throw Error(`row number should be greater than zero, got: ${row}`);
+  await this.controller.tapOnRowInLineItemTable(tableName, row-1);
+  await this.controller.waitEvents();
+})
+
+/**
+* @name When we apply the changes
+* @description Locates button with label "Apply" in an ObjectPage footer bar and fires a press event on it.
+* @example When we apply the changes
+*/
+When('we apply the changes', async function() {
+  await this.controller.applyChanges();
+  await this.controller.waitToLoad();
+})
+</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 05 Jun 2024 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="scripts/postproc.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->
