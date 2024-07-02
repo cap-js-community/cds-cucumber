@@ -37,7 +37,6 @@
   "dependencies": {
     "@sap-cloud-sdk/http-client": "^3",
     "@sap-cloud-sdk/resilience": "^3",
-    "@sap/cds": "^7",
     "chai": "^4",
     "chai-shallow-deep-equal": "^1",
     "chai-sorted": "^0.2",
@@ -45,7 +44,11 @@
     "selenium-webdriver": "^4",
     "sqlite3": "^5"
   },
+  "devDependencies": {
+    "@sap/cds": ">=7"
+  },
   "peerDependencies": {
-    "@cucumber/cucumber": "^10"
+    "@cucumber/cucumber": "^10",
+    "@sap/cds": ">=7"
   }
 }
