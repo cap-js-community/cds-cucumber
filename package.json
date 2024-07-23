@@ -1,6 +1,6 @@
 {
   "name": "@cap-js-community/cds-cucumber",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A library to write behaviour-driven tests for CAP applications",
   "homepage": "https://cap-js-community.github.io/cds-cucumber/",
   "keywords": [
