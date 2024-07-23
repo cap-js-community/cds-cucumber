@@ -44,9 +44,6 @@
     "selenium-webdriver": "^4",
     "sqlite3": "^5"
   },
-  "devDependencies": {
-    "@sap/cds": ">=7"
-  },
   "peerDependencies": {
     "@cucumber/cucumber": "^10",
     "@sap/cds": ">=7"
