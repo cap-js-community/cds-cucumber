@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version 0.4.1 - 2024-07-23
 
+### Changed
+
+* dependencies: make @sap/cds a peer dependency
+
 ### Fixed
 
 * process management - set TMP environment variable for @cap-js-community/odata-v2-adapter
