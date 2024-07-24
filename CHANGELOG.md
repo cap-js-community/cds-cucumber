@@ -5,12 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Version 0.4.2 - 2024-xx-xx
+## Version 0.4.2 - 2024-07-24
 
-### Added
-### Changed
-### Removed
 ### Fixed
+
+* process management - set TEMP and TMPDIR environment variables for @cap-js-community/odata-v2-adapter
 
 ## Version 0.4.1 - 2024-07-23
 
