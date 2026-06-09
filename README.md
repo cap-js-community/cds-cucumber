@@ -29,7 +29,7 @@ List of steps and details is available in the [documentation](https://cap-js-com
 
 ### Setup
 
-Install the [CAP development toolkit](https://cap.cloud.sap/docs/get-started/jumpstart#setup):
+Install the [CAP development toolkit](https://cap.cloud.sap/docs/get-started/):
 
 ```sh
 npm add -g @sap/cds-dk
